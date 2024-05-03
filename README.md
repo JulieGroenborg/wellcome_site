@@ -6,7 +6,7 @@ npm run dev
 
 Ved opstart af nyt komponent eller ny kode, lav branch (fra master)
 
-Når man ønsker at merge sin branch ind i master, start med:
+Når man ønsker at merge sin branch ind i master/main, start med:
 
 1. Validér egen kode i html validator: https://validator.w3.org/#validate_by_input
 2. Hvis der er fejl i html-koden, ret dette til

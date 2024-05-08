@@ -24,7 +24,6 @@ $spacing-320: 320px;
 $spacing-480: 480px;
 $border-radius: $spacing-12;
 $poppins-font: "Poppins", sans-serif;
-$raleway-font: "Raleway", sans-serif;
 $the-seasons: "the-seasons", sans-serif;
 $font-xlight: 200;
 $font-light: 300;
@@ -55,21 +54,18 @@ a {
 
 h1 {
   color: $white;
-  font-family: $raleway-font;
   font-size: $spacing-32;
   font-weight: $font-light;
   line-height: $line-height-s;
 }
 
 h2 {
-  font-family: $raleway-font;
   font-size: $spacing-24;
   font-weight: $font-medium;
   line-height: $line-height-m;
 }
 
 h3 {
-  font-family: $raleway-font;
   font-size: $spacing-24;
   font-weight: $font-regular;
   text-transform: uppercase;

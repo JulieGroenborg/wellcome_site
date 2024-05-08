@@ -1,8 +1,4 @@
-import { Inter } from "next/font/google";
-// import "./globals.css";
-import Head from "next/head";
-
-const inter = Inter({ subsets: ["latin"] });
+import "./globals.scss";
 
 // export const metadata = {
 //   title: "Create Next App",
@@ -17,7 +13,7 @@ export default function RootLayout({ children }) {
         <title>YIT</title>
         <link rel="stylesheet" href="https://use.typekit.net/owy3ilv.css"></link>
       </head>
-      <body className={inter.className}>{children}</body>
+      <body>{children}</body>
     </html>
   );
 }

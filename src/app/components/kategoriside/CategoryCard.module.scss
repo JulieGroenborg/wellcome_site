@@ -1,0 +1,60 @@
+@use "src/app/variables" as *;
+
+.card {
+  margin-bottom: $spacing-8;
+  height: $spacing-160;
+  color: $white;
+  border-radius: $border-radius;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+  .overlay {
+    height: $spacing-80;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.703), rgba(255, 0, 0, 0));
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+
+    .title {
+      padding-top: $spacing-12;
+      padding-left: $spacing-16;
+      font-size: $spacing-20;
+      font-weight: $font-regular;
+    }
+  }
+}
+
+.indoor_cycling {
+  background-image: url("../../img/kategorier/wellcome_indoor_cycling.jpg");
+  background-position: 30% 55%;
+}
+
+.energy {
+  background-image: url("../../img/kategorier/wellcome_energy.jpg");
+  background-position: 30% 65%;
+}
+
+.functional {
+  background-image: url("../../img/kategorier/wellcome_functional.jpg");
+  background-position: 30% 65%;
+}
+
+.heat {
+  background-image: url("../../img/kategorier/wellcome_heat.jpg");
+  background-position: 20% 45%;
+}
+
+.nordic_strong {
+  background-image: url("../../img/kategorier/wellcome_nordic_strong.jpg");
+  background-position: 20% 15%;
+}
+
+.pleasure {
+  background-image: url("../../img/kategorier/wellcome_pleasure.jpg");
+  background-position: 20% 50%;
+}
+
+.reformer {
+  background-image: url("../../img/kategorier/wellcome_reformer.jpg");
+  background-position: 20% 35%;
+}

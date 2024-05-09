@@ -1,0 +1,8 @@
+@use "src/app/variables" as *;
+
+.spa {
+  color: $white;
+  font-size: 48px;
+  font-family: $the-seasons;
+  font-weight: $font-regular;
+}

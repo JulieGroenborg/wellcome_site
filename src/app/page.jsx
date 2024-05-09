@@ -1,11 +1,11 @@
-import HeaderThree from "./components/HeaderThree";
+import HeaderOne from "./components/HeaderOne";
 import styles from "./components/page.module.scss";
 
 export default function Home() {
   return (
     <>
       <main className={`${styles.main}`}>
-        <HeaderThree headerthree="Yesss"></HeaderThree>
+        <HeaderOne color="white" title="Vores hold kategorier"></HeaderOne>
       </main>
     </>
   );

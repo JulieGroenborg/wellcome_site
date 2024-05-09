@@ -1,5 +1,4 @@
-import HeaderOne from "./components/HeaderOne";
-import styles from "./components/page.module.scss";
+import HeaderOne from "./components/global/HeaderOne";
 
 export default function Home() {
   return (

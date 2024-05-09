@@ -21,7 +21,7 @@ import DayRadio from "@/app/components/holdplan/DayRadio";
 // console.log(data);
 
 export default function Holdplan() {
-  const [chosenDay, setChosenDay] = useState();
+  const [chosenDay, setChosenDay] = useState(); //State til at vide hvilken dag er valgt til senere brug i koden ;-)
   console.log(chosenDay);
   return (
     <>

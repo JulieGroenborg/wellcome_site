@@ -1,7 +1,7 @@
-import HeaderOne from "./components/global/HeaderOne";
-import HeaderTwo from "./components/global/HeaderTwo";
-import LinkBtn from "./components/global/LinkBtn";
-import ClassItem from "./components/holdplan/ClassItem";
+"use client";
+import { useState } from "react";
+import styles from "./holdplan.module.scss";
+import DayRadio from "@/app/components/holdplan/DayRadio";
 
 //API url: https://hovludcpqudqvcqteblj.supabase.co/rest/v1/Hold
 //API key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhvdmx1ZGNwcXVkcXZjcXRlYmxqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQwMzI4MzEsImV4cCI6MjAyOTYwODgzMX0.5K-wz_oerFZ5hmvUq0IOPgJHn0e1sRYh57y_8pFqnKk
@@ -20,13 +20,21 @@ import ClassItem from "./components/holdplan/ClassItem";
 
 // console.log(data);
 
-export default function Home() {
+export default function Holdplan() {
+  const [chosenDay, setChosenDay] = useState(); //State til at vide hvilken dag er valgt til senere brug i koden ;-)
+  console.log(chosenDay);
   return (
     <>
       <main>
-        <HeaderOne color="black" title="Vores hold kategorier"></HeaderOne>
-        <HeaderTwo title="Om Wellcome"></HeaderTwo>
-        <HeaderTwo type="spa" title="Om Wellcome"></HeaderTwo>
+        <section className={styles.day_section}>
+          <DayRadio day="mandag" setChosen={setChosenDay} />
+          <DayRadio day="tirsdag" setChosen={setChosenDay} />
+          <DayRadio day="onsdag" setChosen={setChosenDay} />
+          <DayRadio day="torsdag" setChosen={setChosenDay} />
+          <DayRadio day="fredag" setChosen={setChosenDay} />
+          <DayRadio day="lørdag" setChosen={setChosenDay} />
+          <DayRadio day="søndag" setChosen={setChosenDay} />
+        </section>
       </main>
     </>
   );

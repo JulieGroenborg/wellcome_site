@@ -24,9 +24,7 @@ export default function Home() {
   return (
     <>
       <main>
-        <HeaderOne color="black" title="Vores hold kategorier"></HeaderOne>
-        <HeaderTwo title="Om Wellcome"></HeaderTwo>
-        <HeaderTwo type="spa" title="Om Wellcome"></HeaderTwo>
+        <LinkBtn href="/" text="hello" variant="primary" />
       </main>
     </>
   );

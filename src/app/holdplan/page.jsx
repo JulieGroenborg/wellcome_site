@@ -2,6 +2,7 @@
 import { useState } from "react";
 import styles from "./holdplan.module.scss";
 import LinkBtn from "../components/global/LinkBtn";
+import DayRadio from "../components/holdplan/DayRadio";
 import ClassItem from "../components/holdplan/ClassItem";
 
 //API url: https://hovludcpqudqvcqteblj.supabase.co/rest/v1/Hold
@@ -23,41 +24,41 @@ import ClassItem from "../components/holdplan/ClassItem";
 
 export default function Holdplan() {
   const [chosenDay, setChosenDay] = useState(); //State til at vide hvilken dag er valgt til senere brug i koden ;-)
-  const [chosenClassItem, setChosenClassItem] = useState("");
-
-  console.log("this is the chosen", chosenClassItem);
+  const [chosenClassItem, setChosenClassItem] = useState(""); //State til at vide hvilket hold, der er valgt
 
   return (
     <>
       <main className={styles.main}>
-        {/* <section className={styles.day_section}>
-          <DayRadio day="mandag" setChosen={setChosenDay} />
-          <DayRadio day="tirsdag" setChosen={setChosenDay} />
-          <DayRadio day="onsdag" setChosen={setChosenDay} />
-          <DayRadio day="torsdag" setChosen={setChosenDay} />
-          <DayRadio day="fredag" setChosen={setChosenDay} />
-          <DayRadio day="lørdag" setChosen={setChosenDay} />
-          <DayRadio day="søndag" setChosen={setChosenDay} />
-        </section> */}
         <article className={styles.class_overview}>
-          <article>
-            <ClassItem classtitle="Nordic Strong Power" coach="Michael Andersen" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
-            <ClassItem classtitle="Mindfull stræk og afspænding" coach="Frederik Tønder-Prien" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
-            <ClassItem classtitle="Boldmassage af bindevævet" coach="Christina Præstkær" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
-            <ClassItem classtitle="Nordic Strong Powe" coach="Michael Andersen" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
-            <ClassItem classtitle="Mindfull stræk og afspændin" coach="Frederik Tønder-Prien" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
-            <ClassItem classtitle="Boldmassage af bindevævt" coach="Christina Præstkær" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
-            <ClassItem classtitle="Nordic Strong Pwer" coach="Michael Andersen" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
-            <ClassItem classtitle="Mindfull stræk o afspænding" coach="Frederik Tønder-Prien" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
-            <ClassItem classtitle="Boldmassae af bindevævet" coach="Christina Præstkær" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
-          </article>
+          <section className={styles.day_section}>
+            <DayRadio day="mandag" setChosen={setChosenDay} />
+            <DayRadio day="tirsdag" setChosen={setChosenDay} />
+            <DayRadio day="onsdag" setChosen={setChosenDay} />
+            <DayRadio day="torsdag" setChosen={setChosenDay} />
+            <DayRadio day="fredag" setChosen={setChosenDay} />
+            <DayRadio day="lørdag" setChosen={setChosenDay} />
+            <DayRadio day="søndag" setChosen={setChosenDay} />
+          </section>
+          <ClassItem classtitle="Nordic Strong Power" coach="Michael Andersen" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
+          <ClassItem classtitle="Mindfull stræk og afspænding" coach="Frederik Tønder-Prien" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
+          <ClassItem classtitle="Boldmassage af bindevævet" coach="Christina Præstkær" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
+          <ClassItem classtitle="Nordic Strong Powe" coach="Michael Andersen" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
+          <ClassItem classtitle="Mindfull stræk og afspændin" coach="Frederik Tønder-Prien" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
+          <ClassItem classtitle="Boldmassage af bindevævt" coach="Christina Præstkær" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
+          <ClassItem classtitle="Nordic Strong Pwer" coach="Michael Andersen" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
+          <ClassItem classtitle="Mindfull stræk o afspænding" coach="Frederik Tønder-Prien" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
+          <ClassItem classtitle="Boldmassae af bindevævet" coach="Christina Præstkær" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
+          <ClassItem classtitle="Mindfll stræk o afspænding" coach="Frederik Tønder-Prien" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
+          <ClassItem classtitle="Boldmssae af bindevævet" coach="Christina Præstkær" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
           {chosenClassItem !== "" && (
             <section className={styles.mobile_btn_section}>
-              <LinkBtn href="/" text="Tilmeld" variant="primary" />
+              <div className={styles.flex}>
+                <LinkBtn href="/" text="Tilmeld" variant="primary" />
+              </div>
             </section>
           )}
         </article>
-        <footer className={styles.footer}>hello</footer>
+        <footer className={styles.footer}>hello im a test footer</footer>
       </main>
     </>
   );

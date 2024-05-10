@@ -5,7 +5,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  margin: 0 16px 0 16px;
+  width: auto;
   height: $spacing-80;
 
   .input {
@@ -18,35 +19,49 @@
     color: $black;
 
     &:hover,
-    &:checked {
+    &:checked,
+    &:focus {
       background-color: $off-black400;
       border: none;
-    }
-    &:focus {
       outline: none;
-      border: solid 3px #0e59e4;
-    }
-
-    &:hover + .label,
-    &:checked + .label {
       color: $white;
+
+      + .label {
+        color: $white;
+
+        .grey_text {
+          color: $grey300;
+        }
+      }
     }
   }
 
   .label {
     position: absolute;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 3fr;
     align-items: center;
     width: 100%;
+
     font-family: $poppins-font;
-    font-size: $spacing-16;
+    font-size: $spacing-12;
     font-weight: $font-regular;
     line-height: $line-height-m;
 
-    span {
+    span:nth-of-type(1),
+    span:nth-of-type(3) {
+      width: fit-content;
+      justify-self: start;
+      padding: $spacing-4 0 $spacing-4 $spacing-8;
+    }
+    span:nth-of-type(2),
+    span:nth-of-type(4) {
       width: fit-content;
       justify-self: end;
+      padding: $spacing-4 $spacing-8 $spacing-4 0;
+    }
+    .grey_text {
+      color: $grey400;
     }
   }
 }
@@ -55,5 +70,9 @@
   .container {
     width: 150px;
     height: 190px;
+
+    .label {
+      font-size: $spacing-16;
+    }
   }
 }

@@ -1,12 +1,14 @@
 @use "src/app/variables" as *;
 
-.wellcomeBtn {
+.wellcome_btn {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 180px;
   height: 40px;
   margin-top: $spacing-16;
+
+  font-family: $poppins-font;
 }
 
 .primary {

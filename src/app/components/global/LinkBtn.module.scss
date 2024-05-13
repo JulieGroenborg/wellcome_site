@@ -6,6 +6,7 @@
   align-items: center;
   width: 180px;
   height: 40px;
+  margin-top: $spacing-16;
 
   font-family: $poppins-font;
 }
@@ -60,5 +61,11 @@
   &:hover {
     color: $white;
     background-color: $brown400;
+  }
+}
+
+@media (min-width: 768px) {
+  .wellcomeBtn {
+    margin-top: $spacing-24;
   }
 }

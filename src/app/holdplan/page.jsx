@@ -5,6 +5,7 @@ import LinkBtn from "../components/global/LinkBtn";
 import DayRadio from "../components/holdplan/DayRadio";
 import ClassItem from "../components/holdplan/ClassItem";
 import ArrowBtn from "../components/global/ArrowBtn";
+import FilteringSection from "../components/holdplan/FilteringSection";
 
 //API url: https://hovludcpqudqvcqteblj.supabase.co/rest/v1/Hold
 //API key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhvdmx1ZGNwcXVkcXZjcXRlYmxqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQwMzI4MzEsImV4cCI6MjAyOTYwODgzMX0.5K-wz_oerFZ5hmvUq0IOPgJHn0e1sRYh57y_8pFqnKk
@@ -16,60 +17,12 @@ export default function Holdplan() {
   const [chosenClassItem, setChosenClassItem] = useState(""); //State til at vide hvilket hold, der er valgt
   const [selectValues, setSelectValues] = useState(); //State til at styre hvilke hold, der vises i hold filtreringen
 
-  //Hver gang chosenCategory bliver ændret, vil der blive fetchet alle de hold, der hører til den valgte kategori
-  useEffect(() => {
-    async function showCategory() {
-      /** Hvis chosenCategory er sat til en kategori, skal der kun fetches hold indenfor kategorien */
-      const filteringParamters = chosenCategory !== "all-categories" ? `?category=eq.${chosenCategory}` : "";
-
-      let headersList = {
-        apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhvdmx1ZGNwcXVkcXZjcXRlYmxqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQwMzI4MzEsImV4cCI6MjAyOTYwODgzMX0.5K-wz_oerFZ5hmvUq0IOPgJHn0e1sRYh57y_8pFqnKk",
-        Prefer: "return=representation",
-      };
-
-      let response = await fetch(`https://hovludcpqudqvcqteblj.supabase.co/rest/v1/Hold${filteringParamters}`, {
-        method: "GET",
-        headers: headersList,
-      });
-
-      let data = await response.json();
-      setSelectValues(data);
-    }
-    showCategory();
-  }, [chosenCategory]);
-
+  console.log(selectValues);
   return (
     <>
       <main className={styles.main}>
         <article className={styles.class_overview}>
-          <div className={styles.category_select_wrapper}>
-            <select onChange={(e) => setChosenCategory(e.target.value)} value={chosenCategory} name="category_filter" id="category_filter" className={styles.category_select}>
-              <option value="all-categories">Alle kategorier</option>
-              <option value="Energy">Welcome Energy</option>
-              <option value="Body-mind">Welcome Body Mind</option>
-              <option value="Heat">Welcome Heat</option>
-              <option value="Reformer">Welcome Reformer</option>
-              <option value="Nordic-strong">Welcome Nordic Strong</option>
-              <option value="Functional">Welcome Functional</option>
-              <option value="Indoor-cycling">Welcome Cycling</option>
-              <option value="Pleasure">Welcome Pleasure</option>
-            </select>
-          </div>
-          {chosenCategory !== "all-categories" && (
-            <div className={styles.class_select_wrapper}>
-              <select name="class_filter" id="class_filter" className={styles.class_select}>
-                <option value="all_classes">Alle hold</option>
-                {selectValues &&
-                  selectValues.map((item) => {
-                    return (
-                      <option value={item.title} key={item.id}>
-                        {item.title}
-                      </option>
-                    );
-                  })}
-              </select>
-            </div>
-          )}
+          <FilteringSection chosenCategory={chosenCategory} setChosenCategory={setChosenCategory} selectValues={selectValues} setSelectValues={setSelectValues} />
           <div className={styles.week_overview}>
             <ArrowBtn
               direction="left"

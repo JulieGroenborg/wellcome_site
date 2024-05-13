@@ -23,7 +23,7 @@ import ArrowBtn from "../components/global/ArrowBtn";
 
 export default function Holdplan() {
   const [chosenDay, setChosenDay] = useState(); //State til at vide hvilken dag er valgt til senere brug i koden ;-)
-  const [weekNumber, setWeekNumber] = useState(21); //State til at vide hvilken dag er valgt til senere brug i koden ;-)
+  const [weekNumber, setWeekNumber] = useState(21); //State til at vide hvilken uge der vises
 
   return (
     <>

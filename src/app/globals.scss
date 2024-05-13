@@ -47,6 +47,14 @@ button {
   line-height: $line-height-m;
 }
 
+a {
+  font-size: $spacing-16;
+  font-weight: $font-regular;
+  line-height: $line-height-m;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
 /* Desktop breakpoint */
 @media (min-width: 768px) {
   h1 {

@@ -31,32 +31,34 @@ export default function Holdplan() {
       <main className={styles.main}>
         <article className={styles.class_overview}>
           <section className={styles.day_section}>
-            <DayRadio day="mandag" setChosen={setChosenDay} />
-            <DayRadio day="tirsdag" setChosen={setChosenDay} />
-            <DayRadio day="onsdag" setChosen={setChosenDay} />
-            <DayRadio day="torsdag" setChosen={setChosenDay} />
-            <DayRadio day="fredag" setChosen={setChosenDay} />
-            <DayRadio day="lørdag" setChosen={setChosenDay} />
-            <DayRadio day="søndag" setChosen={setChosenDay} />
+            <DayRadio day="mandag" setChosenDay={setChosenDay} />
+            <DayRadio day="tirsdag" setChosenDay={setChosenDay} />
+            <DayRadio day="onsdag" setChosenDay={setChosenDay} />
+            <DayRadio day="torsdag" setChosenDay={setChosenDay} />
+            <DayRadio day="fredag" setChosenDay={setChosenDay} />
+            <DayRadio day="lørdag" setChosenDay={setChosenDay} />
+            <DayRadio day="søndag" setChosenDay={setChosenDay} />
           </section>
-          <ClassItem classtitle="Nordic Strong Power" coach="Michael Andersen" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
-          <ClassItem classtitle="Mindfull stræk og afspænding" coach="Frederik Tønder-Prien" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
-          <ClassItem classtitle="Boldmassage af bindevævet" coach="Christina Præstkær" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
-          <ClassItem classtitle="Nordic Strong Powe" coach="Michael Andersen" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
-          <ClassItem classtitle="Mindfull stræk og afspændin" coach="Frederik Tønder-Prien" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
-          <ClassItem classtitle="Boldmassage af bindevævt" coach="Christina Præstkær" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
-          <ClassItem classtitle="Nordic Strong Pwer" coach="Michael Andersen" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
-          <ClassItem classtitle="Mindfull stræk o afspænding" coach="Frederik Tønder-Prien" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
-          <ClassItem classtitle="Boldmassae af bindevævet" coach="Christina Præstkær" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
-          <ClassItem classtitle="Mindfll stræk o afspænding" coach="Frederik Tønder-Prien" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
-          <ClassItem classtitle="Boldmssae af bindevævet" coach="Christina Præstkær" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
-          {chosenClassItem !== "" && (
-            <section className={styles.mobile_btn_section}>
-              <div className={styles.flex}>
-                <LinkBtn href="/" text="Tilmeld" variant="primary" />
-              </div>
-            </section>
-          )}
+          <section>
+            <ClassItem classtitle="Nordic Strong Power" coach="Michael Andersen" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
+            <ClassItem classtitle="Mindfull stræk og afspænding" coach="Frederik Tønder-Prien" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
+            <ClassItem classtitle="Boldmassage af bindevævet" coach="Christina Præstkær" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
+            <ClassItem classtitle="Nordic Strong Powe" coach="Michael Andersen" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
+            <ClassItem classtitle="Mindfull stræk og afspændin" coach="Frederik Tønder-Prien" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
+            <ClassItem classtitle="Boldmassage af bindevævt" coach="Christina Præstkær" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
+            <ClassItem classtitle="Nordic Strong Pwer" coach="Michael Andersen" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
+            <ClassItem classtitle="Mindfull stræk o afspænding" coach="Frederik Tønder-Prien" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
+            <ClassItem classtitle="Boldmassae af bindevævet" coach="Christina Præstkær" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
+            <ClassItem classtitle="Mindfll stræk o afspænding" coach="Frederik Tønder-Prien" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
+            <ClassItem classtitle="Boldmssae af bindevævet" coach="Christina Præstkær" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
+            {chosenClassItem !== "" && (
+              <section className={styles.mobile_btn_section}>
+                <div className={styles.flex}>
+                  <LinkBtn href="/" text="Tilmeld" variant="primary" />
+                </div>
+              </section>
+            )}
+          </section>
         </article>
         <footer className={styles.footer}>hello im a test footer</footer>
       </main>

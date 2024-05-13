@@ -50,6 +50,15 @@ export default function Holdplan() {
               }}
             />
           </div>
+          <section className={styles.day_section}>
+            <DayRadio day="mandag" setChosenDay={setChosenDay} />
+            <DayRadio day="tirsdag" setChosenDay={setChosenDay} />
+            <DayRadio day="onsdag" setChosenDay={setChosenDay} />
+            <DayRadio day="torsdag" setChosenDay={setChosenDay} />
+            <DayRadio day="fredag" setChosenDay={setChosenDay} />
+            <DayRadio day="lørdag" setChosenDay={setChosenDay} />
+            <DayRadio day="søndag" setChosenDay={setChosenDay} />
+          </section>
           <section>
             <ClassItem classtitle="Nordic Strong Power" coach="Michael Andersen" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
             <ClassItem classtitle="Mindfull stræk og afspænding" coach="Frederik Tønder-Prien" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
@@ -69,15 +78,6 @@ export default function Holdplan() {
                 </div>
               </section>
             )}
-          </section>
-          <section className={styles.day_section}>
-            <DayRadio day="mandag" setChosenDay={setChosenDay} />
-            <DayRadio day="tirsdag" setChosenDay={setChosenDay} />
-            <DayRadio day="onsdag" setChosenDay={setChosenDay} />
-            <DayRadio day="torsdag" setChosenDay={setChosenDay} />
-            <DayRadio day="fredag" setChosenDay={setChosenDay} />
-            <DayRadio day="lørdag" setChosenDay={setChosenDay} />
-            <DayRadio day="søndag" setChosenDay={setChosenDay} />
           </section>
         </article>
         <footer className={styles.footer}>hello im a test footer</footer>

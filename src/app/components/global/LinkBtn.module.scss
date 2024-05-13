@@ -1,11 +1,14 @@
 @use "src/app/variables" as *;
 
-.wellcomeBtn {
+.wellcome_btn {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 180px;
   height: 40px;
+  margin-top: $spacing-16;
+
+  font-family: $poppins-font;
 }
 
 .primary {
@@ -58,5 +61,11 @@
   &:hover {
     color: $white;
     background-color: $brown400;
+  }
+}
+
+@media (min-width: 768px) {
+  .wellcomeBtn {
+    margin-top: $spacing-24;
   }
 }

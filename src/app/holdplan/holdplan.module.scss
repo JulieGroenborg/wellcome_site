@@ -1,5 +1,23 @@
 @use "src/app/variables" as *;
 
+.main {
+  height: 100vh;
+  position: relative;
+}
+
+.week_overview {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: $spacing-64;
+  border: solid $border-width $off-black400;
+
+  p {
+    text-transform: uppercase;
+  }
+}
+
 .category_select_wrapper {
   position: relative;
   display: flex;
@@ -69,4 +87,47 @@
 .day_section {
   margin: 5em;
   display: flex;
+}
+
+.class_overview {
+  position: relative;
+  height: 80vh;
+  width: 100vw;
+  overflow: scroll;
+}
+
+.mobile_btn_section {
+  display: block;
+  position: sticky;
+  bottom: 0px;
+  left: 0;
+  width: 100vw;
+  height: $spacing-80;
+  margin-top: $spacing-16;
+  background-color: $off-black400;
+
+  .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: $spacing-80;
+    width: 100%;
+  }
+}
+
+.footer {
+  height: 100px;
+}
+
+@media (min-width: 768px) {
+  .week_overview {
+    height: $spacing-80;
+  }
+  .class_overview {
+    height: fit-content;
+    width: 100vw;
+  }
+  .mobile_btn_section {
+    display: none;
+  }
 }

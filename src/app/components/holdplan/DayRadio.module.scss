@@ -18,17 +18,16 @@
     color: $black;
 
     &:hover,
-    &:checked {
+    &:checked,
+    &:focus {
       background-color: $off-black400;
       border: none;
-    }
-    &:focus {
       outline: none;
-      border: solid 3px #0e59e4;
     }
 
     &:hover + .label,
-    &:checked + .label {
+    &:checked + .label,
+    &:focus + .label {
       color: $white;
     }
   }

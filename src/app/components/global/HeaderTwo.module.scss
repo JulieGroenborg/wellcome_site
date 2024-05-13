@@ -1,8 +1,23 @@
 @use "src/app/variables" as *;
 
+.fitness {
+  margin-bottom: $spacing-16;
+}
+
 .spa {
+  margin-bottom: $spacing-16;
   color: $white;
   font-size: 48px;
   font-family: $the-seasons;
   font-weight: $font-regular;
+}
+
+@media (min-width: 768px) {
+  .fitness {
+    margin-bottom: $spacing-24;
+  }
+
+  .spa {
+    margin-bottom: $spacing-24;
+  }
 }

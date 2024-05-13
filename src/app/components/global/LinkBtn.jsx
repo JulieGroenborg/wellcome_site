@@ -6,7 +6,7 @@ import styles from "@/app/components/global/LinkBtn.module.scss";
 
 export default function LinkBtn({ href, text, variant }) {
   return (
-    <Link href={href} prefetch={false} className={`${styles.wellcomeBtn} ${styles[variant]}`}>
+    <Link href={href} prefetch={false} className={`${styles.wellcome_btn} ${styles[variant]}`}>
       {text}
     </Link>
   );

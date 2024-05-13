@@ -1,6 +1,25 @@
 @use "src/app/variables" as *;
 
+.week_overview {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: $spacing-64;
+  border: solid $border-width $off-black400;
+
+  p {
+    text-transform: uppercase;
+  }
+}
+
 .day_section {
   margin: 5em;
   display: flex;
+}
+
+@media (min-width: 768px) {
+  .week_overview {
+    height: $spacing-80;
+  }
 }

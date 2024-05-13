@@ -4,6 +4,7 @@ import styles from "./holdplan.module.scss";
 import LinkBtn from "../components/global/LinkBtn";
 import DayRadio from "../components/holdplan/DayRadio";
 import ClassItem from "../components/holdplan/ClassItem";
+import ArrowBtn from "../components/global/ArrowBtn";
 
 //API url: https://hovludcpqudqvcqteblj.supabase.co/rest/v1/Hold
 //API key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhvdmx1ZGNwcXVkcXZjcXRlYmxqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQwMzI4MzEsImV4cCI6MjAyOTYwODgzMX0.5K-wz_oerFZ5hmvUq0IOPgJHn0e1sRYh57y_8pFqnKk
@@ -24,12 +25,31 @@ import ClassItem from "../components/holdplan/ClassItem";
 
 export default function Holdplan() {
   const [chosenDay, setChosenDay] = useState(); //State til at vide hvilken dag er valgt til senere brug i koden ;-)
+  const [weekNumber, setWeekNumber] = useState(21); //State til at vide hvilken uge der vises
+
   const [chosenClassItem, setChosenClassItem] = useState(""); //State til at vide hvilket hold, der er valgt
 
   return (
     <>
       <main className={styles.main}>
         <article className={styles.class_overview}>
+          <div className={styles.week_overview}>
+            <ArrowBtn
+              direction="left"
+              onClick={() => {
+                setWeekNumber((old) => old - 1);
+              }}
+            />
+            <p>
+              Uge <span>{weekNumber}</span>
+            </p>
+            <ArrowBtn
+              direction="right"
+              onClick={() => {
+                setWeekNumber((old) => old + 1);
+              }}
+            />
+          </div>
           <section className={styles.day_section}>
             <DayRadio day="mandag" setChosenDay={setChosenDay} />
             <DayRadio day="tirsdag" setChosenDay={setChosenDay} />

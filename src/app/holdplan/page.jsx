@@ -10,46 +10,32 @@ import ArrowBtn from "../components/global/ArrowBtn";
 //API key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhvdmx1ZGNwcXVkcXZjcXRlYmxqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQwMzI4MzEsImV4cCI6MjAyOTYwODgzMX0.5K-wz_oerFZ5hmvUq0IOPgJHn0e1sRYh57y_8pFqnKk
 
 export default function Holdplan() {
-  const [chosenDay, setChosenDay] = useState(); //State til at vide hvilken dag er valgt til senere brug i koden ;-)
-  const [weekNumber, setWeekNumber] = useState(21); //State til at vide hvilken uge der vises
-
-  const [chosenClassItem, setChosenClassItem] = useState(""); //State til at vide hvilket hold, der er valgt
-
   const [chosenCategory, setChosenCategory] = useState("all-categories"); //State til at vide hvilken kategori, der filtreres efter
-  const [showTeams, setShowTeams] = useState();
+  const [weekNumber, setWeekNumber] = useState(21); //State til at vide hvilken uge der vises
+  const [chosenDay, setChosenDay] = useState(); //State til at vide hvilken dag er valgt
+  const [chosenClassItem, setChosenClassItem] = useState(""); //State til at vide hvilket hold, der er valgt
+  const [selectValues, setSelectValues] = useState(); //State til at styre hvilke hold, der vises i hold filtreringen
 
   //Hver gang chosenCategory bliver ændret, vil der blive fetchet alle de hold, der hører til den valgte kategori
   useEffect(() => {
-    chosenCategory === "all-categories" ? showAllCategories() : showCategory();
     async function showCategory() {
+      /** Hvis chosenCategory er sat til en kategori, skal der kun fetches hold indenfor kategorien */
+      const filteringParamters = chosenCategory !== "all-categories" ? `?category=eq.${chosenCategory}` : "";
+
       let headersList = {
         apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhvdmx1ZGNwcXVkcXZjcXRlYmxqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQwMzI4MzEsImV4cCI6MjAyOTYwODgzMX0.5K-wz_oerFZ5hmvUq0IOPgJHn0e1sRYh57y_8pFqnKk",
         Prefer: "return=representation",
       };
 
-      let response = await fetch(`https://hovludcpqudqvcqteblj.supabase.co/rest/v1/Hold?category=eq.${chosenCategory}`, {
+      let response = await fetch(`https://hovludcpqudqvcqteblj.supabase.co/rest/v1/Hold${filteringParamters}`, {
         method: "GET",
         headers: headersList,
       });
 
       let data = await response.json();
-      setShowTeams(data);
+      setSelectValues(data);
     }
-    async function showAllCategories() {
-      let headersList = {
-        apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhvdmx1ZGNwcXVkcXZjcXRlYmxqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQwMzI4MzEsImV4cCI6MjAyOTYwODgzMX0.5K-wz_oerFZ5hmvUq0IOPgJHn0e1sRYh57y_8pFqnKk",
-        Prefer: "return=representation",
-      };
-
-      let response = await fetch(`https://hovludcpqudqvcqteblj.supabase.co/rest/v1/Hold`, {
-        method: "GET",
-        headers: headersList,
-      });
-
-      let data = await response.json();
-
-      //console.log(data);
-    }
+    showCategory();
   }, [chosenCategory]);
 
   return (
@@ -73,11 +59,11 @@ export default function Holdplan() {
             <div className={styles.class_select_wrapper}>
               <select name="class_filter" id="class_filter" className={styles.class_select}>
                 <option value="all_classes">Alle hold</option>
-                {showTeams &&
-                  showTeams.map((team) => {
+                {selectValues &&
+                  selectValues.map((item) => {
                     return (
-                      <option value={team.title} key={team.id}>
-                        {team.title}
+                      <option value={item.title} key={item.id}>
+                        {item.title}
                       </option>
                     );
                   })}

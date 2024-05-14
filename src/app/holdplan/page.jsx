@@ -12,12 +12,11 @@ import FilteringSection from "../components/holdplan/FilteringSection";
 
 export default function Holdplan() {
   const [chosenCategory, setChosenCategory] = useState("all-categories"); //State til at vide hvilken kategori, der filtreres efter
+  const [selectValues, setSelectValues] = useState(""); //State der indeholder de hold, der vises i hold filtreringen
+  const [chosenClassItem, setChosenClassItem] = useState(""); //State til at vide hvilket hold, der er valgt
   const [weekNumber, setWeekNumber] = useState(21); //State til at vide hvilken uge der vises
   const [chosenDay, setChosenDay] = useState(); //State til at vide hvilken dag er valgt
-  const [chosenClassItem, setChosenClassItem] = useState(""); //State til at vide hvilket hold, der er valgt
-  const [selectValues, setSelectValues] = useState(); //State til at styre hvilke hold, der vises i hold filtreringen
 
-  console.log(selectValues);
   return (
     <>
       <main className={styles.main}>

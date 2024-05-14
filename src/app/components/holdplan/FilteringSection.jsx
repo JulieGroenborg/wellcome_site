@@ -25,7 +25,7 @@ export default function FilteringSection({ chosenCategory, setChosenCategory, se
     }
     showCategory();
   }, [chosenCategory, setSelectValues]);
-
+  console.log(selectValues.length);
   return (
     <>
       <div className={styles.category_select_wrapper}>
@@ -67,9 +67,16 @@ export default function FilteringSection({ chosenCategory, setChosenCategory, se
         <FilteringRadio id="Indoor-cycling" name="category_filters" label="Wellcome Indoor Cycling" color="white" setChosenCategory={setChosenCategory} />
         <FilteringRadio id="Pleasure" name="category_filters" label="Wellcome Pleasure" color="white" setChosenCategory={setChosenCategory} />
       </section>
-      <section className={styles.class_radio_wrapper}>
-        <FilteringRadio id="all-categories" name="class_filters" label="Alle kategorier" color="black" setChosenCategory={setChosenCategory} checked={true} />
-      </section>
+      {chosenCategory !== "all-categories" && (
+        <section className={styles.class_radio_wrapper}>
+          <FilteringRadio id="all-categories" name="class_filters" label="Alle hold" color="black" setChosenCategory={setChosenCategory} checked={true} />
+
+          {selectValues.length < 33 &&
+            selectValues.map((item) => {
+              return <FilteringRadio id={item.title} name="class_filters" label={item.title} color="black" setChosenCategory={setChosenCategory} key={item.title} />;
+            })}
+        </section>
+      )}
     </>
   );
 }

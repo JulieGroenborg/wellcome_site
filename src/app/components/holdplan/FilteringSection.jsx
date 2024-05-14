@@ -1,9 +1,10 @@
 "use client";
 import { useEffect } from "react";
 import styles from "./FilteringSection.module.scss";
-import FilteringRadio from "./FilteringRadio";
+import CategoryFilterRadio from "./CategoryFilterRadio";
+import ClassFilterRadio from "./ClassFilterRadio";
 
-export default function FilteringSection({ chosenCategory, setChosenCategory, selectValues, setSelectValues }) {
+export default function FilteringSection({ chosenCategory, setChosenCategory, chosenClass, setChosenClass, selectValues, setSelectValues }) {
   //Hver gang chosenCategory bliver ændret, vil der blive fetchet alle de hold, der hører til den valgte kategori
   useEffect(() => {
     async function showCategory() {
@@ -25,11 +26,11 @@ export default function FilteringSection({ chosenCategory, setChosenCategory, se
     }
     showCategory();
   }, [chosenCategory, setSelectValues]);
-  console.log(selectValues.length);
+
   return (
     <>
       <div className={styles.category_select_wrapper}>
-        <select onChange={(e) => setChosenCategory(e.target.value)} value={chosenCategory} name="category_filter" id="category_filter" className={styles.category_select}>
+        <select onChange={(e) => setChosenCategory(e.target.value)} name="category_filter" id="category_filter" className={styles.category_select}>
           <option value="all-categories">Alle kategorier</option>
           <option value="Energy">Welcome Energy</option>
           <option value="Body-mind">Welcome Body Mind</option>
@@ -57,23 +58,23 @@ export default function FilteringSection({ chosenCategory, setChosenCategory, se
         </div>
       )}
       <section className={styles.category_radio_wrapper}>
-        <FilteringRadio id="all-categories" name="category_filters" label="Alle kategorier" color="white" setChosenCategory={setChosenCategory} checked={true} />
-        <FilteringRadio id="Energy" name="category_filters" label="Wellcome Energy" color="white" setChosenCategory={setChosenCategory} />
-        <FilteringRadio id="Body-mind" name="category_filters" label="Wellcome Body Mind" color="white" setChosenCategory={setChosenCategory} />
-        <FilteringRadio id="Heat" name="category_filters" label="Wellcome Heat" color="white" setChosenCategory={setChosenCategory} />
-        <FilteringRadio id="Reformer" name="category_filters" label="Wellcome Reformer" color="white" setChosenCategory={setChosenCategory} />
-        <FilteringRadio id="Nordic-strong" name="category_filters" label="Wellcome Nordic Strong" color="white" setChosenCategory={setChosenCategory} />
-        <FilteringRadio id="Functional" name="category_filters" label="Wellcome Functional" color="white" setChosenCategory={setChosenCategory} />
-        <FilteringRadio id="Indoor-cycling" name="category_filters" label="Wellcome Indoor Cycling" color="white" setChosenCategory={setChosenCategory} />
-        <FilteringRadio id="Pleasure" name="category_filters" label="Wellcome Pleasure" color="white" setChosenCategory={setChosenCategory} />
+        <CategoryFilterRadio id="all-categories" name="category_filters" label="Alle kategorier" color="white" setChosenCategory={setChosenCategory} checked={true} setChosenClass={setChosenClass} />
+        <CategoryFilterRadio id="Energy" name="category_filters" label="Wellcome Energy" color="white" setChosenCategory={setChosenCategory} setChosenClass={setChosenClass} />
+        <CategoryFilterRadio id="Body-mind" name="category_filters" label="Wellcome Body Mind" color="white" setChosenCategory={setChosenCategory} setChosenClass={setChosenClass} />
+        <CategoryFilterRadio id="Heat" name="category_filters" label="Wellcome Heat" color="white" setChosenCategory={setChosenCategory} setChosenClass={setChosenClass} />
+        <CategoryFilterRadio id="Reformer" name="category_filters" label="Wellcome Reformer" color="white" setChosenCategory={setChosenCategory} setChosenClass={setChosenClass} />
+        <CategoryFilterRadio id="Nordic-strong" name="category_filters" label="Wellcome Nordic Strong" color="white" setChosenCategory={setChosenCategory} setChosenClass={setChosenClass} />
+        <CategoryFilterRadio id="Functional" name="category_filters" label="Wellcome Functional" color="white" setChosenCategory={setChosenCategory} setChosenClass={setChosenClass} />
+        <CategoryFilterRadio id="Indoor-cycling" name="category_filters" label="Wellcome Indoor Cycling" color="white" setChosenCategory={setChosenCategory} setChosenClass={setChosenClass} />
+        <CategoryFilterRadio id="Pleasure" name="category_filters" label="Wellcome Pleasure" color="white" setChosenCategory={setChosenCategory} setChosenClass={setChosenClass} />
       </section>
       {chosenCategory !== "all-categories" && (
         <section className={styles.class_radio_wrapper}>
-          <FilteringRadio id="all-categories" name="class_filters" label="Alle hold" color="black" setChosenCategory={setChosenCategory} checked={true} />
+          <ClassFilterRadio id="all-class" name="class_filters" label="Alle hold" color="black" setChosenClass={setChosenClass} checked={true} />
 
           {selectValues.length < 33 &&
             selectValues.map((item) => {
-              return <FilteringRadio id={item.title} name="class_filters" label={item.title} color="black" setChosenCategory={setChosenCategory} key={item.title} />;
+              return <ClassFilterRadio id={item.title} name="class_filters" label={item.title} color="black" setChosenClass={setChosenClass} key={item.title} />;
             })}
         </section>
       )}

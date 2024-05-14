@@ -12,17 +12,19 @@ import FilteringSection from "../components/holdplan/FilteringSection";
 
 export default function Holdplan() {
   const [chosenCategory, setChosenCategory] = useState("all-categories"); //State til at vide hvilken kategori, der filtreres efter
+  const [chosenClass, setChosenClass] = useState("all-class"); //State til at vide hvilket hold, der filtreres efter
   const [selectValues, setSelectValues] = useState(""); //State der indeholder de hold, der vises i hold filtreringen
-  const [chosenClassItem, setChosenClassItem] = useState(""); //State til at vide hvilket hold, der er valgt
+  const [chosenClassItem, setChosenClassItem] = useState(""); //State til at vide hvilket hold, der er valgt i kalenderen
   const [weekNumber, setWeekNumber] = useState(21); //State til at vide hvilken uge der vises
   const [chosenDay, setChosenDay] = useState(); //State til at vide hvilken dag er valgt
 
+  console.log("category ", chosenCategory, "class ", chosenClass);
   return (
     <>
       <main className={styles.main}>
         <header className={styles.header}>hello im a test header</header>
         <article className={styles.class_overview}>
-          <FilteringSection chosenCategory={chosenCategory} setChosenCategory={setChosenCategory} selectValues={selectValues} setSelectValues={setSelectValues} />
+          <FilteringSection chosenCategory={chosenCategory} setChosenCategory={setChosenCategory} chosenClass={chosenClass} setChosenClass={setChosenClass} selectValues={selectValues} setSelectValues={setSelectValues} />
           <div className={styles.week_overview}>
             <ArrowBtn
               direction="left"

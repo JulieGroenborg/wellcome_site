@@ -1,22 +1,21 @@
-import styles from "./FilteringRadio.module.scss";
+import styles from "./ClassFilterRadio.module.scss";
 
 //skal have et unikt id, et label og samme name som de radioBtn den er i gruppe med
 //Hvis det skal være checked fra start af (det skal "alle kategorier"), så skal den have checked=true
-export default function FilteringRadio({ id, name, label, color, setChosenCategory, checked }) {
+export default function ClassFilterRadio({ id, name, label, color, setChosenClass, checked }) {
   return (
     <div className={styles.radio_button}>
       <input
         type="radio"
         name={name}
         id={id}
-        value={id}
         className={styles.input}
         onChange={() => {
-          setChosenCategory(id);
+          setChosenClass(id);
         }}
         defaultChecked={checked}
       />
-      <label htmlFor="all-categories" className={`${styles.label} ${styles[color]}`}>
+      <label htmlFor={id} className={`${styles.label} ${styles[color]}`}>
         {label}
       </label>
     </div>

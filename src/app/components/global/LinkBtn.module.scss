@@ -6,9 +6,11 @@
   align-items: center;
   width: 180px;
   height: 40px;
-  margin-top: $spacing-16;
-
   font-family: $poppins-font;
+
+  .margin {
+    margin-top: $spacing-16;
+  }
 }
 
 .primary {

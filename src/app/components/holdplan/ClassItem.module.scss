@@ -70,7 +70,8 @@
 @media (min-width: 850px) {
   .container {
     width: auto;
-    margin: 0 $spacing-48;
+    margin: 0;
+    max-width: 1050px;
 
     .input {
       &:hover,
@@ -95,12 +96,24 @@
       font-size: $spacing-16;
       grid-template-columns: 1fr 3fr 2fr 1fr 192px;
 
-      span:nth-of-type(1),
-      span:nth-of-type(2),
-      span:nth-of-type(3),
+      span:nth-of-type(1) {
+        width: 122px;
+        justify-self: unset;
+        padding: $spacing-20 $spacing-12;
+      }
+      span:nth-of-type(2) {
+        max-width: 256px;
+        justify-self: unset;
+        padding: $spacing-20 $spacing-12;
+      }
+      span:nth-of-type(3) {
+        width: 196px;
+        justify-self: unset;
+        padding: $spacing-20 $spacing-12;
+      }
       span:nth-of-type(4) {
-        width: fit-content;
-        justify-self: start;
+        width: 134px;
+        justify-self: unset;
         padding: $spacing-20 $spacing-12;
       }
       .grey_text {
@@ -108,18 +121,7 @@
       }
       .desk_btn_section {
         display: none;
-        justify-self: center;
-        padding: $spacing-20 $spacing-12;
       }
     }
   }
 }
-
-// @media (min-width: 1000px) {
-//   .container {
-//     //max-width: 1050px;
-//     .label {
-//       font-size: $spacing-16;
-//     }
-//   }
-// }

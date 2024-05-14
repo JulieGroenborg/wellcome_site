@@ -86,8 +86,7 @@
     padding: $spacing-48 $spacing-64;
     background-color: $off-black400;
     height: 200px;
-    //max-width: 1050px;
-    margin: 0 $spacing-48;
+    max-width: 1050px;
   }
   .class_radio_wrapper {
     display: grid;
@@ -97,7 +96,6 @@
     padding: $spacing-48 $spacing-64;
     background-color: $grey200;
     height: fit-content;
-    // max-width: 1050px;
-    margin: 0 $spacing-48;
+    max-width: 1050px;
   }
 }

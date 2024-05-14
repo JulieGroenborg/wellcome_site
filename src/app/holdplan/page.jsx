@@ -50,9 +50,16 @@ export default function Holdplan() {
             <DayRadio day="søndag" setChosenDay={setChosenDay} />
           </section>
           <section>
+            <section className={styles.classview_example}>
+              {" "}
+              <p>Tidsrum</p>
+              <p>Hold</p>
+              <p>Instruktør</p>
+              <p>Lokale</p>
+            </section>
             <ClassItem classtitle="Nordic Strong Power" coach="Michael Andersen" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
-            <ClassItem classtitle="Mindfull stræk og afspænding" coach="Frederik Tønder-Prien" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
-            <ClassItem classtitle="Boldmassage af bindevævet" coach="Christina Præstkær" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
+            <ClassItem classtitle="Mindfull stræk & afspænding" coach="Frederik Tønder-Prien" time="00:00-00:00" location="Cross" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
+            <ClassItem classtitle="Boldma" coach="Christina Præstkær" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
             <ClassItem classtitle="Nordic Strong Powe" coach="Michael Andersen" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
             <ClassItem classtitle="Mindfull stræk og afspændin" coach="Frederik Tønder-Prien" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
             <ClassItem classtitle="Boldmassage af bindevævt" coach="Christina Præstkær" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />

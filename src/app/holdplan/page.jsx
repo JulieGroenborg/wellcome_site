@@ -20,6 +20,7 @@ export default function Holdplan() {
   return (
     <>
       <main className={styles.main}>
+        <header className={styles.header}>hello im a test header</header>
         <article className={styles.class_overview}>
           <FilteringSection chosenCategory={chosenCategory} setChosenCategory={setChosenCategory} selectValues={selectValues} setSelectValues={setSelectValues} />
           <div className={styles.week_overview}>

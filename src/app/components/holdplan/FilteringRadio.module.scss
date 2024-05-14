@@ -3,7 +3,8 @@
 .radio_button {
   position: relative;
   width: fit-content;
-  height: $spacing-24;
+  min-width: 200px;
+  height: fit-content;
 }
 
 .input {

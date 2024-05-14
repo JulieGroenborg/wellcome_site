@@ -5,9 +5,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 335px;
   height: $spacing-64;
   background-color: $off-black400;
+  margin: 0 $spacing-24;
 
   &::after {
     position: absolute;
@@ -38,9 +38,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 335px;
   height: $spacing-64;
   background-color: $grey200;
+  margin: 0 $spacing-24;
 
   &::after {
     position: absolute;
@@ -66,7 +66,8 @@
   }
 }
 
-.class_radio_wrapper {
+.class_radio_wrapper,
+.category_radio_wrapper {
   display: none;
 }
 
@@ -81,17 +82,22 @@
   .category_radio_wrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    padding: $spacing-48 $spacing-80;
+    gap: $spacing-12;
+    padding: $spacing-48 $spacing-64;
     background-color: $off-black400;
     height: 200px;
-    width: 100%;
+    //max-width: 1050px;
+    margin: 0 $spacing-48;
   }
   .class_radio_wrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    padding: $spacing-48 $spacing-80;
+    grid-template-rows: auto;
+    gap: $spacing-12;
+    padding: $spacing-48 $spacing-64;
     background-color: $grey200;
-    height: 200px;
-    width: 100%;
+    height: fit-content;
+    // max-width: 1050px;
+    margin: 0 $spacing-48;
   }
 }

@@ -5,7 +5,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: $spacing-48;
+  width: 100%;
+  min-width: $spacing-48;
   height: $spacing-80;
 
   .input {
@@ -52,7 +53,7 @@
 
 @media (min-width: 768px) {
   .container {
-    width: 150px;
+    width: 100%;
     height: 190px;
 
     .desk_text {

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-page-custom-font */
 import { Raleway } from "next/font/google";
 import "./globals.scss";
 

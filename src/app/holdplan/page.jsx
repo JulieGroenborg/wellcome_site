@@ -17,8 +17,76 @@ export default function Holdplan() {
   const [chosenClassItem, setChosenClassItem] = useState(""); //State til at vide hvilket hold, der er valgt i kalenderen
   const [weekNumber, setWeekNumber] = useState(21); //State til at vide hvilken uge der vises
   const [chosenDay, setChosenDay] = useState(); //State til at vide hvilken dag er valgt
+  const [allClasses, setAllClasses] = useState([]);
+  const [classSelection, setClassSelection] = useState();
 
-  console.log("category ", chosenCategory, "class ", chosenClass);
+  //console.log("category ", chosenCategory, "class ", chosenClass);
+
+  useEffect(() => {
+    async function showClasses() {
+      /** Hvis chosenCategory er sat til en kategori, skal der kun fetches hold indenfor kategorien */
+      const filteringParameters = chosenCategory !== "all-categories" ? `?category=eq.${chosenCategory}` : "";
+
+      let headersList = {
+        apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhvdmx1ZGNwcXVkcXZjcXRlYmxqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQwMzI4MzEsImV4cCI6MjAyOTYwODgzMX0.5K-wz_oerFZ5hmvUq0IOPgJHn0e1sRYh57y_8pFqnKk",
+        Prefer: "return=representation",
+      };
+
+      let response = await fetch(`https://hovludcpqudqvcqteblj.supabase.co/rest/v1/Hold${filteringParameters}`, {
+        method: "GET",
+        headers: headersList,
+      });
+
+      let data = await response.json();
+
+      setAllClasses([]); //Her rydder vi allClasses, så den er tom og klar til det nye data
+      //setClassSelection(data);
+      data.map((item) => {
+        item.time.map((obj) => {
+          setAllClasses((allClasses) => [...allClasses, { title: item.title, trainer: item.trainer, location: item.location, time: obj }]);
+        });
+      });
+      setAllClasses((old) => old.sort((a, b) => a.time.start - b.time.start));
+
+      // console.log(test.sort((a, b) => a.no - b.no));
+      // const startTimes = data.flatMap((item) => {
+      //   item.time.map((obj) => {
+      //     obj.start;
+      //   });
+      // });
+      // setStartTime(startTimes);
+      // data.map((item) => {
+      //   console.log(item.time[0].start);
+      // });
+      // const startTimes = data.flatMap((item) => {
+      //   item.time.map((obj) => {
+      //     // obj.start;
+      //     console.log(obj.start, item.title);
+      //   });
+      // });
+    }
+    showClasses();
+  }, [chosenCategory]);
+  console.log(allClasses);
+  // const allClassesSorted = allClasses && allClasses.sort((a, b) => a.time.start - b.time.start);
+  // console.log(allClassesSorted);
+  //console.log(allClasses);
+  // function findStartTimes() {
+  //   const startTimes = classSelection && classSelection.flatMap((item) => item.time.map((obj) => obj.start));
+  //   setStartTime(startTimes);
+  //   console.log(startTime);
+  //}
+  // findStartTimes();
+  //const test = [{ no: 10 }, { no: 8 }, { no: 9 }];
+  // function compareNumbers(a, b) {
+  //   return a - b;
+  // }
+
+  // console.log(
+  //   test.sort((a, b) => a.no - b.no),
+  //   test
+  // );
+
   return (
     <>
       <main className={styles.main}>
@@ -59,7 +127,34 @@ export default function Holdplan() {
               <p>Instruktør</p>
               <p>Lokale</p>
             </section>
-            <ClassItem classtitle="Nordic Strong Power" coach="Michael Andersen" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
+
+            {allClasses &&
+              allClasses.map((item) => {
+                const uniqueId = Math.random();
+                return <ClassItem key={uniqueId} classtitle={item.title} coach={item.trainer} time={item.time.start} location={item.location} chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />;
+                //console.log("1st map");
+                // item.time.map((obj) => {
+                //   const uniqueId = Math.random();
+                //   console.log(obj.start, item.title);
+                //   return <p key={uniqueId}>hallo</p>;
+                // });
+              })}
+
+            {/* {classSelection &&
+              classSelection.map((item) => {
+                const uniqueId = Math.random();
+                item.time.map((obj) => {
+                  console.log(obj.start);
+                  return <p key={uniqueId}>hallo</p>;
+                });
+                //console.log("1st map");
+                // item.time.map((obj) => {
+                //   const uniqueId = Math.random();
+                //   console.log(obj.start, item.title);
+                //   return <p key={uniqueId}>hallo</p>;
+                // });
+              })} */}
+            {/* <ClassItem classtitle="Nordic Strong Power" coach="Michael Andersen" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
             <ClassItem classtitle="Mindfull stræk & afspænding" coach="Frederik Tønder-Prien" time="00:00-00:00" location="Cross" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
             <ClassItem classtitle="Boldma" coach="Christina Præstkær" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
             <ClassItem classtitle="Nordic Strong Powe" coach="Michael Andersen" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
@@ -69,7 +164,7 @@ export default function Holdplan() {
             <ClassItem classtitle="Mindfull stræk o afspænding" coach="Frederik Tønder-Prien" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
             <ClassItem classtitle="Boldmassae af bindevævet" coach="Christina Præstkær" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
             <ClassItem classtitle="Mindfll stræk o afspænding" coach="Frederik Tønder-Prien" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
-            <ClassItem classtitle="Boldmssae af bindevævet" coach="Christina Præstkær" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
+            <ClassItem classtitle="Boldmssae af bindevævet" coach="Christina Præstkær" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} /> */}
             {chosenClassItem !== "" && (
               <section className={styles.mobile_btn_section}>
                 <div className={styles.flex}>

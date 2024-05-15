@@ -1,67 +1,139 @@
 @use "src/app/variables" as *;
 
 .main {
+  display: grid;
+  justify-content: center;
   height: 100vh;
-  position: relative;
-}
 
-.week_overview {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: $spacing-64;
-  border: solid $border-width $off-black400;
-
-  p {
-    text-transform: uppercase;
+  .header {
+    height: 100px;
   }
-}
 
-.day_section {
-  margin: 5em;
-  display: flex;
-}
-
-.class_overview {
-  position: relative;
-  height: 80vh;
-  width: 100vw;
-  overflow: scroll;
-}
-
-.mobile_btn_section {
-  display: block;
-  position: sticky;
-  bottom: 0px;
-  left: 0;
-  width: 100vw;
-  height: $spacing-80;
-  margin-top: $spacing-16;
-  background-color: $off-black400;
-
-  .flex {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: $spacing-80;
-    width: 100%;
-  }
-}
-
-.footer {
-  height: 100px;
-}
-
-@media (min-width: 768px) {
-  .week_overview {
-    height: $spacing-80;
-  }
   .class_overview {
-    height: fit-content;
+    position: relative;
+    height: 80vh;
     width: 100vw;
+    overflow: scroll;
+
+    .week_overview {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: $spacing-64;
+      margin: 0 $spacing-24;
+      border: solid $border-width $off-black400;
+
+      p {
+        text-transform: uppercase;
+      }
+    }
+
+    .day_section {
+      display: flex;
+      justify-content: center;
+      margin: 0 $spacing-24;
+    }
+    .classview_example {
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      align-items: center;
+      height: $spacing-80;
+      margin: 0 $spacing-24;
+      background-color: $grey200;
+      border: solid $border-width $off-black400;
+
+      font-family: $poppins-font;
+      font-size: $spacing-12;
+      font-weight: $font-regular;
+      line-height: $line-height-m;
+
+      p:nth-of-type(1),
+      p:nth-of-type(3) {
+        width: fit-content;
+        justify-self: start;
+        padding: $spacing-4 0 $spacing-4 $spacing-8;
+      }
+      p:nth-of-type(2),
+      p:nth-of-type(4) {
+        width: fit-content;
+        justify-self: end;
+        padding: $spacing-4 $spacing-8 $spacing-4 0;
+      }
+    }
+
+    .mobile_btn_section {
+      display: block;
+      position: sticky;
+      bottom: 0px;
+      left: 0;
+      width: 100vw;
+      height: $spacing-80;
+      margin-top: $spacing-16;
+      background-color: $off-black400;
+
+      .flex {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: $spacing-80;
+        width: 100%;
+      }
+    }
   }
-  .mobile_btn_section {
-    display: none;
+
+  .footer {
+    height: 100px;
+  }
+}
+
+@media (min-width: 850px) {
+  .main {
+    .class_overview {
+      display: grid;
+      justify-content: center;
+      height: fit-content;
+      width: 100vw;
+      overflow: visible;
+
+      .week_overview {
+        height: $spacing-80;
+        max-width: 1050px;
+        margin: 0;
+      }
+      .day_section {
+        max-width: 1050px;
+        margin: 0;
+      }
+
+      .classview_example {
+        grid-template-columns: 1fr 3fr 2fr 1fr 192px;
+        margin: 0;
+        max-width: 1050px;
+
+        p:nth-of-type(1) {
+          width: 122px;
+          justify-self: unset;
+          padding: $spacing-20 $spacing-12;
+        }
+        p:nth-of-type(2) {
+          max-width: 256px;
+          justify-self: unset;
+          padding: $spacing-20 $spacing-12;
+        }
+        p:nth-of-type(3) {
+          width: 196px;
+          justify-self: unset;
+          padding: $spacing-20 $spacing-12;
+        }
+        p:nth-of-type(4) {
+          width: 134px;
+          justify-self: unset;
+          padding: $spacing-20 $spacing-12;
+        }
+      }
+      .mobile_btn_section {
+        display: none;
+      }
+    }
   }
 }

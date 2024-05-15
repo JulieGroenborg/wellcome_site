@@ -1,38 +1,30 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./holdplan.module.scss";
 import LinkBtn from "../components/global/LinkBtn";
 import DayRadio from "../components/holdplan/DayRadio";
 import ClassItem from "../components/holdplan/ClassItem";
 import ArrowBtn from "../components/global/ArrowBtn";
+import FilteringSection from "../components/holdplan/FilteringSection";
 
 //API url: https://hovludcpqudqvcqteblj.supabase.co/rest/v1/Hold
 //API key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhvdmx1ZGNwcXVkcXZjcXRlYmxqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQwMzI4MzEsImV4cCI6MjAyOTYwODgzMX0.5K-wz_oerFZ5hmvUq0IOPgJHn0e1sRYh57y_8pFqnKk
 
-// let headersList = {
-//   apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhvdmx1ZGNwcXVkcXZjcXRlYmxqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQwMzI4MzEsImV4cCI6MjAyOTYwODgzMX0.5K-wz_oerFZ5hmvUq0IOPgJHn0e1sRYh57y_8pFqnKk",
-//   Prefer: "return=representation",
-// };
-
-// let response = await fetch("https://hovludcpqudqvcqteblj.supabase.co/rest/v1/Hold", {
-//   method: "GET",
-//   headers: headersList,
-// });
-
-// let data = await response.json();
-
-// console.log(data);
-
 export default function Holdplan() {
-  const [chosenDay, setChosenDay] = useState(); //State til at vide hvilken dag er valgt til senere brug i koden ;-)
+  const [chosenCategory, setChosenCategory] = useState("all-categories"); //State til at vide hvilken kategori, der filtreres efter
+  const [chosenClass, setChosenClass] = useState("all-class"); //State til at vide hvilket hold, der filtreres efter
+  const [selectValues, setSelectValues] = useState(""); //State der indeholder de hold, der vises i hold filtreringen
+  const [chosenClassItem, setChosenClassItem] = useState(""); //State til at vide hvilket hold, der er valgt i kalenderen
   const [weekNumber, setWeekNumber] = useState(21); //State til at vide hvilken uge der vises
+  const [chosenDay, setChosenDay] = useState(); //State til at vide hvilken dag er valgt
 
-  const [chosenClassItem, setChosenClassItem] = useState(""); //State til at vide hvilket hold, der er valgt
-
+  console.log("category ", chosenCategory, "class ", chosenClass);
   return (
     <>
       <main className={styles.main}>
+        <header className={styles.header}>hello im a test header</header>
         <article className={styles.class_overview}>
+          <FilteringSection chosenCategory={chosenCategory} setChosenCategory={setChosenCategory} chosenClass={chosenClass} setChosenClass={setChosenClass} selectValues={selectValues} setSelectValues={setSelectValues} />
           <div className={styles.week_overview}>
             <ArrowBtn
               direction="left"
@@ -60,9 +52,16 @@ export default function Holdplan() {
             <DayRadio day="søndag" setChosenDay={setChosenDay} />
           </section>
           <section>
+            <section className={styles.classview_example}>
+              {" "}
+              <p>Tidsrum</p>
+              <p>Hold</p>
+              <p>Instruktør</p>
+              <p>Lokale</p>
+            </section>
             <ClassItem classtitle="Nordic Strong Power" coach="Michael Andersen" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
-            <ClassItem classtitle="Mindfull stræk og afspænding" coach="Frederik Tønder-Prien" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
-            <ClassItem classtitle="Boldmassage af bindevævet" coach="Christina Præstkær" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
+            <ClassItem classtitle="Mindfull stræk & afspænding" coach="Frederik Tønder-Prien" time="00:00-00:00" location="Cross" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
+            <ClassItem classtitle="Boldma" coach="Christina Præstkær" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
             <ClassItem classtitle="Nordic Strong Powe" coach="Michael Andersen" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
             <ClassItem classtitle="Mindfull stræk og afspændin" coach="Frederik Tønder-Prien" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
             <ClassItem classtitle="Boldmassage af bindevævt" coach="Christina Præstkær" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />

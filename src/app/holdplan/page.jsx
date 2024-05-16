@@ -16,11 +16,14 @@ export default function Holdplan() {
   const [selectValues, setSelectValues] = useState(""); //State der indeholder de hold, der vises i hold filtreringen
   const [chosenClassItem, setChosenClassItem] = useState(""); //State til at vide hvilket hold, der er valgt i kalenderen
   const [weekNumber, setWeekNumber] = useState(21); //State til at vide hvilken uge der vises
-  const [chosenDay, setChosenDay] = useState(); //State til at vide hvilken dag er valgt
+  const [chosenDay, setChosenDay] = useState(new Date().getDay()); //State til at vide hvilken dag er valgt
   const [allClasses, setAllClasses] = useState([]);
   const [classSelection, setClassSelection] = useState();
 
   //console.log("category ", chosenCategory, "class ", chosenClass);
+  // const dayNames = ["Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag"];
+  // const today = dayNames[chosenDay];
+  //console.log(today);
 
   useEffect(() => {
     async function showClasses() {
@@ -41,12 +44,22 @@ export default function Holdplan() {
 
       setAllClasses([]); //Her rydder vi allClasses, så den er tom og klar til det nye data
       //setClassSelection(data);
+
+      //Her map'er vi over vores data, og ved hvert hold (item) map'er vi igen i deres "time" data (det array med objekter for hvert tidspunkt holdet afholdes)
+      //Vi opdaterer allClasses statet til at indeholde en ny version af vores fetchede data. Her putter vi holdene ind for hver gang de skal optræde på planen
+      //Derved får vi et array i allClasses, hvor alle de tilgængelige hold (indenfor filtreringen) der skal fremtræde på planen
       data.map((item) => {
         item.time.map((obj) => {
           setAllClasses((allClasses) => [...allClasses, { title: item.title, trainer: item.trainer, location: item.location, time: obj }]);
         });
       });
+      //Herunder tager vi vores nye data fra allClasses og sorterer det i deres "time.start" tidspunkt.
+      //Derved får vi dem rykket rundt til at ligge i rækkefølge fra tidligste start tid til seneste
       setAllClasses((old) => old.sort((a, b) => a.time.start - b.time.start));
+
+      const dayNames = ["Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag"];
+      const today = dayNames[chosenDay];
+      setAllClasses((old) => old.filter((item) => item.time.weekday === today));
 
       // console.log(test.sort((a, b) => a.no - b.no));
       // const startTimes = data.flatMap((item) => {
@@ -66,8 +79,10 @@ export default function Holdplan() {
       // });
     }
     showClasses();
-  }, [chosenCategory]);
+  }, [chosenCategory, chosenDay]);
   console.log(allClasses);
+  //const dayFilter = allClasses.filter((clas) => clas.time.weekday === "Mandag");
+  //console.log(dayFilter);
   // const allClassesSorted = allClasses && allClasses.sort((a, b) => a.time.start - b.time.start);
   // console.log(allClassesSorted);
   //console.log(allClasses);
@@ -111,13 +126,13 @@ export default function Holdplan() {
             />
           </div>
           <section className={styles.day_section}>
-            <DayRadio day="mandag" setChosenDay={setChosenDay} />
-            <DayRadio day="tirsdag" setChosenDay={setChosenDay} />
-            <DayRadio day="onsdag" setChosenDay={setChosenDay} />
-            <DayRadio day="torsdag" setChosenDay={setChosenDay} />
-            <DayRadio day="fredag" setChosenDay={setChosenDay} />
-            <DayRadio day="lørdag" setChosenDay={setChosenDay} />
-            <DayRadio day="søndag" setChosenDay={setChosenDay} />
+            <DayRadio day="Mandag" setChosenDay={setChosenDay} chosenDay={chosenDay} />
+            <DayRadio day="Tirsdag" setChosenDay={setChosenDay} chosenDay={chosenDay} />
+            <DayRadio day="Onsdag" setChosenDay={setChosenDay} chosenDay={chosenDay} />
+            <DayRadio day="Torsdag" setChosenDay={setChosenDay} chosenDay={chosenDay} />
+            <DayRadio day="Fredag" setChosenDay={setChosenDay} chosenDay={chosenDay} />
+            <DayRadio day="Lørdag" setChosenDay={setChosenDay} chosenDay={chosenDay} />
+            <DayRadio day="Søndag" setChosenDay={setChosenDay} chosenDay={chosenDay} />
           </section>
           <section>
             <section className={styles.classview_example}>

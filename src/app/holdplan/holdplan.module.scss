@@ -4,6 +4,7 @@
   display: grid;
   justify-content: center;
   height: 100vh;
+  width: 100vw;
 
   .header {
     height: 100px;
@@ -60,6 +61,15 @@
         justify-self: end;
         padding: $spacing-4 $spacing-8 $spacing-4 0;
       }
+    }
+
+    .noClasses {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 $spacing-24;
+      width: auto;
+      height: $spacing-80;
     }
 
     .mobile_btn_section {

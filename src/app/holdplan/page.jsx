@@ -13,21 +13,16 @@ import FilteringSection from "../components/holdplan/FilteringSection";
 export default function Holdplan() {
   const [chosenCategory, setChosenCategory] = useState("all-categories"); //State til at vide hvilken kategori, der filtreres efter
   const [chosenClass, setChosenClass] = useState("all-class"); //State til at vide hvilket hold, der filtreres efter
-  const [selectValues, setSelectValues] = useState(""); //State der indeholder de hold, der vises i hold filtreringen
   const [chosenClassItem, setChosenClassItem] = useState(""); //State til at vide hvilket hold, der er valgt i kalenderen
   const [weekNumber, setWeekNumber] = useState(21); //State til at vide hvilken uge der vises
-  const [chosenDay, setChosenDay] = useState(new Date().getDay()); //State til at vide hvilken dag er valgt
-  const [allClasses, setAllClasses] = useState([]);
-  const [classSelection, setClassSelection] = useState();
+  const [chosenDayNumber, setChosenDayNumber] = useState(new Date().getDay()); //State til at vide hvilken dag er valgt. Er ved 1st rendering nr. på dagen i dag.
+  const [allClasses, setAllClasses] = useState([]); //State der skal indeholde alle hold, der passer til kategori filtrering
+  const [classSelection, setClassSelection] = useState([]); //State der kun skal indeholde den valgte dags hold. Dette er det data, der bliver vist på siden
 
-  //console.log("category ", chosenCategory, "class ", chosenClass);
-  // const dayNames = ["Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag"];
-  // const today = dayNames[chosenDay];
-  //console.log(today);
-
+  //useEffect kører ved første rendering, samt hver gang chosenCategory eller chosenDayNumber bliver ændret
   useEffect(() => {
     async function showClasses() {
-      /** Hvis chosenCategory er sat til en kategori, skal der kun fetches hold indenfor kategorien */
+      //Hvis chosenCategory er sat til en kategori, skal der kun fetches hold indenfor kategorien
       const filteringParameters = chosenCategory !== "all-categories" ? `?category=eq.${chosenCategory}` : "";
 
       let headersList = {
@@ -43,44 +38,37 @@ export default function Holdplan() {
       let data = await response.json();
 
       setAllClasses([]); //Her rydder vi allClasses, så den er tom og klar til det nye data
-      //setClassSelection(data);
+      setClassSelection([]); //Her rydder vi classSelection, så den er tom og klar til det nye data
 
       //Her map'er vi over vores data, og ved hvert hold (item) map'er vi igen i deres "time" data (det array med objekter for hvert tidspunkt holdet afholdes)
-      //Vi opdaterer allClasses statet til at indeholde en ny version af vores fetchede data. Her putter vi holdene ind for hver gang de skal optræde på planen
-      //Derved får vi et array i allClasses, hvor alle de tilgængelige hold (indenfor filtreringen) der skal fremtræde på planen
+      //Vi opdaterer allClasses + classSelection states til at indeholde en ny version af vores fetchede data. Her putter vi holdene ind for hver gang de skal optræde på planen
       data.map((item) => {
         item.time.map((obj) => {
           setAllClasses((allClasses) => [...allClasses, { title: item.title, trainer: item.trainer, location: item.location, time: obj }]);
+          setClassSelection((allClasses) => [...allClasses, { title: item.title, trainer: item.trainer, location: item.location, time: obj }]);
         });
       });
-      //Herunder tager vi vores nye data fra allClasses og sorterer det i deres "time.start" tidspunkt.
+      //Herunder tager vi vores nye data i allClasses + classSelection og sorterer det i deres "time.start" tidspunkt.
       //Derved får vi dem rykket rundt til at ligge i rækkefølge fra tidligste start tid til seneste
       setAllClasses((old) => old.sort((a, b) => a.time.start - b.time.start));
+      setClassSelection((old) => old.sort((a, b) => a.time.start - b.time.start));
 
+      //For at få filtreret vores data til kun at have den valgte dags hold, skal vi oversætte chosenDayNumber.
+      //Den viser nemlig kun dagen i et tal, hvor søndag=0 og lørdag=6
       const dayNames = ["Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag"];
-      const today = dayNames[chosenDay];
-      setAllClasses((old) => old.filter((item) => item.time.weekday === today));
-
-      // console.log(test.sort((a, b) => a.no - b.no));
-      // const startTimes = data.flatMap((item) => {
-      //   item.time.map((obj) => {
-      //     obj.start;
-      //   });
-      // });
-      // setStartTime(startTimes);
-      // data.map((item) => {
-      //   console.log(item.time[0].start);
-      // });
-      // const startTimes = data.flatMap((item) => {
-      //   item.time.map((obj) => {
-      //     // obj.start;
-      //     console.log(obj.start, item.title);
-      //   });
-      // });
+      const today = dayNames[chosenDayNumber];
+      setClassSelection((old) => old.filter((item) => item.time.weekday === today));
     }
     showClasses();
-  }, [chosenCategory, chosenDay]);
-  console.log(allClasses);
+  }, [chosenCategory, chosenDayNumber]);
+
+  // const dayNames = ["Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag"];
+  // const today = dayNames[chosenDayNumber];
+  // const isDisabled = allClasses.filter((item) => item.time.weekday === today).length === 0 ? true : false;
+  // // const isDisabled = allClasses.length !== 0 ? allClasses.filter((item) => item.time.weekday === day) : "";
+  // //console.log(isDisabled.length)
+  // console.log(isDisabled);
+  //console.log(allClasses);
   //const dayFilter = allClasses.filter((clas) => clas.time.weekday === "Mandag");
   //console.log(dayFilter);
   // const allClassesSorted = allClasses && allClasses.sort((a, b) => a.time.start - b.time.start);
@@ -107,7 +95,7 @@ export default function Holdplan() {
       <main className={styles.main}>
         <header className={styles.header}>hello im a test header</header>
         <article className={styles.class_overview}>
-          <FilteringSection chosenCategory={chosenCategory} setChosenCategory={setChosenCategory} chosenClass={chosenClass} setChosenClass={setChosenClass} selectValues={selectValues} setSelectValues={setSelectValues} />
+          <FilteringSection chosenCategory={chosenCategory} setChosenCategory={setChosenCategory} chosenClass={chosenClass} setChosenClass={setChosenClass} />
           <div className={styles.week_overview}>
             <ArrowBtn
               direction="left"
@@ -126,13 +114,13 @@ export default function Holdplan() {
             />
           </div>
           <section className={styles.day_section}>
-            <DayRadio day="Mandag" setChosenDay={setChosenDay} chosenDay={chosenDay} />
-            <DayRadio day="Tirsdag" setChosenDay={setChosenDay} chosenDay={chosenDay} />
-            <DayRadio day="Onsdag" setChosenDay={setChosenDay} chosenDay={chosenDay} />
-            <DayRadio day="Torsdag" setChosenDay={setChosenDay} chosenDay={chosenDay} />
-            <DayRadio day="Fredag" setChosenDay={setChosenDay} chosenDay={chosenDay} />
-            <DayRadio day="Lørdag" setChosenDay={setChosenDay} chosenDay={chosenDay} />
-            <DayRadio day="Søndag" setChosenDay={setChosenDay} chosenDay={chosenDay} />
+            <DayRadio day="Mandag" setChosenDayNumber={setChosenDayNumber} chosenDayNumber={chosenDayNumber} allClasses={allClasses} classSelection={classSelection} />
+            <DayRadio day="Tirsdag" setChosenDayNumber={setChosenDayNumber} chosenDayNumber={chosenDayNumber} allClasses={allClasses} classSelection={classSelection} />
+            <DayRadio day="Onsdag" setChosenDayNumber={setChosenDayNumber} chosenDayNumber={chosenDayNumber} allClasses={allClasses} classSelection={classSelection} />
+            <DayRadio day="Torsdag" setChosenDayNumber={setChosenDayNumber} chosenDayNumber={chosenDayNumber} allClasses={allClasses} classSelection={classSelection} />
+            <DayRadio day="Fredag" setChosenDayNumber={setChosenDayNumber} chosenDayNumber={chosenDayNumber} allClasses={allClasses} classSelection={classSelection} />
+            <DayRadio day="Lørdag" setChosenDayNumber={setChosenDayNumber} chosenDayNumber={chosenDayNumber} allClasses={allClasses} classSelection={classSelection} />
+            <DayRadio day="Søndag" setChosenDayNumber={setChosenDayNumber} chosenDayNumber={chosenDayNumber} allClasses={allClasses} classSelection={classSelection} />
           </section>
           <section>
             <section className={styles.classview_example}>
@@ -143,17 +131,22 @@ export default function Holdplan() {
               <p>Lokale</p>
             </section>
 
-            {allClasses &&
-              allClasses.map((item) => {
+            {classSelection.length > 0 ? (
+              classSelection.map((item) => {
                 const uniqueId = Math.random();
-                return <ClassItem key={uniqueId} classtitle={item.title} coach={item.trainer} time={item.time.start} location={item.location} chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />;
+                return <ClassItem key={uniqueId} classtitle={item.title + item.time.weekday} coach={item.trainer} time={item.time.start} location={item.location} chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />;
                 //console.log("1st map");
                 // item.time.map((obj) => {
                 //   const uniqueId = Math.random();
                 //   console.log(obj.start, item.title);
                 //   return <p key={uniqueId}>hallo</p>;
                 // });
-              })}
+              })
+            ) : (
+              <section className={styles.noClasses}>
+                <p>Der fremgår ingen hold denne dag</p>
+              </section>
+            )}
 
             {/* {classSelection &&
               classSelection.map((item) => {

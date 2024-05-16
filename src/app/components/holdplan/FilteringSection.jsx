@@ -1,10 +1,12 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import styles from "./FilteringSection.module.scss";
 import CategoryFilterRadio from "./CategoryFilterRadio";
 import ClassFilterRadio from "./ClassFilterRadio";
 
-export default function FilteringSection({ chosenCategory, setChosenCategory, chosenClass, setChosenClass, selectValues, setSelectValues }) {
+export default function FilteringSection({ chosenCategory, setChosenCategory, chosenClass, setChosenClass }) {
+  const [selectValues, setSelectValues] = useState(""); //State der indeholder de hold, der vises i hold filtreringen
+
   //Hver gang chosenCategory bliver ændret, vil der blive fetchet alle de hold, der hører til den valgte kategori
   useEffect(() => {
     async function showCategory() {
@@ -25,7 +27,7 @@ export default function FilteringSection({ chosenCategory, setChosenCategory, ch
       setSelectValues(data);
     }
     showCategory();
-  }, [chosenCategory, setSelectValues]);
+  }, [chosenCategory]);
 
   return (
     <>

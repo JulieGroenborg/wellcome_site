@@ -69,6 +69,19 @@ export default function Holdplan() {
     showClasses();
   }, [chosenCategory, chosenDayNumber, chosenClass]);
 
+  function styleTimes(times) {
+    let newTime;
+    if (times < 999) {
+      const addZero = "0" + times;
+      const time = addZero.split("");
+      newTime = time[0] + time[1] + ":" + time[2] + time[3];
+    } else {
+      const time = times + "";
+      newTime = time[0] + time[1] + ":" + time[2] + time[3];
+    }
+    return newTime;
+  }
+
   return (
     <>
       <main className={styles.main}>
@@ -112,12 +125,15 @@ export default function Holdplan() {
 
             {classSelection.length > 0 ? (
               classSelection.map((item) => {
+                const newStart = styleTimes(item.time.start);
+                console.log(newStart);
+                const newEnd = styleTimes(item.time.end);
                 const uniqueId = Math.random();
-                return <ClassItem key={uniqueId} classtitle={item.title + item.time.weekday} coach={item.trainer} time={item.time.start} location={item.location} chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />;
+                return <ClassItem key={uniqueId} classtitle={item.title} coach={item.trainer} time={newStart + "-" + newEnd} location={item.location} chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />;
               })
             ) : (
               <section className={styles.noClasses}>
-                <p>Der fremgår ingen hold denne dag</p>
+                <p>Der fremgår ingen hold denne dag. Vælg venligst en anden dag.</p>
               </section>
             )}
 

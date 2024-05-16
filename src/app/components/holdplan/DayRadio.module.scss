@@ -32,15 +32,16 @@
     }
 
     &:disabled {
+      background-color: $grey200;
       cursor: inherit;
 
       & + .label {
-        color: $grey200;
+        color: $black;
       }
-      &:hover {
+      &:hover,
+      &:checked {
         border: solid $border-width $off-black400;
-        background-color: $white;
-        color: $grey200;
+        background-color: $grey200;
       }
     }
   }

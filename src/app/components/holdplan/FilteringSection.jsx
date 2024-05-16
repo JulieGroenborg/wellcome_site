@@ -32,7 +32,15 @@ export default function FilteringSection({ chosenCategory, setChosenCategory, ch
   return (
     <>
       <div className={styles.category_select_wrapper}>
-        <select onChange={(e) => setChosenCategory(e.target.value)} name="category_filter" id="category_filter" className={styles.category_select}>
+        <select
+          onChange={(e) => {
+            setChosenCategory(e.target.value);
+            setChosenClass("all-class");
+          }}
+          name="category_filter"
+          id="category_filter"
+          className={styles.category_select}
+        >
           <option value="all-categories">Alle kategorier</option>
           <option value="Energy">Welcome Energy</option>
           <option value="Body-mind">Welcome Body Mind</option>
@@ -46,8 +54,8 @@ export default function FilteringSection({ chosenCategory, setChosenCategory, ch
       </div>
       {chosenCategory !== "all-categories" && (
         <div className={styles.class_select_wrapper}>
-          <select name="class_filter" id="class_filter" className={styles.class_select}>
-            <option value="all_classes">Alle hold</option>
+          <select onChange={(e) => setChosenClass(e.target.value)} name="class_filter" id="class_filter" className={styles.class_select}>
+            <option value="all-class">Alle hold</option>
             {selectValues &&
               selectValues.map((item) => {
                 return (
@@ -76,7 +84,7 @@ export default function FilteringSection({ chosenCategory, setChosenCategory, ch
 
           {selectValues.length < 33 &&
             selectValues.map((item) => {
-              return <ClassFilterRadio id={item.title} name="class_filters" label={item.title} color="black" setChosenClass={setChosenClass} key={item.title} />;
+              return <ClassFilterRadio id={item.title} name="class_filters" label={item.title} color="black" setChosenClass={setChosenClass} chosenClass={chosenClass} key={item.title} />;
             })}
         </section>
       )}

@@ -19,7 +19,7 @@ export default function Holdplan() {
   const [allClasses, setAllClasses] = useState([]); //State der skal indeholde alle hold, der passer til kategori filtrering
   const [classSelection, setClassSelection] = useState([]); //State der kun skal indeholde den valgte dags hold. Dette er det data, der bliver vist på siden
 
-  //useEffect kører ved første rendering, samt hver gang chosenCategory eller chosenDayNumber bliver ændret
+  //useEffect kører ved første rendering, samt hver gang chosenCategory, chosenDayNumber eller chosenClass bliver ændret
   useEffect(() => {
     async function showClasses() {
       //Hvis chosenCategory er sat til en kategori, skal der kun fetches hold indenfor kategorien
@@ -48,6 +48,7 @@ export default function Holdplan() {
           setClassSelection((allClasses) => [...allClasses, { title: item.title, trainer: item.trainer, location: item.location, time: obj }]);
         });
       });
+
       //Herunder tager vi vores nye data i allClasses + classSelection og sorterer det i deres "time.start" tidspunkt.
       //Derved får vi dem rykket rundt til at ligge i rækkefølge fra tidligste start tid til seneste
       setAllClasses((old) => old.sort((a, b) => a.time.start - b.time.start));
@@ -58,37 +59,15 @@ export default function Holdplan() {
       const dayNames = ["Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag"];
       const today = dayNames[chosenDayNumber];
       setClassSelection((old) => old.filter((item) => item.time.weekday === today));
+
+      //Her filtrer vi en sidste gang, denne gang for det valgte hold. Dette er kun hvis det ikke er alle hold (all-class) der er valgt
+      if (chosenClass !== "all-class") {
+        setAllClasses((old) => old.filter((item) => item.title === chosenClass));
+        setClassSelection((old) => old.filter((item) => item.title === chosenClass));
+      }
     }
     showClasses();
-  }, [chosenCategory, chosenDayNumber]);
-
-  // const dayNames = ["Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag"];
-  // const today = dayNames[chosenDayNumber];
-  // const isDisabled = allClasses.filter((item) => item.time.weekday === today).length === 0 ? true : false;
-  // // const isDisabled = allClasses.length !== 0 ? allClasses.filter((item) => item.time.weekday === day) : "";
-  // //console.log(isDisabled.length)
-  // console.log(isDisabled);
-  //console.log(allClasses);
-  //const dayFilter = allClasses.filter((clas) => clas.time.weekday === "Mandag");
-  //console.log(dayFilter);
-  // const allClassesSorted = allClasses && allClasses.sort((a, b) => a.time.start - b.time.start);
-  // console.log(allClassesSorted);
-  //console.log(allClasses);
-  // function findStartTimes() {
-  //   const startTimes = classSelection && classSelection.flatMap((item) => item.time.map((obj) => obj.start));
-  //   setStartTime(startTimes);
-  //   console.log(startTime);
-  //}
-  // findStartTimes();
-  //const test = [{ no: 10 }, { no: 8 }, { no: 9 }];
-  // function compareNumbers(a, b) {
-  //   return a - b;
-  // }
-
-  // console.log(
-  //   test.sort((a, b) => a.no - b.no),
-  //   test
-  // );
+  }, [chosenCategory, chosenDayNumber, chosenClass]);
 
   return (
     <>
@@ -135,12 +114,6 @@ export default function Holdplan() {
               classSelection.map((item) => {
                 const uniqueId = Math.random();
                 return <ClassItem key={uniqueId} classtitle={item.title + item.time.weekday} coach={item.trainer} time={item.time.start} location={item.location} chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />;
-                //console.log("1st map");
-                // item.time.map((obj) => {
-                //   const uniqueId = Math.random();
-                //   console.log(obj.start, item.title);
-                //   return <p key={uniqueId}>hallo</p>;
-                // });
               })
             ) : (
               <section className={styles.noClasses}>
@@ -148,31 +121,6 @@ export default function Holdplan() {
               </section>
             )}
 
-            {/* {classSelection &&
-              classSelection.map((item) => {
-                const uniqueId = Math.random();
-                item.time.map((obj) => {
-                  console.log(obj.start);
-                  return <p key={uniqueId}>hallo</p>;
-                });
-                //console.log("1st map");
-                // item.time.map((obj) => {
-                //   const uniqueId = Math.random();
-                //   console.log(obj.start, item.title);
-                //   return <p key={uniqueId}>hallo</p>;
-                // });
-              })} */}
-            {/* <ClassItem classtitle="Nordic Strong Power" coach="Michael Andersen" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
-            <ClassItem classtitle="Mindfull stræk & afspænding" coach="Frederik Tønder-Prien" time="00:00-00:00" location="Cross" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
-            <ClassItem classtitle="Boldma" coach="Christina Præstkær" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
-            <ClassItem classtitle="Nordic Strong Powe" coach="Michael Andersen" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
-            <ClassItem classtitle="Mindfull stræk og afspændin" coach="Frederik Tønder-Prien" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
-            <ClassItem classtitle="Boldmassage af bindevævt" coach="Christina Præstkær" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
-            <ClassItem classtitle="Nordic Strong Pwer" coach="Michael Andersen" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
-            <ClassItem classtitle="Mindfull stræk o afspænding" coach="Frederik Tønder-Prien" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
-            <ClassItem classtitle="Boldmassae af bindevævet" coach="Christina Præstkær" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
-            <ClassItem classtitle="Mindfll stræk o afspænding" coach="Frederik Tønder-Prien" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />
-            <ClassItem classtitle="Boldmssae af bindevævet" coach="Christina Præstkær" time="13:45-11:00" location="CrossTraining" chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} /> */}
             {chosenClassItem !== "" && (
               <section className={styles.mobile_btn_section}>
                 <div className={styles.flex}>

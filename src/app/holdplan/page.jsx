@@ -125,8 +125,9 @@ export default function Holdplan() {
 
             {classSelection.length > 0 ? (
               classSelection.map((item) => {
+                //her map'er vi over classSelection, der indeholder den valgte dags hold udvalg
+                //Tiden i vores data er ikke pænt, så den kommer igennem styleTimes funktionen
                 const newStart = styleTimes(item.time.start);
-                console.log(newStart);
                 const newEnd = styleTimes(item.time.end);
                 const uniqueId = Math.random();
                 return <ClassItem key={uniqueId} classtitle={item.title} coach={item.trainer} time={newStart + "-" + newEnd} location={item.location} chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />;

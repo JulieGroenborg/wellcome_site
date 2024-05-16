@@ -14,12 +14,6 @@ export default function DayRadio({ day, setChosenDayNumber, chosenDayNumber, all
   const chosenDayTranslate = dayNames[chosenDayNumber];
   const isToday = chosenDayTranslate === day ? true : false;
 
-  // const test = allClasses.length === 0;
-  // const isDisabled = !test && allClasses.filter((item) => item.time.weekday === day).length === 0 ? true : false;
-  // // const isDisabled = allClasses.length !== 0 ? allClasses.filter((item) => item.time.weekday === day) : "";
-  // //console.log(isDisabled.length)
-  //setAllClasses((old) => old.filter((item) => item.time.weekday === today));
-
   return (
     <section className={styles.container}>
       <input

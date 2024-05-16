@@ -84,7 +84,7 @@ export default function FilteringSection({ chosenCategory, setChosenCategory, ch
 
           {selectValues.length < 33 &&
             selectValues.map((item) => {
-              return <ClassFilterRadio id={item.title} name="class_filters" label={item.title} color="black" setChosenClass={setChosenClass} chosenClass={chosenClass} key={item.title} />;
+              return <ClassFilterRadio id={item.title} name="class_filters" label={item.title} color="black" setChosenClass={setChosenClass} key={item.title} />;
             })}
         </section>
       )}

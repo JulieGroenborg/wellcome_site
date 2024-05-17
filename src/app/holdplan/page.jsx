@@ -19,6 +19,10 @@ export default function Holdplan() {
   const [allClasses, setAllClasses] = useState([]); //State der skal indeholde alle hold, der passer til kategori filtrering
   const [classSelection, setClassSelection] = useState([]); //State der kun skal indeholde den valgte dags hold. Dette er det data, der bliver vist på siden
 
+  const dayNames = ["Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag"];
+  let today = dayNames[chosenDayNumber];
+  console.log("the day is", today);
+
   //useEffect kører ved første rendering, samt hver gang chosenCategory, chosenDayNumber eller chosenClass bliver ændret
   useEffect(() => {
     async function showClasses() {
@@ -54,11 +58,11 @@ export default function Holdplan() {
       setAllClasses((old) => old.sort((a, b) => a.time.start - b.time.start));
       setClassSelection((old) => old.sort((a, b) => a.time.start - b.time.start));
 
-      //For at få filtreret vores data til kun at have den valgte dags hold, skal vi oversætte chosenDayNumber.
-      //Den viser nemlig kun dagen i et tal, hvor søndag=0 og lørdag=6
-      const dayNames = ["Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag"];
-      const today = dayNames[chosenDayNumber];
-      setClassSelection((old) => old.filter((item) => item.time.weekday === today));
+      // //For at få filtreret vores data til kun at have den valgte dags hold, skal vi oversætte chosenDayNumber.
+      // //Den viser nemlig kun dagen i et tal, hvor søndag=0 og lørdag=6
+      // // const dayNames = ["Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag"];
+      // // const today = dayNames[chosenDayNumber];
+      // setClassSelection((old) => old.filter((item) => item.time.weekday === today));
 
       //Her filtrer vi en sidste gang, denne gang for det valgte hold. Dette er kun hvis det ikke er alle hold (all-class) der er valgt
       if (chosenClass !== "all-class") {
@@ -67,7 +71,19 @@ export default function Holdplan() {
       }
     }
     showClasses();
-  }, [chosenCategory, chosenDayNumber, chosenClass]);
+  }, [chosenCategory, chosenDayNumber, chosenClass, today]);
+
+  // let isToday = chosenDayTranslate === day ? true : false;
+
+  if (allClasses.length !== 0) {
+    //console.log("if-1");
+    //console.log(classSelection.map((item) => item.time.weekday));
+    if (!allClasses.find((item) => item.time.weekday === today)) {
+      // setChosenDayNumber((old) => old + 1);
+      setChosenDayNumber((old) => (old === 6 ? (old = 0) : old + 1));
+      //console.log("if-2");
+    }
+  }
 
   function styleTimes(times) {
     let newTime;
@@ -86,6 +102,20 @@ export default function Holdplan() {
     <>
       <main className={styles.main}>
         <header className={styles.header}>hello im a test header</header>
+        <form>
+          <label htmlFor="test">
+            <input type="radio" id="test" name="testgroup" disabled />
+            test
+          </label>
+          <label htmlFor="test1">
+            <input type="radio" id="test1" name="testgroup" />
+            test1
+          </label>
+          <label htmlFor="test2">
+            <input type="radio" id="test2" name="testgroup" />
+            test2
+          </label>
+        </form>
         <article className={styles.class_overview}>
           <FilteringSection chosenCategory={chosenCategory} setChosenCategory={setChosenCategory} chosenClass={chosenClass} setChosenClass={setChosenClass} />
           <div className={styles.week_overview}>
@@ -106,13 +136,14 @@ export default function Holdplan() {
             />
           </div>
           <section className={styles.day_section}>
-            <DayRadio day="Mandag" setChosenDayNumber={setChosenDayNumber} chosenDayNumber={chosenDayNumber} allClasses={allClasses} classSelection={classSelection} />
-            <DayRadio day="Tirsdag" setChosenDayNumber={setChosenDayNumber} chosenDayNumber={chosenDayNumber} allClasses={allClasses} classSelection={classSelection} />
-            <DayRadio day="Onsdag" setChosenDayNumber={setChosenDayNumber} chosenDayNumber={chosenDayNumber} allClasses={allClasses} classSelection={classSelection} />
-            <DayRadio day="Torsdag" setChosenDayNumber={setChosenDayNumber} chosenDayNumber={chosenDayNumber} allClasses={allClasses} classSelection={classSelection} />
-            <DayRadio day="Fredag" setChosenDayNumber={setChosenDayNumber} chosenDayNumber={chosenDayNumber} allClasses={allClasses} classSelection={classSelection} />
-            <DayRadio day="Lørdag" setChosenDayNumber={setChosenDayNumber} chosenDayNumber={chosenDayNumber} allClasses={allClasses} classSelection={classSelection} />
-            <DayRadio day="Søndag" setChosenDayNumber={setChosenDayNumber} chosenDayNumber={chosenDayNumber} allClasses={allClasses} classSelection={classSelection} />
+            {/* <WeekSection setChosenDayNumber={setChosenDayNumber} chosenDayNumber={chosenDayNumber} allClasses={allClasses} classSelection={classSelection} today={today} /> */}
+            <DayRadio day="Mandag" setChosenDayNumber={setChosenDayNumber} chosenDayNumber={chosenDayNumber} allClasses={allClasses} classSelection={classSelection} checked={today === "Mandag" && true} />
+            <DayRadio day="Tirsdag" setChosenDayNumber={setChosenDayNumber} chosenDayNumber={chosenDayNumber} allClasses={allClasses} classSelection={classSelection} checked={today === "Tirsdag" && true} />
+            <DayRadio day="Onsdag" setChosenDayNumber={setChosenDayNumber} chosenDayNumber={chosenDayNumber} allClasses={allClasses} classSelection={classSelection} checked={today === "Onsdag" && true} />
+            <DayRadio day="Torsdag" setChosenDayNumber={setChosenDayNumber} chosenDayNumber={chosenDayNumber} allClasses={allClasses} classSelection={classSelection} checked={today === "Torsdag" && true} />
+            <DayRadio day="Fredag" setChosenDayNumber={setChosenDayNumber} chosenDayNumber={chosenDayNumber} allClasses={allClasses} classSelection={classSelection} checked={today === "Fredag" && true} />
+            <DayRadio day="Lørdag" setChosenDayNumber={setChosenDayNumber} chosenDayNumber={chosenDayNumber} allClasses={allClasses} classSelection={classSelection} checked={today === "Lørdag" && true} />
+            <DayRadio day="Søndag" setChosenDayNumber={setChosenDayNumber} chosenDayNumber={chosenDayNumber} allClasses={allClasses} classSelection={classSelection} checked={today === "Søndag" && true} />
           </section>
           <section>
             <section className={styles.classview_example}>
@@ -123,20 +154,15 @@ export default function Holdplan() {
               <p>Lokale</p>
             </section>
 
-            {classSelection.length > 0 ? (
+            {classSelection &&
               classSelection.map((item) => {
                 //her map'er vi over classSelection, der indeholder den valgte dags hold udvalg
                 //Tiden i vores data er ikke pænt, så den kommer igennem styleTimes funktionen
                 const newStart = styleTimes(item.time.start);
                 const newEnd = styleTimes(item.time.end);
                 const uniqueId = Math.random();
-                return <ClassItem key={uniqueId} classtitle={item.title} coach={item.trainer} time={newStart + "-" + newEnd} location={item.location} chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />;
-              })
-            ) : (
-              <section className={styles.noClasses}>
-                <p>Der fremgår ingen hold denne dag. Vælg venligst en anden dag.</p>
-              </section>
-            )}
+                return <ClassItem key={uniqueId} classtitle={item.title + item.time.weekday} coach={item.trainer} time={newStart + "-" + newEnd} location={item.location} chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />;
+              })}
 
             {chosenClassItem !== "" && (
               <section className={styles.mobile_btn_section}>
@@ -147,6 +173,7 @@ export default function Holdplan() {
             )}
           </section>
         </article>
+
         <footer className={styles.footer}>hello im a test footer</footer>
       </main>
     </>

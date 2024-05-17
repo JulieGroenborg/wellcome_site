@@ -17,7 +17,6 @@
     border: solid $border-width $off-black400;
 
     &:hover,
-    &:checked,
     &:focus {
       background-color: $off-black400;
       border: none;
@@ -26,7 +25,6 @@
     }
 
     &:hover + .label,
-    &:checked + .label,
     &:focus + .label {
       color: $white;
     }
@@ -38,14 +36,21 @@
       & + .label {
         color: $black;
       }
-      &:hover,
-      &:checked {
+      &:hover {
         border: solid $border-width $off-black400;
         background-color: $grey200;
       }
     }
   }
-
+  .checked {
+    background-color: $off-black400;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    & + .label {
+      color: $white;
+    }
+  }
   .label {
     position: absolute;
     color: $black;

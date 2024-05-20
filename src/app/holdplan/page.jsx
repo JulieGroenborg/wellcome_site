@@ -6,6 +6,7 @@ import DayBtn from "../components/holdplan/DayBtn";
 import ClassItem from "../components/holdplan/ClassItem";
 import ArrowBtn from "../components/global/ArrowBtn";
 import FilteringSection from "../components/holdplan/FilteringSection";
+import HeaderOne from "../components/global/HeaderOne";
 
 export default function Holdplan() {
   const [chosenCategory, setChosenCategory] = useState("all-categories"); //State til at vide hvilken kategori, der filtreres efter
@@ -94,6 +95,7 @@ export default function Holdplan() {
     <>
       <main className={styles.main}>
         <header className={styles.header}>hello im a test header</header>
+        <HeaderOne title="Holdplan" color="black" />
 
         <article className={styles.class_overview}>
           <FilteringSection chosenCategory={chosenCategory} setChosenCategory={setChosenCategory} chosenClass={chosenClass} setChosenClass={setChosenClass} />

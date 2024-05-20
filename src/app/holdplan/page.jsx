@@ -139,7 +139,7 @@ export default function Holdplan() {
                 //Tiden i vores data er ikke pænt, så den kommer igennem styleTimes funktionen
                 const newStart = styleTimes(item.time.start);
                 const newEnd = styleTimes(item.time.end);
-                return <ClassItem key={item.id} classtitle={item.title} coach={item.trainer} time={newStart + "-" + newEnd} location={item.location} chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />;
+                return <ClassItem key={item.id} id={item.id} classtitle={item.title} coach={item.trainer} time={newStart + "-" + newEnd} location={item.location} chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />;
               })}
 
             {chosenClassItem !== "" && (

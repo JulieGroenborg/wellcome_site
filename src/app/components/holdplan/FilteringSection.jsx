@@ -30,7 +30,7 @@ export default function FilteringSection({ chosenCategory, setChosenCategory, ch
   }, [chosenCategory]);
 
   return (
-    <>
+    <section>
       <div className={styles.category_select_wrapper}>
         <select
           onChange={(e) => {
@@ -88,6 +88,6 @@ export default function FilteringSection({ chosenCategory, setChosenCategory, ch
             })}
         </section>
       )}
-    </>
+    </section>
   );
 }

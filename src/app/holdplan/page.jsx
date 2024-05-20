@@ -2,13 +2,10 @@
 import { useState, useEffect } from "react";
 import styles from "./holdplan.module.scss";
 import LinkBtn from "../components/global/LinkBtn";
-import DayRadio from "../components/holdplan/DayRadio";
+import DayBtn from "../components/holdplan/DayBtn";
 import ClassItem from "../components/holdplan/ClassItem";
 import ArrowBtn from "../components/global/ArrowBtn";
 import FilteringSection from "../components/holdplan/FilteringSection";
-
-//API url: https://hovludcpqudqvcqteblj.supabase.co/rest/v1/Hold
-//API key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhvdmx1ZGNwcXVkcXZjcXRlYmxqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQwMzI4MzEsImV4cCI6MjAyOTYwODgzMX0.5K-wz_oerFZ5hmvUq0IOPgJHn0e1sRYh57y_8pFqnKk
 
 export default function Holdplan() {
   const [chosenCategory, setChosenCategory] = useState("all-categories"); //State til at vide hvilken kategori, der filtreres efter
@@ -18,6 +15,11 @@ export default function Holdplan() {
   const [chosenDayNumber, setChosenDayNumber] = useState(new Date().getDay()); //State til at vide hvilken dag er valgt. Er ved 1st rendering nr. på dagen i dag.
   const [allClasses, setAllClasses] = useState([]); //State der skal indeholde alle hold, der passer til kategori filtrering
   const [classSelection, setClassSelection] = useState([]); //State der kun skal indeholde den valgte dags hold. Dette er det data, der bliver vist på siden
+
+  //For at få filtreret vores data til kun at have en bestemt dags hold, skal vi oversætte chosenDayNumber.
+  //Den viser nemlig kun dagen i et tal, hvor søndag=0 og lørdag=6, derfor har vi her et array med alle dagene i samme rækkefølge
+  const dayNames = ["Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag"];
+  let today = dayNames[chosenDayNumber]; //today sætter vi her til at være den oversatte valgte dag
 
   //useEffect kører ved første rendering, samt hver gang chosenCategory, chosenDayNumber eller chosenClass bliver ændret
   useEffect(() => {
@@ -55,35 +57,26 @@ export default function Holdplan() {
       setAllClasses((old) => old.sort((a, b) => a.time.start - b.time.start));
       setClassSelection((old) => old.sort((a, b) => a.time.start - b.time.start));
 
-      // //For at få filtreret vores data til kun at have den valgte dags hold, skal vi oversætte chosenDayNumber.
-      // //Den viser nemlig kun dagen i et tal, hvor søndag=0 og lørdag=6
-      // // const dayNames = ["Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag"];
-      // // const today = dayNames[chosenDayNumber];
-      // setClassSelection((old) => old.filter((item) => item.time.weekday === today));
+      //Her filtrere vi efter hvilken dag, der er valgt (ved 1st rendering er det dagen i dag)
+      setClassSelection((old) => old.filter((item) => item.time.weekday === today));
 
-      //Her filtrer vi en sidste gang, denne gang for det valgte hold. Dette er kun hvis det ikke er alle hold (all-class) der er valgt
+      //Her filtrere vi en sidste gang, denne gang for det valgte hold. Dette er kun hvis det ikke er alle hold (all-class) der er valgt
       if (chosenClass !== "all-class") {
         setAllClasses((old) => old.filter((item) => item.title === chosenClass));
         setClassSelection((old) => old.filter((item) => item.title === chosenClass));
       }
     }
     showClasses();
-  }, [chosenCategory, chosenDayNumber, chosenClass]);
+  }, [chosenCategory, chosenDayNumber, chosenClass, today]);
 
-  // let isToday = chosenDayTranslate === day ? true : false;
-  const dayNames = ["Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag"];
-  let today = dayNames[chosenDayNumber];
-
+  //Hvis den valgte dag ikke indeholder nogle hold, så skal vi have valgt en anden dag. Dette gøres her ved at skifte til den næste dag
   if (allClasses.length !== 0) {
-    //console.log("if-1");
-    //console.log(classSelection.map((item) => item.time.weekday));
     if (!allClasses.find((item) => item.time.weekday === today)) {
-      // setChosenDayNumber((old) => old + 1);
       setChosenDayNumber((old) => (old === 6 ? (old = 0) : old + 1));
-      //console.log("if-2");
     }
   }
 
+  //Function til at style på vores start og slut tider
   function styleTimes(times) {
     let newTime;
     if (times < 999) {
@@ -122,18 +115,16 @@ export default function Holdplan() {
             />
           </div>
           <section className={styles.day_section}>
-            {/* <WeekSection setChosenDayNumber={setChosenDayNumber} chosenDayNumber={chosenDayNumber} allClasses={allClasses} classSelection={classSelection} today={today} /> */}
-            <DayRadio day="Mandag" setChosenDayNumber={setChosenDayNumber} chosenDayNumber={chosenDayNumber} allClasses={allClasses} classSelection={classSelection} checked={today === "Mandag" && true} />
-            <DayRadio day="Tirsdag" setChosenDayNumber={setChosenDayNumber} chosenDayNumber={chosenDayNumber} allClasses={allClasses} classSelection={classSelection} checked={today === "Tirsdag" && true} />
-            <DayRadio day="Onsdag" setChosenDayNumber={setChosenDayNumber} chosenDayNumber={chosenDayNumber} allClasses={allClasses} classSelection={classSelection} checked={today === "Onsdag" && true} />
-            <DayRadio day="Torsdag" setChosenDayNumber={setChosenDayNumber} chosenDayNumber={chosenDayNumber} allClasses={allClasses} classSelection={classSelection} checked={today === "Torsdag" && true} />
-            <DayRadio day="Fredag" setChosenDayNumber={setChosenDayNumber} chosenDayNumber={chosenDayNumber} allClasses={allClasses} classSelection={classSelection} checked={today === "Fredag" && true} />
-            <DayRadio day="Lørdag" setChosenDayNumber={setChosenDayNumber} chosenDayNumber={chosenDayNumber} allClasses={allClasses} classSelection={classSelection} checked={today === "Lørdag" && true} />
-            <DayRadio day="Søndag" setChosenDayNumber={setChosenDayNumber} chosenDayNumber={chosenDayNumber} allClasses={allClasses} classSelection={classSelection} checked={today === "Søndag" && true} />
+            <DayBtn day="Mandag" setChosenDayNumber={setChosenDayNumber} allClasses={allClasses} checked={today === "Mandag" && true} />
+            <DayBtn day="Tirsdag" setChosenDayNumber={setChosenDayNumber} allClasses={allClasses} checked={today === "Tirsdag" && true} />
+            <DayBtn day="Onsdag" setChosenDayNumber={setChosenDayNumber} allClasses={allClasses} checked={today === "Onsdag" && true} />
+            <DayBtn day="Torsdag" setChosenDayNumber={setChosenDayNumber} allClasses={allClasses} checked={today === "Torsdag" && true} />
+            <DayBtn day="Fredag" setChosenDayNumber={setChosenDayNumber} allClasses={allClasses} checked={today === "Fredag" && true} />
+            <DayBtn day="Lørdag" setChosenDayNumber={setChosenDayNumber} allClasses={allClasses} checked={today === "Lørdag" && true} />
+            <DayBtn day="Søndag" setChosenDayNumber={setChosenDayNumber} allClasses={allClasses} checked={today === "Søndag" && true} />
           </section>
           <section>
             <section className={styles.classview_example}>
-              {" "}
               <p>Tidsrum</p>
               <p>Hold</p>
               <p>Instruktør</p>
@@ -146,7 +137,7 @@ export default function Holdplan() {
                 //Tiden i vores data er ikke pænt, så den kommer igennem styleTimes funktionen
                 const newStart = styleTimes(item.time.start);
                 const newEnd = styleTimes(item.time.end);
-                return <ClassItem key={item.id} classtitle={item.title + item.time.weekday} coach={item.trainer} time={newStart + "-" + newEnd} location={item.location} chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />;
+                return <ClassItem key={item.id} classtitle={item.title} coach={item.trainer} time={newStart + "-" + newEnd} location={item.location} chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />;
               })}
 
             {chosenClassItem !== "" && (

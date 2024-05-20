@@ -15,25 +15,45 @@
     height: 100%;
     background-color: $white;
     border: solid $border-width $off-black400;
-    color: $black;
 
     &:hover,
-    &:checked,
     &:focus {
       background-color: $off-black400;
       border: none;
       outline: none;
+      cursor: pointer;
     }
 
     &:hover + .label,
-    &:checked + .label,
     &:focus + .label {
       color: $white;
     }
-  }
 
+    &:disabled {
+      background-color: $grey200;
+      cursor: inherit;
+
+      & + .label {
+        color: $black;
+      }
+      &:hover {
+        border: solid $border-width $off-black400;
+        background-color: $grey200;
+      }
+    }
+  }
+  .checked {
+    background-color: $off-black400;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    & + .label {
+      color: $white;
+    }
+  }
   .label {
     position: absolute;
+    color: $black;
     font-size: $spacing-16;
     font-weight: $font-regular;
     line-height: $line-height-m;

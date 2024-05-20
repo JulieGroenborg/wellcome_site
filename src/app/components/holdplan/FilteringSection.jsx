@@ -1,10 +1,12 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import styles from "./FilteringSection.module.scss";
 import CategoryFilterRadio from "./CategoryFilterRadio";
 import ClassFilterRadio from "./ClassFilterRadio";
 
-export default function FilteringSection({ chosenCategory, setChosenCategory, chosenClass, setChosenClass, selectValues, setSelectValues }) {
+export default function FilteringSection({ chosenCategory, setChosenCategory, chosenClass, setChosenClass }) {
+  const [selectValues, setSelectValues] = useState(""); //State der indeholder de hold, der vises i hold filtreringen
+
   //Hver gang chosenCategory bliver ændret, vil der blive fetchet alle de hold, der hører til den valgte kategori
   useEffect(() => {
     async function showCategory() {
@@ -25,12 +27,20 @@ export default function FilteringSection({ chosenCategory, setChosenCategory, ch
       setSelectValues(data);
     }
     showCategory();
-  }, [chosenCategory, setSelectValues]);
+  }, [chosenCategory]);
 
   return (
-    <>
+    <section>
       <div className={styles.category_select_wrapper}>
-        <select onChange={(e) => setChosenCategory(e.target.value)} name="category_filter" id="category_filter" className={styles.category_select}>
+        <select
+          onChange={(e) => {
+            setChosenCategory(e.target.value);
+            setChosenClass("all-class");
+          }}
+          name="category_filter"
+          id="category_filter"
+          className={styles.category_select}
+        >
           <option value="all-categories">Alle kategorier</option>
           <option value="Energy">Welcome Energy</option>
           <option value="Body-mind">Welcome Body Mind</option>
@@ -44,8 +54,8 @@ export default function FilteringSection({ chosenCategory, setChosenCategory, ch
       </div>
       {chosenCategory !== "all-categories" && (
         <div className={styles.class_select_wrapper}>
-          <select name="class_filter" id="class_filter" className={styles.class_select}>
-            <option value="all_classes">Alle hold</option>
+          <select onChange={(e) => setChosenClass(e.target.value)} name="class_filter" id="class_filter" className={styles.class_select}>
+            <option value="all-class">Alle hold</option>
             {selectValues &&
               selectValues.map((item) => {
                 return (
@@ -78,6 +88,6 @@ export default function FilteringSection({ chosenCategory, setChosenCategory, ch
             })}
         </section>
       )}
-    </>
+    </section>
   );
 }

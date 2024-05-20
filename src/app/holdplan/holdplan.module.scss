@@ -4,9 +4,15 @@
   display: grid;
   justify-content: center;
   height: 100vh;
+  width: 100vw;
 
   .header {
     height: 100px;
+  }
+
+  h1 {
+    margin-left: $spacing-24;
+    margin-bottom: $spacing-24;
   }
 
   .class_overview {
@@ -42,11 +48,10 @@
       background-color: $grey200;
       border: solid $border-width $off-black400;
 
-      font-family: $poppins-font;
-      text-transform: uppercase;
-      font-size: $spacing-12;
-      font-weight: $font-regular;
-      line-height: $line-height-m;
+      p {
+        font-size: $spacing-12;
+        text-transform: uppercase;
+      }
 
       p:nth-of-type(1),
       p:nth-of-type(3) {
@@ -60,6 +65,15 @@
         justify-self: end;
         padding: $spacing-4 $spacing-8 $spacing-4 0;
       }
+    }
+
+    .noClasses {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 $spacing-24;
+      width: auto;
+      height: $spacing-80;
     }
 
     .mobile_btn_section {
@@ -89,6 +103,15 @@
 
 @media (min-width: 850px) {
   .main {
+    display: grid;
+
+    h1 {
+      justify-self: center;
+      width: 100%;
+      max-width: 1050px;
+      margin-bottom: $spacing-32;
+      margin-left: 0;
+    }
     .class_overview {
       display: grid;
       justify-content: center;
@@ -107,9 +130,13 @@
       }
 
       .classview_example {
-        grid-template-columns: 1fr 3fr 2fr 1fr 192px;
+        grid-template-columns: 1fr 3fr 2fr 2fr 192px;
         margin: 0;
         max-width: 1050px;
+
+        p {
+          font-size: $spacing-16;
+        }
 
         p:nth-of-type(1) {
           width: 122px;

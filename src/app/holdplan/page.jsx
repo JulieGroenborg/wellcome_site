@@ -19,10 +19,6 @@ export default function Holdplan() {
   const [allClasses, setAllClasses] = useState([]); //State der skal indeholde alle hold, der passer til kategori filtrering
   const [classSelection, setClassSelection] = useState([]); //State der kun skal indeholde den valgte dags hold. Dette er det data, der bliver vist på siden
 
-  const dayNames = ["Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag"];
-  let today = dayNames[chosenDayNumber];
-  console.log("the day is", today);
-
   //useEffect kører ved første rendering, samt hver gang chosenCategory, chosenDayNumber eller chosenClass bliver ændret
   useEffect(() => {
     async function showClasses() {
@@ -48,8 +44,9 @@ export default function Holdplan() {
       //Vi opdaterer allClasses + classSelection states til at indeholde en ny version af vores fetchede data. Her putter vi holdene ind for hver gang de skal optræde på planen
       data.map((item) => {
         item.time.map((obj) => {
-          setAllClasses((allClasses) => [...allClasses, { title: item.title, trainer: item.trainer, location: item.location, time: obj }]);
-          setClassSelection((allClasses) => [...allClasses, { title: item.title, trainer: item.trainer, location: item.location, time: obj }]);
+          const uniqueId = Math.random();
+          setAllClasses((allClasses) => [...allClasses, { id: uniqueId, title: item.title, trainer: item.trainer, location: item.location, time: obj }]);
+          setClassSelection((allClasses) => [...allClasses, { id: uniqueId, title: item.title, trainer: item.trainer, location: item.location, time: obj }]);
         });
       });
 
@@ -71,9 +68,11 @@ export default function Holdplan() {
       }
     }
     showClasses();
-  }, [chosenCategory, chosenDayNumber, chosenClass, today]);
+  }, [chosenCategory, chosenDayNumber, chosenClass]);
 
   // let isToday = chosenDayTranslate === day ? true : false;
+  const dayNames = ["Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag"];
+  let today = dayNames[chosenDayNumber];
 
   if (allClasses.length !== 0) {
     //console.log("if-1");
@@ -102,20 +101,7 @@ export default function Holdplan() {
     <>
       <main className={styles.main}>
         <header className={styles.header}>hello im a test header</header>
-        <form>
-          <label htmlFor="test">
-            <input type="radio" id="test" name="testgroup" disabled />
-            test
-          </label>
-          <label htmlFor="test1">
-            <input type="radio" id="test1" name="testgroup" />
-            test1
-          </label>
-          <label htmlFor="test2">
-            <input type="radio" id="test2" name="testgroup" />
-            test2
-          </label>
-        </form>
+
         <article className={styles.class_overview}>
           <FilteringSection chosenCategory={chosenCategory} setChosenCategory={setChosenCategory} chosenClass={chosenClass} setChosenClass={setChosenClass} />
           <div className={styles.week_overview}>
@@ -160,8 +146,7 @@ export default function Holdplan() {
                 //Tiden i vores data er ikke pænt, så den kommer igennem styleTimes funktionen
                 const newStart = styleTimes(item.time.start);
                 const newEnd = styleTimes(item.time.end);
-                const uniqueId = Math.random();
-                return <ClassItem key={uniqueId} classtitle={item.title + item.time.weekday} coach={item.trainer} time={newStart + "-" + newEnd} location={item.location} chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />;
+                return <ClassItem key={item.id} classtitle={item.title + item.time.weekday} coach={item.trainer} time={newStart + "-" + newEnd} location={item.location} chosenClassItem={chosenClassItem} setChosenClassItem={setChosenClassItem} />;
               })}
 
             {chosenClassItem !== "" && (

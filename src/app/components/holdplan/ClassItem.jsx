@@ -4,16 +4,7 @@ import styles from "./ClassItem.module.scss";
 export default function ClassItem({ time, classtitle, coach, location, setChosenClassItem }) {
   return (
     <section className={styles.container}>
-      <input
-        type="radio"
-        name="classes"
-        id={classtitle}
-        value={classtitle}
-        className={styles.input}
-        onChange={() => {
-          setChosenClassItem(classtitle);
-        }}
-      />
+      <input type="radio" name="classes" id={classtitle} value={classtitle} className={styles.input} onChange={() => setChosenClassItem(classtitle)} />
       <label htmlFor={classtitle} className={styles.label}>
         <span>{time}</span>
         <span>{classtitle}</span>

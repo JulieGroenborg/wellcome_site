@@ -1,1 +1,49 @@
 @use "src/app/variables" as *;
+
+.footer_section {
+  background-color: $off-black400;
+  display: flex;
+  justify-content: space-between;
+  height: 240px;
+  padding-left: 130px;
+  padding-right: 130px;
+  place-items: center;
+
+  p {
+    color: $white;
+    font-family: $raleway-font;
+    line-height: 250%;
+  }
+  div {
+    display: flex;
+    flex-direction: column;
+  }
+  .right {
+    place-items: end;
+    width: 334px;
+  }
+  .center {
+    place-items: center;
+    width: 334px;
+  }
+  .left {
+    max-width: fit-content;
+  }
+  .some_icons {
+    flex-direction: row;
+    width: 80px;
+    place-content: center;
+    justify-content: space-evenly;
+  }
+  svg {
+    width: 20px;
+    height: 20px;
+    fill: $white;
+    &:hover {
+      fill: $brand-color400;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+}

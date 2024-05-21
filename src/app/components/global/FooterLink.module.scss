@@ -1,0 +1,12 @@
+@use "src/app/variables" as *;
+
+.footer_link {
+  color: $white;
+  text-decoration: underline;
+  text-transform: none;
+  font-family: $raleway-font;
+  line-height: 200%;
+  &:hover {
+    color: $brand-color400;
+  }
+}

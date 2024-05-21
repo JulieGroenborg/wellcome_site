@@ -8,13 +8,13 @@ export default function Footer() {
       <div className={styles.left}>
         <FooterLink text="FAQ" href="/" />
         <FooterLink text="Kontakt" href="/" />
-        <p>Philip Haymanns Alle 17, 1, 107, 2900 Hellerup</p>
+        <FooterLink text="Adresse" href="/" />
       </div>
       <div className={styles.center}>
         <FooterLink text="Downloade vores App" href="/" />
         <p>CVR 27218997</p>
         <div className={styles.some_icons}>
-          <Link href="/faa">
+          <Link className={styles.svg} href="/faa">
             <svg
               width="24"
               height="24"
@@ -26,7 +26,7 @@ export default function Footer() {
             </svg>
           </Link>
 
-          <Link href="/faa">
+          <Link className={styles.svg} href="/faa">
             <svg
               width="24"
               height="24"

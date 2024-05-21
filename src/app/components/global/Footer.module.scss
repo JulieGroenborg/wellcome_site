@@ -2,42 +2,49 @@
 
 .footer_section {
   background-color: $off-black400;
-  display: flex;
+  display: grid;
   justify-content: space-between;
-  height: 240px;
-  padding-left: 130px;
-  padding-right: 130px;
-  place-items: center;
+  height: auto;
+  padding: 54px;
 
+  .svg {
+    padding-right: 8px;
+  }
   p {
     color: $white;
     font-family: $raleway-font;
-    line-height: 250%;
+    line-height: 200%;
+    font-size: 16px;
   }
   div {
     display: flex;
     flex-direction: column;
   }
-  .right {
-    place-items: end;
+  .right,
+  .center,
+  .left {
     width: 334px;
   }
+
+  .right {
+    order: 2;
+  }
+
   .center {
-    place-items: center;
-    width: 334px;
+    order: 3;
   }
   .left {
-    max-width: fit-content;
+    order: 1;
   }
+
   .some_icons {
     flex-direction: row;
     width: 80px;
-    place-content: center;
-    justify-content: space-evenly;
+    place-content: left;
   }
   svg {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     fill: $white;
     &:hover {
       fill: $brand-color400;
@@ -46,4 +53,26 @@
 }
 
 @media (min-width: 768px) {
+  .footer_section {
+    display: flex;
+    padding-left: 130px;
+    padding-right: 130px;
+
+    .center {
+      place-items: center;
+    }
+    .right {
+      place-items: end;
+      order: 3;
+    }
+    .some_icons {
+      place-content: center;
+      justify-content: space-evenly;
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
 }

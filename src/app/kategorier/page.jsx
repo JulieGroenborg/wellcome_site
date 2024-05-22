@@ -36,7 +36,7 @@ export default function kategorier() {
           <p className={styles.trainer_paragraph}>
             I Wellcome kan du træne med en af vores dygtige personlige trænere - også uden du er medlem i centeret. Ved check-in til hver træning modtager du en vand og et håndklæde. Læs om alle vores personlige trænere eller book en tid her.
           </p>
-          <LinkBtn variant="secondary" href="*" text="Se trænere"></LinkBtn>
+          <LinkBtn margin={true} variant="secondary" href="*" text="Se trænere"></LinkBtn>
         </article>
       </main>
     </>

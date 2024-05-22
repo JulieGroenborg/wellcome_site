@@ -68,19 +68,14 @@
 /* Desktop breakpoint */
 @media (min-width: 768px) {
   .hero_section {
-    height: 600px;
+    height: 500px;
     background-image: url("../img/kategorier/category_hero_dekstop.jpg");
-    background-position: 10% 100%;
+    background-position: 10% 90%;
     display: grid;
     padding-bottom: $spacing-120;
     padding-left: $spacing-120;
     padding-right: $spacing-120;
 
-    .overlay {
-      // background: linear-gradient(to top, rgba(0, 0, 0, 0.703), rgba(255, 0, 0, 0));
-      // height: 60%;
-      // width: 100%;
-    }
     .hero_text {
       max-width: 700px;
 

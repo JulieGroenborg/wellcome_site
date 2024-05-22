@@ -6,10 +6,9 @@
   align-items: center;
   width: 180px;
   height: 40px;
-
-  .margin {
-    margin-top: $spacing-16;
-  }
+}
+.margin {
+  margin-top: $spacing-16;
 }
 
 .primary {
@@ -66,7 +65,7 @@
 }
 
 @media (min-width: 768px) {
-  .wellcomeBtn {
+  .margin {
     margin-top: $spacing-24;
   }
 }

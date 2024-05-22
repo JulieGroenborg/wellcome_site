@@ -1,29 +1,46 @@
-export default async function hold({ searchParams }) {
-  // FUNKTIONEN BAG KATEGORI-CARD: vi kan se, at der ovenfor bliver sendt et parameter "searchParams" ned til hold-siden. Nedenfor console logger vi "searchParams.category", som vi være lig med den kategory der er klikket på. I vores fetch-kald, sørger vi for at benytte url + specifik paramter ("${searchParams.category}"), for at hente al data fra databasen med pågældende category-navn.
-  console.log("Dette er searchParams", searchParams.category);
-  let headersList = {
-    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhvdmx1ZGNwcXVkcXZjcXRlYmxqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQwMzI4MzEsImV4cCI6MjAyOTYwODgzMX0.5K-wz_oerFZ5hmvUq0IOPgJHn0e1sRYh57y_8pFqnKk",
-    Prefer: "return=representation",
-  };
+import TeamView from "@/app/components/holdside/TeamView";
+import TeamCollapse from "@/app/components/holdside/TeamCollapse";
+import Image from "next/image";
+import motivationLift from "@/app/img/kategorier/hold/motivation_lift.jpg";
+import styles from "./hold.module.scss";
+import HeaderTwo from "@/app/components/global/HeaderTwo";
+import LinkBtn from "@/app/components/global/LinkBtn";
+import Link from "next/link";
 
-  let response = await fetch(`https://hovludcpqudqvcqteblj.supabase.co/rest/v1/Hold?category=eq.${searchParams.category}`, {
-    method: "GET",
-    headers: headersList,
-  });
-
-  let data = await response.json();
-
-  console.log("dette er data", data);
-
+export default function Hold({ searchParams }) {
+  console.log("Dette er hvad searchParams er", searchParams.category);
   return (
     <>
       <main>
-        {data.map((item) => (
-          <div key={item.id}>
-            <h2>{item.title}</h2>
-            <p>{item.text}</p>
+        <section className={`${styles.hero_section} ${styles[searchParams.category]}`}>
+          <div className={styles.overlay}></div>
+          <div className={styles.hero_text}>
+            <h1 className={styles.title}>Wellcome {searchParams.category}</h1>
+            <Link className={styles.link} href="/kategorier/">
+              Tilbage til hold kategorier
+            </Link>
           </div>
-        ))}
+        </section>
+        {/* TeamCollapse vises i mobile */}
+        <TeamCollapse searchParams={searchParams}></TeamCollapse>
+        {/* TeamView vises i desktop */}
+        <TeamView searchParams={searchParams}></TeamView>
+        <article className={styles.personal_trainer_section}>
+          <HeaderTwo type="fitness" title="Er en personlig træner noget for dig?" white={true}></HeaderTwo>
+          <p className={styles.trainer_paragraph}>
+            I Wellcome kan du træne med en af vores dygtige personlige trænere - også uden du er medlem i centeret. Ved check-in til hver træning modtager du en vand og et håndklæde. Læs om alle vores personlige trænere eller book en tid her.
+          </p>
+          <LinkBtn margin={true} variant="primary" href="*" text="Se trænere"></LinkBtn>
+        </article>
+        <section className={styles.motivation_section}>
+          <div className={styles.quote_section}>
+            <p className={styles.quote}>
+              <span className={styles.bold_span}>Motivation</span> is what gets you <br /> started. <span className={styles.bold_span}>Habit</span> is what
+              <br /> <span className={styles.italic_span}>keeps you going.</span>
+            </p>
+          </div>
+          <Image className={styles.motivation_img} src={motivationLift} alt=""></Image>
+        </section>
       </main>
     </>
   );

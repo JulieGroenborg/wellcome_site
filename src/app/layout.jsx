@@ -31,9 +31,9 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Bodoni+Moda&family=Gruppo&family=Poiret+One&family=Raleway:ital,wght@0,100..900;1,100..900&family=Special+Elite&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
           rel="stylesheet"
-        ></link>
+        />
         {/* // Noindex, nofollow */}
         <meta name="robots" content="noindex, nofollow"></meta>
       </head>

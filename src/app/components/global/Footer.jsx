@@ -4,17 +4,26 @@ import FooterLink from "./FooterLink";
 
 export default function Footer() {
   return (
-    <div className={styles.footer_section}>
+    <footer className={styles.footer_section}>
       <div className={styles.left}>
         <FooterLink text="FAQ" href="/" />
         <FooterLink text="Kontakt" href="/" />
-        <FooterLink text="Adresse" href="/" />
+        <FooterLink
+          text="Adresse"
+          href="https://www.google.com/maps/place/Philip+Heymans+Alle+17,+1+107,+2900+Hellerup/@55.7258515,12.577486,17z/data=!3m1!4b1!4m5!3m4!1s0x465252887efa6db1:0x790c59c169561f13!8m2!3d55.7258515!4d12.5800609?entry=ttu"
+        />
       </div>
       <div className={styles.center}>
-        <FooterLink text="Downloade vores App" href="/" />
+        <FooterLink
+          text="Downloade vores App"
+          href="https://apps.apple.com/dk/app/wellcome-fitness-spa/id1459837941?l=da"
+        />
         <p>CVR 27218997</p>
         <div className={styles.some_icons}>
-          <Link className={styles.svg} href="/faa">
+          <Link
+            className={styles.svg}
+            href="https://www.facebook.com/p/Well-come-fitness-spa-100053023192175/"
+          >
             <svg
               width="24"
               height="24"
@@ -26,7 +35,10 @@ export default function Footer() {
             </svg>
           </Link>
 
-          <Link className={styles.svg} href="/faa">
+          <Link
+            className={styles.svg}
+            href="https://www.instagram.com/wellcomefitnessspa/"
+          >
             <svg
               width="24"
               height="24"
@@ -51,6 +63,6 @@ export default function Footer() {
         <FooterLink text="Beroregler" href="/" />
         <FooterLink text="Persondatapolitik" href="/" />
       </div>
-    </div>
+    </footer>
   );
 }

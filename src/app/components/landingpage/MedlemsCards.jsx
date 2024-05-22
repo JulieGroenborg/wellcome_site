@@ -1,12 +1,14 @@
 import Link from "next/link";
 import styles from "./MedlemsCards.module.scss";
 
-export default function MedlemsCards({ text, href }) {
+export default function MedlemsCards({ text, href, image }) {
   return (
-    <div className={styles.medlems_image}>
-      <Link href={"/"} prefetch={false} className={`${styles.Medlems_Link} `}>
-        {text}
-      </Link>
-    </div>
+    <Link href={"/"} prefetch={false} className={`${styles.Medlems_Link} `}>
+      <div
+        className={`${styles.medlems_card} ${styles[image]} ${styles.overlay}`}
+      >
+        <div className={styles.overlay}>{text}</div>
+      </div>{" "}
+    </Link>
   );
 }

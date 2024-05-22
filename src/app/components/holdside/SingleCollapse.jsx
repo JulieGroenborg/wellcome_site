@@ -13,6 +13,7 @@ export default function SingleCollapse({ title, text }) {
       <button className={`${styles.title_button}  ${isOpen ? styles.underline : ""}`} onClick={handleToggle}>
         {title}
       </button>
+      <h2 className={styles.heading}>{title}</h2>
       <div className={`${styles.container} ${isOpen ? styles.visible : styles.hide}`}>
         <p className={styles.paragraph}>{text}</p>
         <LinkBtn variant="secondary" text="Se holdplan" href="/holdplan" margin={true}></LinkBtn>

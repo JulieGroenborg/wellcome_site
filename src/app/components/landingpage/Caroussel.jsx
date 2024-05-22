@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import styles from "@/app/components/landingpage/Caroussel.module.scss";
 
+//import af det styling og funktionalitet, som kommer fra swiper
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -11,10 +12,11 @@ import "swiper/css/keyboard";
 
 import { Keyboard, Pagination, Navigation } from "swiper/modules";
 
+//Denne karussel er lavet med det npm komponent, der kommer fra swiper.js (https://swiperjs.com)
+//Vi har bygget den og tilføjede funktionalitet ved at læse den tilhørende dokumentation
 export default function Caroussel() {
   return (
     <div className={styles.container}>
-      {/* <div className={styles.div_blur1}></div> */}
       <Swiper
         breakpoints={{
           0: {
@@ -123,37 +125,6 @@ export default function Caroussel() {
           </Link>
         </SwiperSlide>
       </Swiper>
-      {/* <div className={styles.div_blur2}></div> */}
     </div>
   );
 }
-// "use client";
-// import { useState } from "react";
-// import styles from "@/app/components/landingpage/Caroussel.module.scss";
-// import HeaderTwo from "../global/HeaderTwo";
-// import Link from "next/link";
-
-// export default function Caroussel({ images }) {
-//   const [activeIndex, setActiveIndex] = useState(0);
-//   const nextSlide = () => {
-//     setActiveIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
-//   };
-//   const prevSlide = () => {
-//     setActiveIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
-//   };
-//   return (
-//     <article>
-//       <HeaderTwo title="Hold kategorier" />
-
-//       <div className={styles.carousel}>
-//         <button onClick={prevSlide} className={`${styles.carousel__btn} ${styles.carousel__btn_prev}`}>
-//           &lt;
-//         </button>
-//         <img src={images[activeIndex]} alt={`Slide ${activeIndex}`} className={styles.carousel__img} />
-//         <button onClick={nextSlide} className={`${styles.carousel__btn} ${styles.carousel__btn_next}`}>
-//           &gt;
-//         </button>
-//       </div>
-//     </article>
-//   );
-// }

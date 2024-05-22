@@ -13,8 +13,6 @@ export default function TeamView({ searchParams }) {
 
   // FUNKTIONEN BAG KATEGORI-CARD: vi kan se, at der ovenfor bliver sendt et parameter "searchParams" ned til TeamView fra kategorisiden. Hvis man console logger "searchParams.category", vil det være lig med den kategory, der er klikket på. I vores fetch-kald, sørger vi for at benytte url + specifik paramter ("${searchParams.category}"), for at hente al data fra databasen med pågældende category-navn.
   //Her fetches al data som har dén specifikke kategori, som der er klikket på, når siden bliver renderet første gang (=useEffect)
-  //   console.log("Dette er searchParams", searchParams.category);
-  console.log("dette er state", chosenTeam);
   //Her fetches al data som har dén specifikke kategori, som der er klikket på, når siden bliver renderet første gang.
   useEffect(() => {
     async function fetchFunction({ searchParams }) {

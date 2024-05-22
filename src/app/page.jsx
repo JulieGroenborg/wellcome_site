@@ -2,6 +2,8 @@ import HeaderOne from "./components/global/HeaderOne";
 import HeaderTwo from "./components/global/HeaderTwo";
 import LinkBtn from "./components/global/LinkBtn";
 import Footer from "./components/global/Footer";
+import MedlemsSection from "./components/landingpage/MedlemsSection";
+import styles from "./landingpage.module.scss";
 
 //API url: https://hovludcpqudqvcqteblj.supabase.co/rest/v1/Hold
 //API key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhvdmx1ZGNwcXVkcXZjcXRlYmxqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQwMzI4MzEsImV4cCI6MjAyOTYwODgzMX0.5K-wz_oerFZ5hmvUq0IOPgJHn0e1sRYh57y_8pFqnKk
@@ -25,6 +27,7 @@ export default function Home() {
     <>
       <main>
         <LinkBtn href="/" text="hello" variant="primary" />
+        <MedlemsSection />
       </main>
       <Footer />
     </>

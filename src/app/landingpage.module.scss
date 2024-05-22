@@ -1,1 +1,32 @@
 @use "src/app/variables" as *;
+
+.hero_section {
+  background-image: url("../app/img/landingpage/heroimage.png");
+  //   background-image: url("../img/landingpage/heroimage.png");
+  background-size: cover;
+  width: 100vw;
+  height: 798px;
+  background-repeat: no-repeat;
+
+  h1 {
+    font-weight: 100;
+  }
+}
+
+.hero_text {
+  width: 100%;
+  display: grid;
+  justify-content: right;
+  h1 {
+    // place-items: end;
+  }
+}
+
+.italic_h1 {
+  font-weight: 500;
+  font-style: italic;
+}
+
+.btn {
+  display: flex;
+}

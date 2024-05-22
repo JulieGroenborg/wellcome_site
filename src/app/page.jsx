@@ -26,7 +26,19 @@ export default function Home() {
   return (
     <>
       <main>
-        <LinkBtn href="/" text="hello" variant="primary" />
+        <section className={`${styles.hero_section} ${styles.overlay}`}>
+          <article className={styles.hero_text}>
+            <h1>
+              Ekslusiv
+              <br /> <span className={styles.italic_h1}>fitness og spa</span>
+              <br /> i hjertet af Hellerup
+            </h1>
+            <div className={styles.btn}>
+              <LinkBtn href="/" text="hello" variant="primary" />
+              <LinkBtn href="/" text="hello" variant="tertiary_light" />
+            </div>
+          </article>
+        </section>
         <MedlemsSection />
       </main>
       <Footer />

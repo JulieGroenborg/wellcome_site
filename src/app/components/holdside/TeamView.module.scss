@@ -26,8 +26,8 @@
       height: 350px;
       width: 500px;
       overflow-y: scroll;
-      -ms-overflow-style: none;
-      scrollbar-width: none;
+      -ms-overflow-style: none; /* Fjerner scrollbar for IE and Edge */
+      scrollbar-width: none; /* Fjerner scrollbar i Firefox */
       gap: $spacing-8;
       padding-bottom: $spacing-80;
       padding-top: $spacing-64;

@@ -34,8 +34,8 @@ export default function Home() {
               <br /> i hjertet af Hellerup
             </h1>
             <div className={styles.btn}>
-              <LinkBtn href="/" text="hello" variant="primary" />
-              <LinkBtn href="/" text="hello" variant="tertiary_light" />
+              <LinkBtn href="/" text="Bliv medlem" variant="primary" />
+              <LinkBtn href="/" text="book hold" variant="tertiary_light" />
             </div>
           </article>
         </section>

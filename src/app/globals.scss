@@ -47,7 +47,7 @@ button {
 }
 
 a {
-  font-size: $spacing-16;
+  font-size: $spacing-12;
   font-weight: $font-regular;
   line-height: $line-height-m;
   text-decoration: none;
@@ -69,6 +69,10 @@ a {
   }
 
   p {
+    font-size: $spacing-16;
+  }
+
+  a {
     font-size: $spacing-16;
   }
 }

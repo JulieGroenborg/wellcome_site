@@ -1,12 +1,18 @@
 @use "src/app/variables" as *;
 
 .hero_section {
+  display: grid;
+  margin: 0;
   background-image: url("../app/img/landingpage/heroimage.png");
-  //   background-image: url("../img/landingpage/heroimage.png");
+
   background-size: cover;
-  width: 100vw;
-  height: 798px;
+  width: auto;
+  height: 500px;
+  overflow: hidden;
   background-repeat: no-repeat;
+  justify-items: end;
+  object-fit: cover;
+  object-position: center;
 
   h1 {
     font-weight: 100;
@@ -14,11 +20,12 @@
 }
 
 .hero_text {
-  width: 100%;
-  display: grid;
-  justify-content: right;
+  height: 100%;
+  align-content: end;
+  margin-right: 10%;
+  padding-bottom: 10%;
   h1 {
-    // place-items: end;
+    text-align: right;
   }
 }
 
@@ -28,5 +35,21 @@
 }
 
 .btn {
+  width: 420px;
   display: flex;
+  place-content: space-between;
+  padding-top: 24px;
+  padding-left: 150px;
+}
+
+@media (min-width: 768px) {
+  .hero_section {
+    width: 100%;
+    height: 787px;
+    object-fit: cover;
+    object-position: center;
+  }
+  .btn {
+    width: 541px;
+  }
 }

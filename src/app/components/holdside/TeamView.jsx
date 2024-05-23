@@ -27,9 +27,7 @@ export default function TeamView({ searchParams }) {
       });
 
       let teams = await response.json();
-      console.log("dette er teams", teams);
       setData(teams);
-      console.log("dette er setData", setData);
     }
 
     fetchFunction({ searchParams });
@@ -63,7 +61,7 @@ export default function TeamView({ searchParams }) {
           <div className={`${styles.team_description} ${visible ? styles.visible : ""}`} key={filteredItem.id}>
             <h2 className={styles.team_title}>{filteredItem.title}</h2>
             <p className={styles.team_text}>{filteredItem.text}</p>
-            <LinkBtn margin={true} variant="secondary" text="Se holdplan" href="/holdplan"></LinkBtn>
+            <LinkBtn margin={true} variant="secondary" text="Se holdplan" href={`/holdplan?kategori=${filteredItem.category}&hold=${filteredItem.title}`}></LinkBtn>
           </div>
         )}
       </section>

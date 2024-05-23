@@ -4,7 +4,7 @@ import styles from "./Burger.module.scss";
 import BurgerCollapse from "./BurgerCollapse";
 export default function Burger() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isSubOpen, setIsSubOpen] = useState("");
+  const [openSub, setOpenSub] = useState("");
 
   const handleToggle = () => {
     setIsOpen((prevIsOpen) => !prevIsOpen); //Togglefunktion, som sørger for at sætte false til true (og omvendt) ved klik på button
@@ -26,8 +26,8 @@ export default function Burger() {
             { title: "Kost & Ernæring", href: "/" },
             { title: "Osteopati", href: "/" },
           ]}
-          isSubOpen={isSubOpen}
-          setIsSubOpen={setIsSubOpen}
+          openSub={openSub}
+          setOpenSub={setOpenSub}
         />
         <BurgerCollapse
           navName="Spa"
@@ -35,8 +35,8 @@ export default function Burger() {
             { title: "Om Spaen", href: "/" },
             { title: "Behandlinger", href: "/" },
           ]}
-          isSubOpen={isSubOpen}
-          setIsSubOpen={setIsSubOpen}
+          openSub={openSub}
+          setOpenSub={setOpenSub}
         />
         <BurgerCollapse
           navName="Medlemskaber"
@@ -44,8 +44,8 @@ export default function Burger() {
             { title: "Se medlemskaber", href: "/" },
             { title: "Firmaaftaler", href: "/" },
           ]}
-          isSubOpen={isSubOpen}
-          setIsSubOpen={setIsSubOpen}
+          openSub={openSub}
+          setOpenSub={setOpenSub}
         />
         <BurgerCollapse
           navName="Om Wellcome"
@@ -55,8 +55,8 @@ export default function Burger() {
             { title: "Events & Nyheder", href: "/" },
             { title: "Om Wellcome", href: "/" },
           ]}
-          isSubOpen={isSubOpen}
-          setIsSubOpen={setIsSubOpen}
+          openSub={openSub}
+          setOpenSub={setOpenSub}
         />
       </ul>
     </nav>

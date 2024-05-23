@@ -145,7 +145,7 @@ export default function Holdplan() {
             {chosenClassItem !== "" && (
               <section className={styles.mobile_btn_section}>
                 <div className={styles.flex}>
-                  <LinkBtn href="/" text="Tilmeld" variant="primary" />
+                  <LinkBtn href="/holdplan/tilmelding" text="Tilmeld" variant="primary" />
                 </div>
               </section>
             )}

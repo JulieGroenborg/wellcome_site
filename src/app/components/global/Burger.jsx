@@ -1,16 +1,21 @@
 "use client";
 import { useState } from "react";
-import styles from "./Burger.module.scss";
+import Image from "next/image";
 import BurgerCollapse from "./BurgerCollapse";
+import logo from "@/app/icon/nav_logo_mobile.svg";
+import styles from "./Burger.module.scss";
+import LinkBtn from "./LinkBtn";
 export default function Burger() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [openSub, setOpenSub] = useState("");
+  const [isOpen, setIsOpen] = useState(false); //state der viser om burger menuen er åben
+  const [openSub, setOpenSub] = useState(""); //state der viser hvilken undermenu, der er åben
 
   const handleToggle = () => {
     setIsOpen((prevIsOpen) => !prevIsOpen); //Togglefunktion, som sørger for at sætte false til true (og omvendt) ved klik på button
   };
+
   return (
     <nav className={styles.burger_nav}>
+      <Image alt="Wellcome logo" src={logo} width={154} height={30} className={styles.logo}></Image>
       <button className={styles.burger_btn} onClick={() => handleToggle()}>
         <div className={`${styles.burger} ${isOpen && styles.is_active}`}>
           <div className={styles.bar}>Åben menu</div>
@@ -28,6 +33,7 @@ export default function Burger() {
           ]}
           openSub={openSub}
           setOpenSub={setOpenSub}
+          setIsOpen={setIsOpen}
         />
         <BurgerCollapse
           navName="Spa"
@@ -37,6 +43,7 @@ export default function Burger() {
           ]}
           openSub={openSub}
           setOpenSub={setOpenSub}
+          setIsOpen={setIsOpen}
         />
         <BurgerCollapse
           navName="Medlemskaber"
@@ -46,6 +53,7 @@ export default function Burger() {
           ]}
           openSub={openSub}
           setOpenSub={setOpenSub}
+          setIsOpen={setIsOpen}
         />
         <BurgerCollapse
           navName="Om Wellcome"
@@ -57,7 +65,11 @@ export default function Burger() {
           ]}
           openSub={openSub}
           setOpenSub={setOpenSub}
+          setIsOpen={setIsOpen}
         />
+        <li>
+          <LinkBtn href="/holdplan" text="Bliv Medlem" variant="primary" />
+        </li>
       </ul>
     </nav>
   );

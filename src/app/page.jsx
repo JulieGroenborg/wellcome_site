@@ -1,10 +1,8 @@
-import HeaderOne from "./components/global/HeaderOne";
 import HeaderTwo from "./components/global/HeaderTwo";
 import LinkBtn from "./components/global/LinkBtn";
 import Footer from "./components/global/Footer";
 import MedlemsSection from "./components/landingpage/MedlemsSection";
 import styles from "./landingpage.module.scss";
-import Link from "next/link";
 
 //API url: https://hovludcpqudqvcqteblj.supabase.co/rest/v1/Hold
 //API key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhvdmx1ZGNwcXVkcXZjcXRlYmxqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQwMzI4MzEsImV4cCI6MjAyOTYwODgzMX0.5K-wz_oerFZ5hmvUq0IOPgJHn0e1sRYh57y_8pFqnKk
@@ -28,8 +26,8 @@ export default function Home() {
     <>
       <main>
         {/* ________________________Hero Section______________ */}
-        <section className={`${styles.hero_section} ${styles.overlay}`}>
-          <article className={styles.hero_text}>
+        <article className={`${styles.hero_section}`}>
+          <section className={styles.hero_text}>
             <h1>
               Ekslusiv
               <br /> <span className={styles.italic_h1}>fitness og spa</span>
@@ -39,10 +37,10 @@ export default function Home() {
               <LinkBtn href="/" text="Bliv medlem" variant="primary" />
               <LinkBtn href="/" text="book hold" variant="tertiary_light" />
             </div>
-          </article>
-        </section>
+          </section>
+        </article>
         {/* ________________________Info section______________ */}
-        <section className={styles.info_section}>
+        <article className={styles.info_section}>
           <div className={styles.text_box}>
             <h2>Om Wellcome</h2>
             <p className={styles.paragraph}>
@@ -132,8 +130,6 @@ export default function Home() {
             </div>
             <div className={styles.box3}>
               <svg
-                // width="80"
-                // height="80"
                 viewBox="0 0 80 80"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -147,8 +143,6 @@ export default function Home() {
             </div>
             <div className={styles.box4}>
               <svg
-                // width="80"
-                // height="80"
                 viewBox="0 0 80 80"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -161,12 +155,12 @@ export default function Home() {
               <p>150+ forskellige hold</p>
             </div>
           </div>
-        </section>
+        </article>
         {/* ________________________Medlemsskabs Section______________ */}
         <MedlemsSection />
         {/* ________________________Event/Nyheder______________ */}
-        <section className={styles.event_section}>
-          <article className={styles.eventlink}>
+        <article className={styles.event_section}>
+          <section className={styles.eventlink}>
             <div className={styles.infobox}>
               <p className={styles.date}>22. maj 2024</p>
               <h3 className={styles.h3event}>
@@ -175,7 +169,7 @@ export default function Home() {
                 teknik og ernæring
               </h3>
             </div>
-          </article>
+          </section>
 
           <div className={styles.textbox}>
             <h2>Events & Nyheder</h2>
@@ -191,7 +185,7 @@ export default function Home() {
               text="Se Events"
             ></LinkBtn>
           </div>
-        </section>
+        </article>
         {/* ________________________Proevetime Section______________ */}
         <article className={styles.proevetime_section}>
           <HeaderTwo type="fitness" title="Brug for en prøvetime?"></HeaderTwo>
@@ -217,7 +211,7 @@ export default function Home() {
           </div>
         </article>
         {/* _________________________ Spa Section ____________________ */}
-        <section className={styles.spa_section}>
+        <article className={styles.spa_section}>
           <div className={styles.spa_info}>
             <HeaderTwo
               type="spa"
@@ -240,7 +234,7 @@ export default function Home() {
           </div>
 
           <div className={styles.spa_image}></div>
-        </section>
+        </article>
       </main>
       <Footer />
     </>

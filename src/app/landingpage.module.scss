@@ -13,10 +13,6 @@
   justify-items: end;
   object-fit: cover;
   object-position: center;
-
-  h1 {
-    font-weight: 100;
-  }
 }
 
 .hero_text {
@@ -26,12 +22,13 @@
   padding-bottom: 10%;
   h1 {
     text-align: right;
+    font-weight: $font-thin;
   }
 }
 
 .italic_h1 {
-  font-weight: 500;
-  font-style: italic;
+  font-weight: $font-medium;
+  font-style: $style-italic;
 }
 
 .btn {
@@ -85,32 +82,22 @@
   }
   p {
     color: $white;
-    font-weight: 300;
+    font-weight: $font-light;
     text-align: center;
   }
 }
 
-.box1 {
-  display: grid;
-  background-color: $off-black300;
-  place-content: center;
-  justify-items: center;
-}
-.box2 {
-  display: grid;
-  background-color: $off-black400;
-  place-content: center;
-  justify-items: center;
-}
-.box3 {
-  display: grid;
-  background-color: $off-black400;
-  place-content: center;
-  justify-items: center;
-}
+.box1,
 .box4 {
   display: grid;
   background-color: $off-black300;
+  place-content: center;
+  justify-items: center;
+}
+.box2,
+.box3 {
+  display: grid;
+  background-color: $off-black400;
   place-content: center;
   justify-items: center;
 }
@@ -217,7 +204,7 @@
   padding-bottom: $spacing-24;
 
   .bold {
-    font-weight: 600;
+    font-weight: $font-semibold;
   }
 }
 .infobox {

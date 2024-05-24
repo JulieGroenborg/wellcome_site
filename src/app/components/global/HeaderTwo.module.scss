@@ -11,10 +11,10 @@
 .spa {
   margin-bottom: $spacing-16;
   color: $white;
-  font-size: 32px;
+  font-size: $spacing-32;
   font-family: $the-seasons;
   font-weight: $font-regular;
-  line-height: 32px;
+  line-height: $spacing-32;
 }
 
 @media (min-width: 768px) {
@@ -24,7 +24,7 @@
 
   .spa {
     margin-bottom: $spacing-24;
-    font-size: 48px;
-    line-height: 48px;
+    font-size: $spacing-48;
+    line-height: $spacing-48;
   }
 }

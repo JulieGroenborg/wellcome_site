@@ -87,7 +87,6 @@
     color: $white;
     font-weight: 300;
     text-align: center;
-    // font-size: 12px;
   }
 }
 
@@ -161,7 +160,6 @@
 
 @media (min-width: 768px) {
   .align_btns {
-    // display: flex;
     width: $spacing-400;
     justify-content: space-around;
   }
@@ -190,7 +188,6 @@
   display: grid;
   background-color: $grey200;
   place-content: center;
-  // justify-items: center;
   height: 100%;
   width: 100%;
 

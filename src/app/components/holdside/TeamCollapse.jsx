@@ -32,5 +32,5 @@ export default function TeamCollapse({ searchParams }) {
 
   // Vi sørger for at tjekke, at "data" indeholder noget data, ved at skrive "data &&", da vi ellers får fejl, når vi forsøger at map' henover data, da den ikke når at køre fetchFunction
   //Vi bruger map, og returnerer x-antal SingleCollapse.
-  return <div className={styles.team_collapse}>{data && data.map((item) => <SingleCollapse key={item.id} title={item.title} text={item.text}></SingleCollapse>)}</div>;
+  return <div className={styles.team_collapse}>{data && data.map((item) => <SingleCollapse key={item.id} title={item.title} text={item.text} category={item.category}></SingleCollapse>)}</div>;
 }

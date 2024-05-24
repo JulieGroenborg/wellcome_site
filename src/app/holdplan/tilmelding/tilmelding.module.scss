@@ -1,0 +1,15 @@
+@use "src/app/variables" as *;
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .link {
+    color: $off-black400;
+    text-decoration: underline $border-width solid $off-black400;
+    font-size: $spacing-12;
+    margin-top: $spacing-16;
+  }
+}

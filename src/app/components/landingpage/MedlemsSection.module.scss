@@ -1,7 +1,7 @@
 @use "src/app/variables" as *;
 .full_section {
   h2 {
-    padding-left: 95px;
+    padding-left: $spacing-64;
     padding-top: $spacing-80;
   }
 }

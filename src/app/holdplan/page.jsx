@@ -9,9 +9,10 @@ import FilteringSection from "../components/holdplan/FilteringSection";
 import HeaderOne from "../components/global/HeaderOne";
 import Layout from "../components/global/Layout";
 
-export default function Holdplan() {
-  const [chosenCategory, setChosenCategory] = useState("all-categories"); //State til at vide hvilken kategori, der filtreres efter
-  const [chosenClass, setChosenClass] = useState("all-class"); //State til at vide hvilket hold, der filtreres efter
+export default function Holdplan({ searchParams }) {
+  // Hvis der er sendt noget med i searchParams sætter filtrerings states herefter
+  const [chosenCategory, setChosenCategory] = useState(searchParams.kategori === undefined ? "all-categories" : searchParams.kategori); //State til at vide hvilken kategori, der filtreres efter.
+  const [chosenClass, setChosenClass] = useState(searchParams.kategori === undefined ? "all-class" : searchParams.hold); //State til at vide hvilket hold, der filtreres efter
   const [chosenClassItem, setChosenClassItem] = useState(""); //State til at vide hvilket hold, der er valgt i kalenderen
   const [weekNumber, setWeekNumber] = useState(21); //State til at vide hvilken uge der vises
   const [chosenDayNumber, setChosenDayNumber] = useState(new Date().getDay()); //State til at vide hvilken dag er valgt. Er ved 1st rendering nr. på dagen i dag.
@@ -145,7 +146,7 @@ export default function Holdplan() {
             {chosenClassItem !== "" && (
               <section className={styles.mobile_btn_section}>
                 <div className={styles.flex}>
-                  <LinkBtn href="/" text="Tilmeld" variant="primary" />
+                  <LinkBtn href="/holdplan/tilmelding" text="Tilmeld" variant="primary" />
                 </div>
               </section>
             )}

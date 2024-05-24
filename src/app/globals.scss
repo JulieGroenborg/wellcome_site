@@ -42,8 +42,9 @@ p {
 
 button {
   font-size: $spacing-16;
-  font-weight: $font-regular;
+  font-weight: $font-light;
   line-height: $line-height-m;
+  text-transform: uppercase;
 }
 
 a {

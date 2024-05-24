@@ -6,8 +6,9 @@ import styles from "./Header.module.scss";
 import HeaderLinksContainer from "./HeaderLinksContainer";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Burger from "./Burger";
 
-export default function Header() {
+export default function Header({ current }) {
   const [openSub, setOpenSub] = useState(""); //State der holder styr på, hvilket menupunkt der er klikket på
 
   const [isScrolled, setIsScrolled] = useState(false); //State der holder styr på, om der er scrolled på siden
@@ -28,10 +29,11 @@ export default function Header() {
   }, []);
 
   return (
-    <header className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}>
-      <Link href="/">
+    <header className={`${styles.header} ${isScrolled ? styles.scrolled : ""} ${openSub ? styles.scrolled : ""}`}>
+      <Link className={styles.link_img} href="/">
         <Image src={Logo} alt="" width="auto" height="30"></Image>
       </Link>
+      <Burger current={current}></Burger>
       <div>
         <nav>
           <ul>
@@ -41,12 +43,13 @@ export default function Header() {
                 setOpenSub={setOpenSub}
                 title="Fitness"
                 submenu={[
-                  { subtitle: "Holdkategorier", href: "/kategorier" },
+                  { subtitle: "Hold kategorier", href: "/kategorier" },
                   { subtitle: "Holdplan", href: "/holdplan" },
                   { subtitle: "Personlig træning", href: "/" },
                   { subtitle: "Kost & ernæring", href: "/" },
                   { subtitle: "Osteopati", href: "/" },
-                ]}></HeaderLinksContainer>
+                ]}
+                current={current}></HeaderLinksContainer>
             </li>
             <li>
               <HeaderLinksContainer
@@ -56,7 +59,8 @@ export default function Header() {
                 submenu={[
                   { subtitle: "Om spaen", href: "/" },
                   { subtitle: "Behandlinger", href: "/" },
-                ]}></HeaderLinksContainer>
+                ]}
+                current={current}></HeaderLinksContainer>
             </li>
             <li>
               <HeaderLinksContainer
@@ -66,7 +70,8 @@ export default function Header() {
                 submenu={[
                   { subtitle: "Se medlemskaber", href: "/" },
                   { subtitle: "Firmaaftaler", href: "/" },
-                ]}></HeaderLinksContainer>
+                ]}
+                current={current}></HeaderLinksContainer>
             </li>
             <li>
               <HeaderLinksContainer
@@ -78,7 +83,8 @@ export default function Header() {
                   { subtitle: "Medarbejdere", href: "/" },
                   { subtitle: "Events & nyheder", href: "/" },
                   { subtitle: "Om wellcome", href: "/" },
-                ]}></HeaderLinksContainer>
+                ]}
+                current={current}></HeaderLinksContainer>
             </li>
           </ul>
         </nav>

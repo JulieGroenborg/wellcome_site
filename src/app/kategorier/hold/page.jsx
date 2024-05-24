@@ -6,11 +6,12 @@ import styles from "./hold.module.scss";
 import HeaderTwo from "@/app/components/global/HeaderTwo";
 import LinkBtn from "@/app/components/global/LinkBtn";
 import Link from "next/link";
+import Layout from "@/app/components/global/Layout";
 
 export default function Hold({ searchParams }) {
   console.log("Dette er hvad searchParams er", searchParams.category);
   return (
-    <>
+    <Layout current={{ nav: "", site: "" }}>
       <main>
         <section className={`${styles.hero_section} ${styles[searchParams.category]}`}>
           <div className={styles.overlay}></div>
@@ -42,6 +43,6 @@ export default function Hold({ searchParams }) {
           <Image className={styles.motivation_img} src={motivationLift} alt=""></Image>
         </section>
       </main>
-    </>
+    </Layout>
   );
 }

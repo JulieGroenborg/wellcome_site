@@ -26,7 +26,7 @@ export default function Burger({ current }) {
         <BurgerCollapse
           navName="Fitness"
           subLinks={[
-            { title: "Hold Kategorier", href: "/kategorier" },
+            { title: "Hold kategorier", href: "/kategorier" },
             { title: "Holdplan", href: "/holdplan" },
             { title: "Personlig Træning", href: "/" },
             { title: "Kost & Ernæring", href: "/" },

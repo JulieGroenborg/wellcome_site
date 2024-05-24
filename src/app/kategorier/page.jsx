@@ -2,10 +2,11 @@ import styles from "./kategori.module.scss";
 import CategoryCard from "../components/kategoriside/CategoryCard";
 import HeaderTwo from "../components/global/HeaderTwo";
 import LinkBtn from "../components/global/LinkBtn";
+import Layout from "../components/global/Layout";
 
 export default function kategorier() {
   return (
-    <>
+    <Layout current={{ nav: "Fitness", site: "Hold kategorier" }}>
       <main>
         <article>
           <section className={styles.hero_section}>
@@ -39,6 +40,6 @@ export default function kategorier() {
           <LinkBtn margin={true} variant="secondary" href="*" text="Se trænere"></LinkBtn>
         </article>
       </main>
-    </>
+    </Layout>
   );
 }

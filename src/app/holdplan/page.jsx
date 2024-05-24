@@ -7,6 +7,7 @@ import ClassItem from "../components/holdplan/ClassItem";
 import ArrowBtn from "../components/global/ArrowBtn";
 import FilteringSection from "../components/holdplan/FilteringSection";
 import HeaderOne from "../components/global/HeaderOne";
+import Layout from "../components/global/Layout";
 
 export default function Holdplan() {
   const [chosenCategory, setChosenCategory] = useState("all-categories"); //State til at vide hvilken kategori, der filtreres efter
@@ -92,7 +93,7 @@ export default function Holdplan() {
   }
 
   return (
-    <>
+    <Layout current={{ nav: "Fitness", site: "Holdplan" }}>
       <main className={styles.main}>
         <HeaderOne title="Holdplan" color="black" />
 
@@ -153,6 +154,6 @@ export default function Holdplan() {
 
         <footer className={styles.footer}>hello im a test footer</footer>
       </main>
-    </>
+    </Layout>
   );
 }

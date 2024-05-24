@@ -36,4 +36,7 @@
   .a:hover {
     text-decoration: underline solid $border-width $off-black400;
   }
+  .active {
+    text-decoration: underline solid $border-width $off-black400;
+  }
 }

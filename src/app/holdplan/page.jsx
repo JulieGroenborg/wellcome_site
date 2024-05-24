@@ -95,7 +95,6 @@ export default function Holdplan({ searchParams }) {
   return (
     <>
       <main className={styles.main}>
-        <header className={styles.header}>hello im a test header</header>
         <HeaderOne title="Holdplan" color="black" />
 
         <article className={styles.class_overview}>

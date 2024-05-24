@@ -18,6 +18,7 @@ h1 {
   font-size: $spacing-32;
   font-weight: $font-light;
   line-height: $line-height-s;
+  color: $off-black400;
 }
 
 h2 {
@@ -33,24 +34,26 @@ h3 {
   text-transform: uppercase;
   line-height: $line-height-m;
   color: $white;
+  color: $off-black400;
 }
 
 p {
   font-family: $poppins-font;
   font-size: $spacing-12;
-  font-weight: $font-regular;
+  font-weight: $font-light;
   line-height: $line-height-m;
   color: $off-black400;
 }
 
 button {
   font-size: $spacing-16;
-  font-weight: $font-regular;
+  font-weight: $font-light;
   line-height: $line-height-m;
+  text-transform: uppercase;
 }
 
 a {
-  font-size: $spacing-16;
+  font-size: $spacing-12;
   font-weight: $font-regular;
   line-height: $line-height-m;
   text-decoration: none;
@@ -72,6 +75,10 @@ a {
   }
 
   p {
+    font-size: $spacing-16;
+  }
+
+  a {
     font-size: $spacing-16;
   }
 }

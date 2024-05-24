@@ -1,21 +1,22 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
 import BurgerCollapse from "./BurgerCollapse";
-import logo from "@/app/icon/nav_logo_mobile.svg";
 import styles from "./Burger.module.scss";
 import LinkBtn from "./LinkBtn";
-export default function Burger() {
+export default function Burger({ current }) {
   const [isOpen, setIsOpen] = useState(false); //state der viser om burger menuen er åben
-  const [openSub, setOpenSub] = useState(""); //state der viser hvilken undermenu, der er åben
+  const [openSub, setOpenSub] = useState(current.nav); //state der viser hvilken undermenu, der er åben
+
+  const currentSite = current.site; //const der viser hvilken side man er inde på lige nu
 
   const handleToggle = () => {
     setIsOpen((prevIsOpen) => !prevIsOpen); //Togglefunktion, som sørger for at sætte false til true (og omvendt) ved klik på button
   };
 
+  // Sådan her sættes current ved dette komponent: <Burger current={{ nav: "Fitness", site: "Hold Kategorier" }} />
+
   return (
     <nav className={styles.burger_nav}>
-      <Image alt="Wellcome logo" src={logo} width={154} height={30} className={styles.logo}></Image>
       <button className={styles.burger_btn} onClick={() => handleToggle()}>
         <div className={`${styles.burger} ${isOpen && styles.is_active}`}>
           <div className={styles.bar}>Åben menu</div>
@@ -34,6 +35,7 @@ export default function Burger() {
           openSub={openSub}
           setOpenSub={setOpenSub}
           setIsOpen={setIsOpen}
+          currentSite={currentSite}
         />
         <BurgerCollapse
           navName="Spa"
@@ -44,6 +46,7 @@ export default function Burger() {
           openSub={openSub}
           setOpenSub={setOpenSub}
           setIsOpen={setIsOpen}
+          currentSite={currentSite}
         />
         <BurgerCollapse
           navName="Medlemskaber"
@@ -54,6 +57,7 @@ export default function Burger() {
           openSub={openSub}
           setOpenSub={setOpenSub}
           setIsOpen={setIsOpen}
+          currentSite={currentSite}
         />
         <BurgerCollapse
           navName="Om Wellcome"
@@ -66,6 +70,7 @@ export default function Burger() {
           openSub={openSub}
           setOpenSub={setOpenSub}
           setIsOpen={setIsOpen}
+          currentSite={currentSite}
         />
         <li>
           <LinkBtn href="/holdplan" text="Bliv Medlem" variant="primary" />

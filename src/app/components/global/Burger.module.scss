@@ -1,20 +1,8 @@
 @use "src/app/variables" as *;
 
 .burger_nav {
-  position: fixed;
-  z-index: 2;
-  width: 100vw;
+  width: fit-content;
   height: fit-content;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  background-color: $off-black400;
-
-  .logo {
-    margin-left: $spacing-20;
-    z-index: 3;
-  }
 
   .burger_btn {
     border: none;

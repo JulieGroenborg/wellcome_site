@@ -144,10 +144,9 @@
 // _________________________________ prøve time section _________________________________
 
 .proevetime_paragraph {
-  // display: grid;
-  width: 280px;
+  min-width: 280px;
+  max-width: 450px;
   text-align: left;
-  // place-content: center;
 }
 .align_btns {
   display: flex;
@@ -158,10 +157,6 @@
 .proevetime_section {
   display: grid;
   justify-content: left;
-  // justify-items: center;
-  // padding-top: $spacing-64;
-  // padding-bottom: $spacing-64;
-  // padding-left: $spacing-48;
   padding: 20% 10%;
 }
 
@@ -196,12 +191,15 @@
   display: grid;
   background-color: $grey200;
   place-content: center;
-  min-width: fit-content;
+  // justify-items: center;
   height: 100%;
   width: 100%;
+
   padding: 10%;
 }
-
+.eventparagraph {
+  max-width: 450px;
+}
 .eventlink {
   display: grid;
   justify-content: center;

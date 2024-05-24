@@ -3,6 +3,7 @@ import CategoryCard from "../components/kategoriside/CategoryCard";
 import HeaderTwo from "../components/global/HeaderTwo";
 import LinkBtn from "../components/global/LinkBtn";
 import Layout from "../components/global/Layout";
+import HeaderOne from "../components/global/HeaderOne";
 
 export default function kategorier() {
   return (
@@ -12,7 +13,7 @@ export default function kategorier() {
           <section className={styles.hero_section}>
             <div className={styles.overlay}></div>
             <div className={styles.hero_text}>
-              <h1 className={styles.title}>Vores hold kategorier</h1>
+              <HeaderOne title="Vores hold kategorier" color="white"></HeaderOne>
               <p className={styles.paragraph}>Vi har et stort udvalg af ugentlige hold med kompetente og erfarne instruktører. Vi sætter en ære i at være innovative og udvikle hold, der er sjove, sikre og effektive.</p>
             </div>
           </section>

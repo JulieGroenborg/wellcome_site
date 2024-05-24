@@ -16,11 +16,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    background: linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.703),
-      rgba(255, 0, 0, 0)
-    );
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.703), rgba(255, 0, 0, 0));
     height: 60%;
     width: 100%;
   }
@@ -30,11 +26,8 @@
     max-width: 415px;
     z-index: 1;
 
-    .title {
-      margin-bottom: $spacing-12;
-    }
-
     .paragraph {
+      margin-top: $spacing-12;
       color: $white;
     }
   }

@@ -42,13 +42,12 @@ export default function Caroussel() {
         keyboard={{
           enabled: true,
         }}
-        className={styles.swiper}
-      >
+        className={styles.swiper}>
         <SwiperSlide>
           <Link className={styles.link} href="/kategorier" prefetch={false}>
             <section className={`${styles.card} ${styles.indoor_cycling}`}>
               <div className={styles.overlay}>
-                <h2 className={styles.title}>Wellcome Indoor Cycling</h2>
+                <h3 className={styles.title}>Wellcome Indoor Cycling</h3>
               </div>
               <div className={styles.navigation_overlay}></div>
             </section>
@@ -58,7 +57,7 @@ export default function Caroussel() {
           <Link className={styles.link} href="/kategorier" prefetch={false}>
             <section className={`${styles.card} ${styles.energy}`}>
               <div className={styles.overlay}>
-                <h2 className={styles.title}>Wellcome Energy</h2>
+                <h3 className={styles.title}>Wellcome Energy</h3>
               </div>
               <div className={styles.navigation_overlay}></div>
             </section>
@@ -68,7 +67,7 @@ export default function Caroussel() {
           <Link className={styles.link} href="/kategorier" prefetch={false}>
             <section className={`${styles.card} ${styles.functional}`}>
               <div className={styles.overlay}>
-                <h2 className={styles.title}>Wellcome Functional</h2>
+                <h3 className={styles.title}>Wellcome Functional</h3>
               </div>
               <div className={styles.navigation_overlay}></div>
             </section>
@@ -78,7 +77,7 @@ export default function Caroussel() {
           <Link className={styles.link} href="/kategorier" prefetch={false}>
             <section className={`${styles.card} ${styles.heat}`}>
               <div className={styles.overlay}>
-                <h2 className={styles.title}>Wellcome Heat</h2>
+                <h3 className={styles.title}>Wellcome Heat</h3>
               </div>
               <div className={styles.navigation_overlay}></div>
             </section>
@@ -88,7 +87,7 @@ export default function Caroussel() {
           <Link className={styles.link} href="/kategorier" prefetch={false}>
             <section className={`${styles.card} ${styles.nordic_strong}`}>
               <div className={styles.overlay}>
-                <h2 className={styles.title}>Wellcome Nordic Strong</h2>
+                <h3 className={styles.title}>Wellcome Nordic Strong</h3>
               </div>
               <div className={styles.navigation_overlay}></div>
             </section>
@@ -98,7 +97,7 @@ export default function Caroussel() {
           <Link className={styles.link} href="/kategorier" prefetch={false}>
             <section className={`${styles.card} ${styles.pleasure}`}>
               <div className={styles.overlay}>
-                <h2 className={styles.title}>Wellcome Pleasure</h2>
+                <h3 className={styles.title}>Wellcome Pleasure</h3>
               </div>
               <div className={styles.navigation_overlay}></div>
             </section>
@@ -108,7 +107,7 @@ export default function Caroussel() {
           <Link className={styles.link} href="/kategorier" prefetch={false}>
             <section className={`${styles.card} ${styles.body_mind}`}>
               <div className={styles.overlay}>
-                <h2 className={styles.title}>Wellcome Body Mind</h2>
+                <h3 className={styles.title}>Wellcome Body Mind</h3>
               </div>
               <div className={styles.navigation_overlay}></div>
             </section>
@@ -118,7 +117,7 @@ export default function Caroussel() {
           <Link className={styles.link} href="/kategorier" prefetch={false}>
             <section className={`${styles.card} ${styles.reformer}`}>
               <div className={styles.overlay}>
-                <h2 className={styles.title}>Wellcome Reformer</h2>
+                <h3 className={styles.title}>Wellcome Reformer</h3>
               </div>
               <div className={styles.navigation_overlay}></div>
             </section>

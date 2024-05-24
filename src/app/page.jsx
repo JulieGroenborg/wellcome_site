@@ -141,6 +141,12 @@ export default function Home() {
             <LinkBtn margin={true} variant="tertiary_dark" href="*" text="Se Events"></LinkBtn>
           </div>
         </article>
+        <article>
+          <div className={styles.categorytitle}>
+            <HeaderTwo title="Hold kategorier"></HeaderTwo>
+          </div>
+          <Caroussel></Caroussel>
+        </article>
         {/* ________________________Proevetime Section______________ */}
         <article className={styles.proevetime_section}>
           <HeaderTwo type="fitness" title="Brug for en prøvetime?"></HeaderTwo>

@@ -22,8 +22,9 @@ h1 {
 
 h2 {
   font-size: $spacing-24;
-  font-weight: $font-medium;
+  font-weight: $font-regular;
   line-height: $line-height-m;
+  color: $off-black400;
 }
 
 h3 {
@@ -31,6 +32,7 @@ h3 {
   font-weight: $font-regular;
   text-transform: uppercase;
   line-height: $line-height-m;
+  color: $white;
 }
 
 p {
@@ -38,6 +40,7 @@ p {
   font-size: $spacing-12;
   font-weight: $font-regular;
   line-height: $line-height-m;
+  color: $off-black400;
 }
 
 button {

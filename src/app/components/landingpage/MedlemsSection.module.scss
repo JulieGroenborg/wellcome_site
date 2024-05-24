@@ -1,0 +1,26 @@
+@use "src/app/variables" as *;
+.full_section {
+  h2 {
+    padding-left: 95px;
+    padding-top: $spacing-80;
+  }
+}
+.medlemscards_section {
+  display: grid;
+  flex-wrap: wrap;
+  place-content: center;
+  padding-top: $spacing-20;
+  padding-bottom: $spacing-80;
+}
+
+@media (min-width: 768px) {
+  .medlemscards_section {
+    display: flex;
+  }
+
+  .full_section {
+    h2 {
+      padding-left: $spacing-80;
+    }
+  }
+}

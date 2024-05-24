@@ -16,7 +16,11 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.703), rgba(255, 0, 0, 0));
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.703),
+      rgba(255, 0, 0, 0)
+    );
     height: 60%;
     width: 100%;
   }
@@ -107,7 +111,7 @@
     padding: $spacing-120 $spacing-48;
 
     .trainer_paragraph {
-      max-width: 605px;
+      max-width: 600px;
     }
   }
 }

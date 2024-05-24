@@ -4,7 +4,7 @@
   font-family: "Raleway";
   font-weight: 300;
   color: $white;
-  font-size: $spacing-24;
+  font-size: $spacing-16;
   line-height: 250%;
   &:hover {
     text-decoration: underline;
@@ -14,15 +14,12 @@
 .medlems_card {
   height: $spacing-250;
   width: $spacing-250;
-  // background-color: $off-black400;
   margin-top: $spacing-12;
   margin-bottom: $spacing-12;
   margin-left: $spacing-24;
   margin-right: $spacing-24;
   border-radius: $border-radius;
   display: flex;
-  // place-content: center;
-  // align-items: end;
   box-shadow: 0 $spacing-4 $spacing-4 rgba(0, 0, 0, 0.25);
   filter: grayscale(100%);
   &:hover {
@@ -59,9 +56,6 @@
 }
 
 @media (min-width: 768px) {
-  // .medlems_image {
-  // }
-
   .medlems_card {
     height: $spacing-400;
     width: $spacing-400;
@@ -71,7 +65,8 @@
     margin-right: $spacing-12;
   }
 
-  .Medlems_Link {
+  .medlems_Link {
     line-height: 400%;
+    font-size: $spacing-24;
   }
 }

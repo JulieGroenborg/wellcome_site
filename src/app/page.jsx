@@ -166,7 +166,7 @@ export default function Home() {
         <MedlemsSection />
         {/* ________________________Event/Nyheder______________ */}
         <section className={styles.event_section}>
-          <Link href={"/"} prefetch={false} className={styles.eventlink}>
+          <article className={styles.eventlink}>
             <div className={styles.infobox}>
               <p className={styles.date}>22. maj 2024</p>
               <h3 className={styles.h3event}>
@@ -175,7 +175,8 @@ export default function Home() {
                 teknik og ernæring
               </h3>
             </div>
-          </Link>
+          </article>
+
           <div className={styles.textbox}>
             <h2>Events & Nyheder</h2>
             <p className={styles.eventparagraph}>
@@ -215,6 +216,31 @@ export default function Home() {
             ></LinkBtn>
           </div>
         </article>
+        {/* _________________________ Spa Section ____________________ */}
+        <section className={styles.spa_section}>
+          <div className={styles.spa_info}>
+            <HeaderTwo
+              type="spa"
+              white={true}
+              title="  Er det tid til selvforkælelse?"
+            ></HeaderTwo>
+
+            <p className={styles.spa_text}>
+              Trænger du til at passe lidt på dig selv? Eller ønsker du en
+              romantisk oplevelse med din udkårne? Hos Wellcome har vi et kæmpe
+              udvalg af luksuriøse behandlinger. Se vores behandlinger og læse
+              mere om vores Amazing Space Spa.
+            </p>
+            <LinkBtn
+              margin={true}
+              variant="spa"
+              href="*"
+              text="Se holdplan"
+            ></LinkBtn>
+          </div>
+
+          <div className={styles.spa_image}></div>
+        </section>
       </main>
       <Footer />
     </>

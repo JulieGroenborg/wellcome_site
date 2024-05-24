@@ -145,7 +145,6 @@
 
 .proevetime_paragraph {
   min-width: 280px;
-  max-width: 450px;
   text-align: left;
 }
 .align_btns {
@@ -203,7 +202,8 @@
 .eventlink {
   display: grid;
   justify-content: center;
-  background-image: url("../app/img/landingpage/event2.png");
+  background-image: url("../app/img/landingpage/event.png");
+  background-position: center;
   background-size: cover;
   width: auto;
   overflow: hidden;
@@ -250,5 +250,44 @@
 
   .eventparagraph {
     max-width: 500px;
+  }
+}
+// _________________________________ Spa Section _________________________________
+
+.spa_section {
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  margin: 0;
+  // contain: content;
+  object-fit: cover;
+}
+
+.spa_info {
+  background-color: $brown400;
+  height: 100%;
+  width: 100%;
+  padding: 20% 10%;
+}
+
+.spa_image {
+  background-image: url("../app/img/landingpage/spa_image.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.spa_text {
+  color: $white;
+  max-width: 500px;
+}
+
+@media (min-width: 768px) {
+  .spa_section {
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 1fr;
+  }
+
+  .spa_image {
+    // height: 400px;
   }
 }

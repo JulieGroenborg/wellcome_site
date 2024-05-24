@@ -22,7 +22,7 @@
 .hero_text {
   height: 100%;
   align-content: end;
-  margin-right: 10%;
+  margin-right: 20%;
   padding-bottom: 10%;
   h1 {
     text-align: right;
@@ -52,6 +52,9 @@
   .btn {
     width: 541px;
   }
+  .hero_text {
+    margin-right: 8%;
+  }
 }
 
 // ______________________________ info section __________________________
@@ -67,7 +70,7 @@
   max-width: 500px;
 }
 .text_box {
-  // display: none;
+  display: none;
 }
 
 .info_box {
@@ -89,47 +92,53 @@
 }
 
 .box1 {
+  display: grid;
   background-color: $off-black300;
   place-content: center;
+  justify-items: center;
 }
 .box2 {
+  display: grid;
   background-color: $off-black400;
   place-content: center;
+  justify-items: center;
 }
 .box3 {
+  display: grid;
   background-color: $off-black400;
   place-content: center;
-  place-items: center;
+  justify-items: center;
 }
 .box4 {
+  display: grid;
   background-color: $off-black300;
   place-content: center;
+  justify-items: center;
 }
 
 @media (min-width: 768px) {
-  .info_section {
-    height: 550px;
-  }
-
   .text_box {
+    display: block;
     width: 100%;
     height: 100%;
     background-color: $grey200;
     place-content: center;
     place-items: center;
     padding-left: 10%;
+    padding: 10%;
   }
   .info_section {
     width: 100%;
     height: 600px;
     grid-template-columns: 50% 50%;
   }
-}
 
-.info_box {
-  svg {
-    height: 80px;
-    width: 80px;
+  .info_box {
+    svg {
+      height: 80px;
+      width: 80px;
+    }
   }
 }
+
 // __________________________________________________________________

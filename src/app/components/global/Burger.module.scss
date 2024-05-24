@@ -12,7 +12,7 @@
 
     .burger {
       position: relative;
-      z-index: 3;
+      z-index: 2;
       display: block;
       cursor: pointer;
 
@@ -46,7 +46,7 @@
     position: fixed;
     top: 0;
     right: -100%;
-    z-index: 2;
+    z-index: 1;
     padding-top: $spacing-80;
     padding-left: $spacing-64;
     background-color: $off-black400;

@@ -5,11 +5,11 @@ import Footer from "./components/global/Footer";
 import MedlemsSection from "./components/landingpage/MedlemsSection";
 import styles from "./landingpage.module.scss";
 import Header from "./components/global/Header";
+import Layout from "./components/global/Layout";
 
 export default function Home() {
   return (
-    <>
-      <Header></Header>
+    <Layout current={{ nav: "", site: "" }}>
       <main>
         {/* ________________________Hero Section______________ */}
         <article className={`${styles.hero_section}`}>
@@ -166,7 +166,6 @@ export default function Home() {
           <div className={styles.spa_image}></div>
         </article>
       </main>
-      <Footer />
-    </>
+    </Layout>
   );
 }

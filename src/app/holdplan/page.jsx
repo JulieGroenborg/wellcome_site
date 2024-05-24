@@ -7,6 +7,7 @@ import ClassItem from "../components/holdplan/ClassItem";
 import ArrowBtn from "../components/global/ArrowBtn";
 import FilteringSection from "../components/holdplan/FilteringSection";
 import HeaderOne from "../components/global/HeaderOne";
+import Layout from "../components/global/Layout";
 
 export default function Holdplan({ searchParams }) {
   // Hvis der er sendt noget med i searchParams sætter filtrerings states herefter
@@ -93,7 +94,7 @@ export default function Holdplan({ searchParams }) {
   }
 
   return (
-    <>
+    <Layout current={{ nav: "Fitness", site: "Holdplan" }}>
       <main className={styles.main}>
         <HeaderOne title="Holdplan" color="black" />
 
@@ -154,6 +155,6 @@ export default function Holdplan({ searchParams }) {
 
         <footer className={styles.footer}>hello im a test footer</footer>
       </main>
-    </>
+    </Layout>
   );
 }

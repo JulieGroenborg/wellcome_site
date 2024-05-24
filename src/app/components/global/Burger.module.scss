@@ -3,12 +3,13 @@
 .burger_nav {
   width: fit-content;
   height: fit-content;
+  display: inline-flex;
+  place-self: end;
 
   .burger_btn {
     border: none;
     background-color: transparent;
     color: transparent;
-    margin: $spacing-24;
 
     .burger {
       position: relative;
@@ -64,7 +65,13 @@
     transition: 0.8s;
   }
   .disappear {
-    right: -100%;
+    right: -105%;
     transition: 0.8s;
+  }
+}
+
+@media (min-width: 1120px) {
+  .burger_nav {
+    display: none;
   }
 }

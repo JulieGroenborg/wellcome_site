@@ -1,1 +1,20 @@
 @use "src/app/variables" as *;
+
+.xlight {
+  font-weight: $font-xlight;
+}
+.light {
+  font-weight: $font-light;
+}
+.regular {
+  font-weight: $font-regular;
+}
+.medium {
+  font-weight: $font-medium;
+}
+.semi {
+  font-weight: $font-semibold;
+}
+.bold {
+  font-weight: $font-bold;
+}

@@ -12,7 +12,7 @@ export default function ClassItem({ id, time, classtitle, coach, location, setCh
         <span className={styles.grey_text}>{location}</span>
         <span className={styles.desk_btn_section}>
           {" "}
-          <LinkBtn href="/" text="Tilmeld" variant="primary" />
+          <LinkBtn href="/holdplan/tilmelding" text="Tilmeld" variant="primary" />
         </span>
       </label>
     </section>

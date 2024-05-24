@@ -1,0 +1,44 @@
+@use "src/app/variables" as *;
+
+.header {
+  display: none;
+}
+
+/* Desktop breakpoint */
+@media (min-width: 1120px) {
+  .header {
+    padding: $spacing-20 100px;
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    &.scrolled {
+      background-color: $off-black400;
+    }
+
+    &:hover {
+      background-color: $off-black400;
+    }
+
+    img {
+      place-self: center;
+    }
+    div {
+      display: flex;
+      nav {
+        align-self: center;
+        width: 530px;
+        padding-right: $spacing-64;
+        ul {
+          display: flex;
+          justify-content: space-between;
+          list-style: none;
+        }
+        li {
+          position: relative;
+        }
+      }
+    }
+  }
+}

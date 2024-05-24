@@ -259,7 +259,6 @@
   display: grid;
   grid-template-rows: 1fr 1fr;
   margin: 0;
-  // contain: content;
   object-fit: cover;
 }
 
@@ -285,9 +284,5 @@
   .spa_section {
     grid-template-columns: 50% 50%;
     grid-template-rows: 1fr;
-  }
-
-  .spa_image {
-    // height: 400px;
   }
 }

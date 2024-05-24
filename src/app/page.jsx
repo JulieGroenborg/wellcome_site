@@ -160,6 +160,29 @@ export default function Home() {
           </div>
         </section>
         <MedlemsSection />
+        <article className={styles.proevetime_section}>
+          <HeaderTwo type="fitness" title="Brug for en prøvetime?"></HeaderTwo>
+          <p className={styles.proevetime_paragraph}>
+            Er du interesseret i at lære Wellcome bedre at kende? Find ud af om
+            Wellcome er et sted for dig ved at booke en prøvetime til et af
+            vores populære hold eller få mulighed for at afprøve vores fitness
+            faciliteter.
+          </p>
+          <div className={styles.align_btns}>
+            <LinkBtn
+              margin={true}
+              variant="secondary"
+              href="*"
+              text="Kontakt"
+            ></LinkBtn>
+            <LinkBtn
+              margin={true}
+              variant="tertiary_dark"
+              href="*"
+              text="Se holdplan"
+            ></LinkBtn>
+          </div>
+        </article>
       </main>
       <Footer />
     </>

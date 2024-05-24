@@ -80,8 +80,8 @@
   height: 100%;
 
   svg {
-    width: 48px;
-    height: 48px;
+    width: $spacing-48;
+    height: $spacing-48;
   }
   p {
     color: $white;
@@ -135,10 +135,46 @@
 
   .info_box {
     svg {
-      height: 80px;
-      width: 80px;
+      height: $spacing-80;
+      width: $spacing-80;
     }
   }
 }
 
-// __________________________________________________________________
+// _________________________________ prøve time section _________________________________
+
+.proevetime_paragraph {
+  width: 280px;
+  text-align: left;
+}
+.align_btns {
+  display: flex;
+  justify-content: left;
+  width: 280px;
+  justify-content: space-between;
+}
+.proevetime_section {
+  display: grid;
+  justify-content: left;
+  padding-top: $spacing-64;
+  padding-bottom: $spacing-64;
+  padding-left: $spacing-48;
+}
+
+@media (min-width: 768px) {
+  .align_btns {
+    // display: flex;
+    width: 400px;
+    justify-content: space-around;
+  }
+
+  .proevetime_paragraph {
+    width: 600px;
+    text-align: center;
+  }
+  .proevetime_section {
+    justify-content: center;
+    justify-items: center;
+    padding: $spacing-120 $spacing-48;
+  }
+}

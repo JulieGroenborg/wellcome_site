@@ -152,8 +152,6 @@ export default function Holdplan({ searchParams }) {
             )}
           </section>
         </article>
-
-        <footer className={styles.footer}>hello im a test footer</footer>
       </main>
     </Layout>
   );

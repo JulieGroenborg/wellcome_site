@@ -8,7 +8,7 @@ export default function Tilmeldning() {
       <main className={styles.main}>
         <HeaderOne title="Tilmeldt hold" color="black" />
         <Link className={styles.link} href="/holdplan">
-          Tilbage til hold kategorier
+          Tilbage til Holdplan
         </Link>
       </main>
     </>

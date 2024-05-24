@@ -21,7 +21,7 @@ export default function Home() {
             </h1>
             <div className={styles.btn}>
               <LinkBtn href="/" text="Bliv medlem" variant="primary" />
-              <LinkBtn href="/" text="book hold" variant="tertiary_light" />
+              <LinkBtn href="/holdplan" text="book hold" variant="tertiary_light" />
             </div>
           </section>
         </article>

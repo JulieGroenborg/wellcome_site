@@ -13,6 +13,14 @@ export default function Home() {
           <LinkBtn href="/" text="hello" variant="primary" />
           <LinkBtn href="/" text="hello" variant="primary" />
           <LinkBtn href="/" text="hello" variant="primary" />
+
+          <h1 className={styles.xlight}>header 1</h1>
+          <h1 className={styles.light}>header 1</h1>
+          <h1 className={styles.regular}>header 1</h1>
+          <h1 className={styles.medium}>header 1</h1>
+          <h1 className={styles.semi}>header 1</h1>
+          <h1 className={styles.bold}>header 1</h1>
+
           <LinkBtn href="/" text="hello" variant="primary" />
           <LinkBtn href="/" text="hello" variant="primary" />
           <LinkBtn href="/" text="hello" variant="primary" />

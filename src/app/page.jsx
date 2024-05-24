@@ -4,6 +4,7 @@ import LinkBtn from "./components/global/LinkBtn";
 import Footer from "./components/global/Footer";
 import MedlemsSection from "./components/landingpage/MedlemsSection";
 import styles from "./landingpage.module.scss";
+import Link from "next/link";
 
 //API url: https://hovludcpqudqvcqteblj.supabase.co/rest/v1/Hold
 //API key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhvdmx1ZGNwcXVkcXZjcXRlYmxqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQwMzI4MzEsImV4cCI6MjAyOTYwODgzMX0.5K-wz_oerFZ5hmvUq0IOPgJHn0e1sRYh57y_8pFqnKk
@@ -26,6 +27,7 @@ export default function Home() {
   return (
     <>
       <main>
+        {/* ________________________Hero Section______________ */}
         <section className={`${styles.hero_section} ${styles.overlay}`}>
           <article className={styles.hero_text}>
             <h1>
@@ -39,6 +41,7 @@ export default function Home() {
             </div>
           </article>
         </section>
+        {/* ________________________Info section______________ */}
         <section className={styles.info_section}>
           <div className={styles.text_box}>
             <h2>Om Wellcome</h2>
@@ -159,7 +162,36 @@ export default function Home() {
             </div>
           </div>
         </section>
+        {/* ________________________Medlemsskabs Section______________ */}
         <MedlemsSection />
+        {/* ________________________Event/Nyheder______________ */}
+        <section className={styles.event_section}>
+          <Link href={"/"} prefetch={false} className={styles.eventlink}>
+            <div className={styles.infobox}>
+              <p className={styles.date}>22. maj 2024</p>
+              <h3 className={styles.h3event}>
+                <span className={styles.bold}>Boost dit løb:</span> Motivation,
+                <br />
+                teknik og ernæring
+              </h3>
+            </div>
+          </Link>
+          <div className={styles.textbox}>
+            <h2>Events & Nyheder</h2>
+            <p className={styles.eventparagraph}>
+              I Wellcome byder vi på forskellige, spændende events for vores
+              medlemmer. Under eventsiden kan du holde dig opdateret på, hvad
+              der sker i Wellcome. Forløb, foredrag, koncerter og meget mere.
+            </p>
+            <LinkBtn
+              margin={true}
+              variant="tertiary_dark"
+              href="*"
+              text="Se Events"
+            ></LinkBtn>
+          </div>
+        </section>
+        {/* ________________________Proevetime Section______________ */}
         <article className={styles.proevetime_section}>
           <HeaderTwo type="fitness" title="Brug for en prøvetime?"></HeaderTwo>
           <p className={styles.proevetime_paragraph}>

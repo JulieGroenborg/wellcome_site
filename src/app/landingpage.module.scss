@@ -38,7 +38,7 @@
   width: 420px;
   display: flex;
   place-content: space-between;
-  padding-top: 24px;
+  padding-top: $spacing-24;
   padding-left: 150px;
 }
 
@@ -144,8 +144,10 @@
 // _________________________________ prøve time section _________________________________
 
 .proevetime_paragraph {
+  // display: grid;
   width: 280px;
   text-align: left;
+  // place-content: center;
 }
 .align_btns {
   display: flex;
@@ -156,15 +158,17 @@
 .proevetime_section {
   display: grid;
   justify-content: left;
-  padding-top: $spacing-64;
-  padding-bottom: $spacing-64;
-  padding-left: $spacing-48;
+  // justify-items: center;
+  // padding-top: $spacing-64;
+  // padding-bottom: $spacing-64;
+  // padding-left: $spacing-48;
+  padding: 20% 10%;
 }
 
 @media (min-width: 768px) {
   .align_btns {
     // display: flex;
-    width: 400px;
+    width: $spacing-400;
     justify-content: space-around;
   }
 
@@ -176,5 +180,77 @@
     justify-content: center;
     justify-items: center;
     padding: $spacing-120 $spacing-48;
+  }
+}
+
+// _________________________________Events & Nyheder _________________________________
+
+.event_section {
+  width: 100%;
+  height: 700px;
+  display: grid;
+  grid-template-rows: 50% 50%;
+}
+
+.textbox {
+  display: grid;
+  background-color: $grey200;
+  place-content: center;
+  min-width: fit-content;
+  height: 100%;
+  width: 100%;
+  padding: 10%;
+}
+
+.eventlink {
+  display: grid;
+  justify-content: center;
+  background-image: url("../app/img/landingpage/event2.png");
+  background-size: cover;
+  width: auto;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  justify-items: end;
+  object-fit: cover;
+  object-position: center;
+}
+.h3event {
+  color: $white;
+  text-align: center;
+  font-size: $spacing-16;
+  width: $spacing-400;
+  padding-bottom: $spacing-24;
+
+  .bold {
+    font-weight: 600;
+  }
+}
+.infobox {
+  place-content: end;
+}
+
+.date {
+  color: $white;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .event_section {
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 1fr;
+    height: 528px;
+  }
+
+  .textbox {
+    height: 528px;
+    padding: 10%;
+  }
+
+  .h3event {
+    font-size: $spacing-24;
+  }
+
+  .eventparagraph {
+    max-width: 500px;
   }
 }

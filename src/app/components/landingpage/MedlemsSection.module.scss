@@ -1,8 +1,14 @@
 @use "src/app/variables" as *;
 .full_section {
+  display: grid;
+  justify-content: center;
+  place-content: center;
+  min-height: 700px;
   h2 {
-    padding-left: $spacing-64;
+    padding-left: $spacing-24;
     padding-top: $spacing-80;
+    height: fit-content;
+    line-height: 100%;
   }
 }
 .medlemscards_section {
@@ -16,11 +22,5 @@
 @media (min-width: 768px) {
   .medlemscards_section {
     display: flex;
-  }
-
-  .full_section {
-    h2 {
-      padding-left: $spacing-80;
-    }
   }
 }

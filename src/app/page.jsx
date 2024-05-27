@@ -162,7 +162,7 @@ export default function Home() {
           </section>
 
           <div className={styles.textbox}>
-            <h2>Events & Nyheder</h2>
+            <h2>Events & nyheder</h2>
             <p className={styles.eventparagraph}>
               I Wellcome byder vi på forskellige, spændende events for vores
               medlemmer. Under eventsiden kan du holde dig opdateret på, hvad
@@ -176,6 +176,7 @@ export default function Home() {
             ></LinkBtn>
           </div>
         </article>
+        {/* ________________________Hold kkategorier______________ */}
         <article>
           <div className={styles.categorytitle}>
             <HeaderTwo title="Hold kategorier"></HeaderTwo>
@@ -189,7 +190,10 @@ export default function Home() {
             Er du interesseret i at lære Wellcome bedre at kende? Find ud af om
             Wellcome er et sted for dig ved at booke en prøvetime til et af
             vores populære hold eller få mulighed for at afprøve vores fitness
-            faciliteter.
+            faciliteter. Er du interesseret i at lære Wellcome bedre at kende?
+            Find ud af om Wellcome er et sted for dig ved at booke en prøvetime
+            til et af vores populære hold eller få mulighed for at afprøve vores
+            fitness faciliteter.
           </p>
           <div className={styles.align_btns}>
             <LinkBtn
@@ -209,17 +213,21 @@ export default function Home() {
         {/* _________________________ Spa Section ____________________ */}
         <article className={styles.spa_section}>
           <div className={styles.spa_info}>
-            <HeaderTwo
-              type="spa"
-              white={true}
-              title="  Er det tid til selvforkælelse?"
-            ></HeaderTwo>
-
+            <div className={styles.header2_spa}>
+              <HeaderTwo
+                type="spa"
+                white={true}
+                title="Er det tid til selvforkælelse?"
+              ></HeaderTwo>
+            </div>
             <p className={styles.spa_text}>
               Trænger du til at passe lidt på dig selv? Eller ønsker du en
               romantisk oplevelse med din udkårne? Hos Wellcome har vi et kæmpe
               udvalg af luksuriøse behandlinger. Se vores behandlinger og læse
-              mere om vores Amazing Space Spa.
+              mere om vores Amazing Space Spa. Trænger du til at passe lidt på
+              dig selv? Eller ønsker du en romantisk oplevelse med din udkårne?
+              Hos Wellcome har vi et kæmpe udvalg af luksuriøse behandlinger. Se
+              vores behandlinger og læse mere om vores Amazing Space Spa.
             </p>
             <LinkBtn
               margin={true}

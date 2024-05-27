@@ -1,10 +1,8 @@
 import HeaderTwo from "./components/global/HeaderTwo";
 import LinkBtn from "./components/global/LinkBtn";
 import Caroussel from "./components/landingpage/Caroussel";
-import Footer from "./components/global/Footer";
 import MedlemsSection from "./components/landingpage/MedlemsSection";
 import styles from "./landingpage.module.scss";
-import Header from "./components/global/Header";
 import Layout from "./components/global/Layout";
 
 export default function Home() {

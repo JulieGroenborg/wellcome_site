@@ -111,11 +111,6 @@ export default function Home() {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-              <svg
-                viewBox="0 0 80 80"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
                 <path
                   d="M66.2098 23.3744C66.8386 14.8128 62.1758 8.51006 53.9507 6.19888C44.9919 3.73009 35.9284 3.57249 26.9172 6.04128C16.6489 8.93006 11.7765 17.754 14.7105 27.944C15.3917 30.3075 16.3345 32.6187 17.6445 34.6671C19.2161 37.1359 19.3733 39.0267 17.7493 41.7055C12.2481 50.7922 13.2437 60.0366 18.7973 68.8605C21.312 72.8525 24.9792 75.2685 29.642 76.2665H51.3839C63.4862 73.7453 70.1918 55.5718 63.5386 43.6491C61.443 39.9199 61.1286 37.1359 63.4338 33.3543C65.1098 30.5179 65.9478 26.7888 66.2098 23.3744ZM38.2859 65.3301L29.3272 56.8738L31.7372 54.3526L37.7619 60.0254L49.5499 43.4803L52.3791 45.4763L38.2859 65.3301ZM52.5359 29.5611C51.6975 30.3491 49.7067 30.7167 48.5543 30.3491C42.9487 28.5631 37.4999 28.4583 31.9468 30.3491C29.2748 31.2419 27.3888 30.0863 26.4456 27.5652C25.8168 25.9896 25.5024 24.256 25.2932 23.5208C25.3456 18.6884 27.2316 15.9572 31.1608 15.6948C37.0807 15.3272 43.0535 15.3796 48.9735 15.6424C52.0647 15.7476 54.5266 17.5332 55.2602 20.79C55.8366 24.0988 54.9982 27.25 52.5359 29.5611Z"
                   fill="white"
@@ -129,11 +124,6 @@ export default function Home() {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-              <svg
-                viewBox="0 0 80 80"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
                 <path
                   d="M74.3378 36.8127H68.5642V29.2158C68.5642 26.9151 66.2634 25.0918 63.9626 25.0918C63.0076 25.0918 62.096 25.3523 61.6619 25.8732V22.7476C61.6619 20.4468 59.7952 18.667 57.4944 18.667C55.1936 18.667 53.4138 20.4468 53.4138 22.7476V36.8127H25.7611V22.8778C25.7611 20.5771 23.9378 18.667 21.637 18.667C19.3363 18.667 17.513 20.5771 17.513 22.8778V26.3073C16.6448 25.7864 15.6029 25.5259 14.6479 25.5259H14.6045C12.3037 25.5259 10.5673 27.3492 10.5673 29.6499V36.8127H5.70526C4.01224 36.8127 2.6665 38.1585 2.6665 39.8515C2.6665 41.5445 4.05565 42.8902 5.70526 42.8902H10.6107V50.7042C10.6107 53.005 12.3471 54.6112 14.6479 54.6112C15.6029 54.6112 16.6448 54.5678 17.513 54.0468V57.129C17.513 59.4298 19.3797 61.2096 21.6805 61.2096C23.9812 61.2096 25.7611 59.4298 25.7611 57.129V42.8902H53.4572V57.0422C53.4572 59.343 55.2805 61.253 57.5812 61.253C59.882 61.253 61.7053 59.343 61.7053 57.0422V53.6127C62.5735 54.1337 63.051 54.1771 64.006 54.1771H64.0494C66.3502 54.1771 68.651 52.5709 68.651 50.2267V42.8902H74.2944C75.9874 42.8902 77.3332 41.5445 77.3332 39.8515C77.3332 38.1585 76.0309 36.8127 74.3378 36.8127ZM21.3766 61.1662C21.3332 61.1662 21.3332 61.1662 21.3766 61.1662V61.1662ZM57.2774 18.667C57.3208 18.667 57.3208 18.667 57.2774 18.667V18.667Z"
                   fill="white"
@@ -142,11 +132,6 @@ export default function Home() {
               <p>12+ personlige trænere</p>
             </div>
             <div className={styles.box4}>
-              <svg
-                viewBox="0 0 80 80"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
               <svg
                 viewBox="0 0 80 80"
                 fill="none"
@@ -205,25 +190,12 @@ export default function Home() {
             Er du interesseret i at lære Wellcome bedre at kende? Find ud af om
             Wellcome er et sted for dig ved at booke en prøvetime til et af
             vores populære hold eller få mulighed for at afprøve vores fitness
-            faciliteter.
-            Er du interesseret i at lære Wellcome bedre at kende? Find ud af om
-            Wellcome er et sted for dig ved at booke en prøvetime til et af
-            vores populære hold eller få mulighed for at afprøve vores fitness
-            faciliteter.
+            faciliteter. Er du interesseret i at lære Wellcome bedre at kende?
+            Find ud af om Wellcome er et sted for dig ved at booke en prøvetime
+            til et af vores populære hold eller få mulighed for at afprøve vores
+            fitness faciliteter.
           </p>
           <div className={styles.align_btns}>
-            <LinkBtn
-              margin={true}
-              variant="secondary"
-              href="*"
-              text="Kontakt"
-            ></LinkBtn>
-            <LinkBtn
-              margin={true}
-              variant="tertiary_dark"
-              href="*"
-              text="Se holdplan"
-            ></LinkBtn>
             <LinkBtn
               margin={true}
               variant="secondary"
@@ -252,17 +224,16 @@ export default function Home() {
               Trænger du til at passe lidt på dig selv? Eller ønsker du en
               romantisk oplevelse med din udkårne? Hos Wellcome har vi et kæmpe
               udvalg af luksuriøse behandlinger. Se vores behandlinger og læse
-              mere om vores Amazing Space Spa.
-              Trænger du til at passe lidt på dig selv? Eller ønsker du en
-              romantisk oplevelse med din udkårne? Hos Wellcome har vi et kæmpe
-              udvalg af luksuriøse behandlinger. Se vores behandlinger og læse
-              mere om vores Amazing Space Spa.
+              mere om vores Amazing Space Spa. Trænger du til at passe lidt på
+              dig selv? Eller ønsker du en romantisk oplevelse med din udkårne?
+              Hos Wellcome har vi et kæmpe udvalg af luksuriøse behandlinger. Se
+              vores behandlinger og læse mere om vores Amazing Space Spa.
             </p>
             <LinkBtn
               margin={true}
               variant="spa"
               href="*"
-              text="Se holdplan"
+              text="Se behandlinger"
             ></LinkBtn>
           </div>
 

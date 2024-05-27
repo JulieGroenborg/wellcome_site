@@ -214,7 +214,7 @@ export default function Home() {
               <HeaderTwo
                 type="spa"
                 white={true}
-                title="  Er det tid til selvforkælelse?"
+                title="Er det tid til selvforkælelse?"
               ></HeaderTwo>
             </div>
             <p className={styles.spa_text}>

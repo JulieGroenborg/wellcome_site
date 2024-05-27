@@ -13,8 +13,6 @@ export default function Burger({ current }) {
     setIsOpen((prevIsOpen) => !prevIsOpen); //Togglefunktion, som sørger for at sætte false til true (og omvendt) ved klik på button
   };
 
-  // Sådan her sættes current ved dette komponent: <Burger current={{ nav: "Fitness", site: "Hold Kategorier" }} />
-
   return (
     <nav className={styles.burger_nav}>
       <button className={styles.burger_btn} onClick={() => handleToggle()}>

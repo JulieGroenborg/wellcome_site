@@ -16,7 +16,8 @@ export default function SingleCollapse({ title, text, category }) {
       <h2 className={styles.heading}>{title}</h2>
       <div className={`${styles.container} ${isOpen ? styles.visible : styles.hide}`}>
         <p className={styles.paragraph}>{text}</p>
-        <LinkBtn variant="secondary" text="Se holdplan" href={`/holdplan?kategori=${category}&hold=${title}`} margin={true}></LinkBtn>
+        <LinkBtn variant="secondary" text="Se holdplan" href={`/holdplan?kategori=${category}&hold=${title.replace("&", "og")}`} margin={true}></LinkBtn>
+        {/* (alle hold der indeholder "&" bliver sendt afsted i href med et "og" i stedet, da den bliver forvirret over & tegnet ellers) */}
       </div>
     </div>
   );

@@ -5,6 +5,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: $spacing-80;
+  height: 67vh; //Dette er for at footeren ikke sidder helt oppe i midten af siden, da der ikke er meget indhold i main
 
   .link {
     color: $off-black400;

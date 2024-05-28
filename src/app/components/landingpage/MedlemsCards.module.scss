@@ -1,13 +1,15 @@
 @use "src/app/variables" as *;
 
 .medlems_Link {
-  font-family: "Raleway";
-  font-weight: 300;
   color: $white;
-  font-size: $spacing-16;
-  line-height: 250%;
+
   &:hover {
     text-decoration: underline;
+  }
+  h3 {
+    font-weight: $font-light;
+    font-size: $spacing-16;
+    line-height: 250%;
   }
 }
 
@@ -66,7 +68,9 @@
   }
 
   .medlems_Link {
-    line-height: 400%;
-    font-size: $spacing-24;
+    h3 {
+      line-height: 400%;
+      font-size: $spacing-24;
+    }
   }
 }

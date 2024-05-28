@@ -93,6 +93,10 @@
 
     .flex_cards {
       display: flex;
+
+      @media (min-width: 799px) {
+        gap: 10px;
+      }
     }
     .flex_cards:first-child {
       margin-bottom: $spacing-64;

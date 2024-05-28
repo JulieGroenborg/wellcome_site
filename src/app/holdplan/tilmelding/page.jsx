@@ -6,7 +6,7 @@ import styles from "./tilmelding.module.scss";
 export default function Tilmeldning() {
   return (
     <>
-      <Layout current={{ nav: "", site: "" }}>
+      <Layout current={{ nav: "", site: "Tilmeldt" }}>
         <main className={styles.main}>
           <HeaderOne title="Tilmeldt hold" color="black" />
           <Link className={styles.link} href="/holdplan">

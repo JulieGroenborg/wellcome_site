@@ -4,7 +4,7 @@
   display: grid;
   justify-content: center;
   width: 100vw;
-  margin-top: $spacing-80;
+  margin-top: $spacing-120;
 
   .header {
     height: 100px;
@@ -105,6 +105,7 @@
 @media (min-width: 850px) {
   .main {
     display: grid;
+    margin-top: $spacing-160;
 
     h1 {
       justify-self: center;

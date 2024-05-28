@@ -14,7 +14,7 @@ export default function Holdplan({ searchParams }) {
   const [chosenCategory, setChosenCategory] = useState(searchParams.kategori === undefined ? "all-categories" : searchParams.kategori); //State til at vide hvilken kategori, der filtreres efter.
   const [chosenClass, setChosenClass] = useState(searchParams.kategori === undefined ? "all-class" : searchParams.hold.replace(" og ", " & ")); //State til at vide hvilket hold, der filtreres efter (alle hold der indeholder "&" bliver sendt med et "og" og skal derfor oversættes her)
   const [chosenClassItem, setChosenClassItem] = useState(""); //State til at vide hvilket hold, der er valgt i kalenderen
-  const [weekNumber, setWeekNumber] = useState(21); //State til at vide hvilken uge der vises
+  const [weekNumber, setWeekNumber] = useState(24); //State til at vide hvilken uge der vises
   const [chosenDayNumber, setChosenDayNumber] = useState(new Date().getDay()); //State til at vide hvilken dag er valgt. Er ved 1st rendering nr. på dagen i dag.
   const [allClasses, setAllClasses] = useState([]); //State der skal indeholde alle hold, der passer til kategori filtrering
   const [classSelection, setClassSelection] = useState([]); //State der kun skal indeholde den valgte dags hold. Dette er det data, der bliver vist på siden

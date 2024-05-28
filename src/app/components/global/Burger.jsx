@@ -16,9 +16,9 @@ export default function Burger({ current }) {
   return (
     <nav className={styles.burger_nav}>
       <button className={styles.burger_btn} onClick={() => handleToggle()}>
-        <div className={`${styles.burger} ${isOpen && styles.is_active}`}>
-          <div className={styles.bar}>Åben menu</div>
-        </div>
+        <span className={`${styles.burger} ${isOpen && styles.is_active}`}>
+          <span className={styles.bar}>Åben menu</span>
+        </span>
       </button>
       <ul className={`${styles.burger_menu} ${isOpen ? styles.appear : styles.disappear}`}>
         <BurgerCollapse

@@ -6,10 +6,10 @@ import styles from "@/app/components/global/LinkBtn.module.scss";
 
 //Hvis komponentet skal have margin-top, så skal der sættes attribut margin=true
 
-export default function LinkBtn({ href, text, variant, margin }) {
+export default function LinkBtn({ href, text, variant, margin, id }) {
   const marginStyling = margin ? "margin" : "";
   return (
-    <Link href={href} prefetch={false} className={`${styles.wellcome_btn} ${styles[variant]} ${styles[marginStyling]}`}>
+    <Link href={href} prefetch={false} className={`${styles.wellcome_btn} ${styles[variant]} ${styles[marginStyling]}`} id={id}>
       {text}
     </Link>
   );

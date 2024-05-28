@@ -49,8 +49,7 @@ export default function Header({ current }) {
                   { subtitle: "Kost & ernæring", href: "/" },
                   { subtitle: "Osteopati", href: "/" },
                 ]}
-                current={current}
-              ></HeaderLinksContainer>
+                current={current}></HeaderLinksContainer>
             </li>
             <li>
               <HeaderLinksContainer
@@ -61,8 +60,7 @@ export default function Header({ current }) {
                   { subtitle: "Om spaen", href: "/" },
                   { subtitle: "Behandlinger", href: "/" },
                 ]}
-                current={current}
-              ></HeaderLinksContainer>
+                current={current}></HeaderLinksContainer>
             </li>
             <li>
               <HeaderLinksContainer
@@ -73,8 +71,7 @@ export default function Header({ current }) {
                   { subtitle: "Se medlemskaber", href: "/" },
                   { subtitle: "Firmaaftaler", href: "/" },
                 ]}
-                current={current}
-              ></HeaderLinksContainer>
+                current={current}></HeaderLinksContainer>
             </li>
             <li>
               <HeaderLinksContainer
@@ -87,8 +84,7 @@ export default function Header({ current }) {
                   { subtitle: "Events & nyheder", href: "/" },
                   { subtitle: "Om wellcome", href: "/" },
                 ]}
-                current={current}
-              ></HeaderLinksContainer>
+                current={current}></HeaderLinksContainer>
             </li>
           </ul>
         </nav>

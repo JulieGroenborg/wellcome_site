@@ -1,4 +1,21 @@
 @use "src/app/variables" as *;
+
+.skip {
+  background-color: hotpink;
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip:focus {
+  position: static;
+  width: auto;
+  height: auto;
+}
+
 // ______________________ Hero Section ______________________
 .hero_section {
   display: grid;

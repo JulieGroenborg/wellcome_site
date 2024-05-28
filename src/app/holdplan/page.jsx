@@ -95,7 +95,7 @@ export default function Holdplan({ searchParams }) {
 
   return (
     <Layout current={{ nav: "Fitness", site: "Holdplan" }}>
-      <main className={styles.main}>
+      <main id="main" className={styles.main}>
         <HeaderOne title="Holdplan" color="black" />
 
         <article className={styles.class_overview}>

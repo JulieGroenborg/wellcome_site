@@ -1,6 +1,7 @@
 @use "src/app/variables" as *;
 
 .header {
+  position: relative;
   padding: $spacing-20 8%;
   position: fixed;
   width: 100%;
@@ -49,4 +50,3 @@
     }
   }
 }
-// }

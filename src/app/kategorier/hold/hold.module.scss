@@ -32,7 +32,7 @@
 
 .Body-mind {
   background-image: url("../../img/kategorier/hold/Body-mind.jpg");
-  background-position: 90% 60%;
+  background-position: 50% 100%;
 }
 
 .Reformer {
@@ -168,23 +168,46 @@
 /* Desktop breakpoint */
 @media (min-width: 768px) {
   .Functional {
-    background-position: 100% 60%;
+    background-image: url("../../img/kategorier/hold/Functional-new.jpg");
+    background-position: 0% 5%;
   }
 
   .Nordic-strong {
-    background-position: 65% 30%;
+    background-image: url("../../img/kategorier/hold/Nordic-strong-new.jpg");
+    background-position: 65% 10%;
   }
 
   .Body-mind {
+    background-image: url("../../img/kategorier/hold/Body-mind-new.jpg");
     background-position: 90% 50%;
   }
 
   .Reformer {
-    background-position: 90% 25%;
+    background-image: url("../../img/kategorier/hold/Reformer-new.jpg");
+    background-position: 90% 5%;
+  }
+
+  .Pleasure {
+    background-image: url("../../img/kategorier/hold/Pleasure-new.jpg");
+    background-position: 50% 80%;
+  }
+
+  .Heat {
+    background-image: url("../../img/kategorier/hold/Heat-new.jpg");
+  }
+
+  .Energy {
+    background-image: url("../../img/kategorier/hold/Energy-new.jpg");
+    background-position: 10% 20%;
+  }
+
+  .Indoor-cycling {
+    background-image: url("../../img/kategorier/hold/Indoor-cycling-new.jpg");
+    background-position: 50%;
   }
 
   .hero_section {
-    padding-bottom: $spacing-120;
+    padding-bottom: $spacing-64;
     padding-right: $spacing-120;
 
     .hero_text {

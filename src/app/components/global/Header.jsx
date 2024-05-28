@@ -10,8 +10,8 @@ import Burger from "./Burger";
 
 export default function Header({ current }) {
   const [openSub, setOpenSub] = useState(""); //State der holder styr på, hvilket menupunkt der er klikket på
-
   const [isScrolled, setIsScrolled] = useState(false); //State der holder styr på, om der er scrolled på siden
+  const alwaysDark = current.site === "Holdplan" || current.site === "Tilmeldt"; //Boolean der siger om headers baggrund altid skal være mørk
 
   //Hjælp fra ChatGPT: The handleScroll function checks the current vertical scroll position using window.scrollY.
   //   If window.scrollY is greater than 0, it means the user has scrolled down, so setIsScrolled(true) is called.
@@ -29,7 +29,7 @@ export default function Header({ current }) {
   }, []);
 
   return (
-    <header className={`${styles.header} ${isScrolled ? styles.scrolled : ""} ${openSub ? styles.scrolled : ""}`}>
+    <header className={`${styles.header} ${isScrolled || alwaysDark ? styles.scrolled : ""} ${openSub ? styles.scrolled : ""}`}>
       <Link className={styles.link_img} href="/">
         <Image src={Logo} alt="Link: Link til forsiden" width="auto" height="30"></Image>
       </Link>
@@ -92,7 +92,7 @@ export default function Header({ current }) {
             </li>
           </ul>
         </nav>
-        <LinkBtn variant="primary" href="/*" text="Bliv medlem"></LinkBtn>
+        <LinkBtn variant="primary" href="/" text="Bliv medlem"></LinkBtn>
       </div>
     </header>
   );

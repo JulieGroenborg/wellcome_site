@@ -136,7 +136,7 @@ export default function Home() {
           <div className={styles.textbox}>
             <HeaderTwo title="Events & nyheder" type="fitness" />
             <p className={styles.eventparagraph}>I Wellcome byder vi på forskellige, spændende events for vores medlemmer. Under eventsiden kan du holde dig opdateret på, hvad der sker i Wellcome. Forløb, foredrag, koncerter og meget mere.</p>
-            <LinkBtn margin={true} variant="tertiary_dark" href="*" text="Se Events"></LinkBtn>
+            <LinkBtn margin={true} variant="tertiary_dark" href="/" text="Se Events"></LinkBtn>
           </div>
         </article>
         {/* ________________________Hold kategorier______________ */}
@@ -154,8 +154,8 @@ export default function Home() {
             lære Wellcome bedre at kende? Find ud af om Wellcome er et sted for dig ved at booke en prøvetime til et af vores populære hold eller få mulighed for at afprøve vores fitness faciliteter.
           </p>
           <div className={styles.align_btns}>
-            <LinkBtn margin={true} variant="secondary" href="*" text="Kontakt"></LinkBtn>
-            <LinkBtn margin={true} variant="tertiary_dark" href="*" text="Se holdplan"></LinkBtn>
+            <LinkBtn margin={true} variant="secondary" href="/" text="Kontakt"></LinkBtn>
+            <LinkBtn margin={true} variant="tertiary_dark" href="/holdplan" text="Se holdplan"></LinkBtn>
           </div>
         </article>
         {/* _________________________ Spa Section ____________________ */}
@@ -168,7 +168,7 @@ export default function Home() {
               Trænger du til at passe lidt på dig selv? Eller ønsker du en romantisk oplevelse med din udkårne? Hos Wellcome har vi et kæmpe udvalg af luksuriøse behandlinger. Se vores behandlinger og læse mere om vores Amazing Space Spa. Trænger du
               til at passe lidt på dig selv? Eller ønsker du en romantisk oplevelse med din udkårne? Hos Wellcome har vi et kæmpe udvalg af luksuriøse behandlinger. Se vores behandlinger og læse mere om vores Amazing Space Spa.
             </p>
-            <LinkBtn margin={true} variant="spa" href="*" text="Se behandlinger"></LinkBtn>
+            <LinkBtn margin={true} variant="spa" href="/" text="Se behandlinger"></LinkBtn>
           </div>
 
           <div className={styles.spa_image}></div>

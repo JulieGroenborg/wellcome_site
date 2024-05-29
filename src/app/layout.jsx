@@ -11,6 +11,7 @@ export default function RootLayout({ children }) {
         <title>Wellcome Fitness & Spa</title>
         <meta name="description" content="Afsluttende eksamen MMD F24" />
         <link rel="stylesheet" href="https://use.typekit.net/owy3ilv.css"></link>
+        {/* <link rel="icon" href="/favicon.ico" sizes="any" /> */}
         {/* Fonte */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
